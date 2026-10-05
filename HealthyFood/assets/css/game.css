@@ -1,0 +1,358 @@
+/* ================================
+   HEALTHY FOOD - FLOATING GAME
+================================ */
+
+@keyframes shakeGame {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.floating-game-container {
+    position: fixed;
+    bottom: 30px;
+    left: 20px;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+
+    animation: shakeGame 2s infinite ease-in-out;
+}
+
+/* Nút game tròn */
+.game-icon-btn {
+    background-color: #6aa84f;
+    color: white;
+
+    width: 58px;
+    height: 58px;
+
+    border: 3px solid #fff;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 15px rgba(106, 168, 79, 0.4);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+
+    overflow: hidden;
+    padding: 0;
+
+    transition: transform 0.2s ease;
+}
+
+.game-icon-btn:hover {
+    transform: scale(1.08);
+}
+
+.game-icon-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Chữ bên cạnh nút */
+.game-text-tooltip {
+    background-color: #6aa84f;
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    padding: 0;
+    max-width: 0;
+
+    opacity: 0;
+    overflow: hidden;
+
+    border-radius: 0 25px 25px 0;
+
+    margin-left: -25px;
+    padding-left: 25px;
+
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+
+    transition:
+        max-width 0.4s ease,
+        opacity 0.3s ease,
+        padding 0.4s ease;
+
+    z-index: 1;
+}
+
+.floating-game-container:hover .game-text-tooltip {
+    max-width: 250px;
+    opacity: 1;
+    padding-right: 20px;
+}
+
+
+/* ================================
+   GAME MODAL
+================================ */
+
+.game-modal {
+    display: none;
+
+    position: fixed;
+
+    z-index: 999999;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.8);
+
+    backdrop-filter: blur(5px);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.game-modal-box {
+    width: 95%;
+    max-width: 1000px;
+    height: 90vh;
+
+    position: relative;
+
+    background: #fff;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    border: 3px solid #6aa84f;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.game-close-btn {
+    position: absolute;
+
+    right: 15px;
+    top: 5px;
+
+    color: #333;
+
+    font-size: 35px;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    font-weight: bold;
+
+    line-height: 1;
+}
+
+.game-close-btn:hover {
+    color: #6aa84f;
+}
+
+.game-iframe {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+}
+
+
+/* ================================
+   VOUCHER SUCCESS POPUP
+================================ */
+
+@keyframes popUpAnim {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.voucher-success-popup {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.7);
+
+    z-index: 9999998;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    backdrop-filter: blur(4px);
+}
+
+.voucher-success-box {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    max-width: 400px;
+    width: 90%;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    animation:
+        popUpAnim 0.5s
+        cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.voucher-icon {
+    font-size: 60px;
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+}
+
+.voucher-success-box h2 {
+    color: #6aa84f;
+
+    margin: 0 0 10px;
+
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+.voucher-success-box p {
+    color: #555;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+.voucher-code {
+    background: #f1f8ec;
+
+    border: 2px dashed #6aa84f;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #4f803a;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+.voucher-note {
+    color: #6aa84f !important;
+
+    font-size: 14px !important;
+
+    font-weight: bold;
+}
+
+.voucher-buy-btn {
+    display: block;
+
+    background: linear-gradient(
+        180deg,
+        #7cbf5b 0%,
+        #4f803a 100%
+    );
+
+    color: white;
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 30px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    width: 100%;
+
+    text-decoration: none !important;
+}
+
+.voucher-buy-btn:hover {
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 767px) {
+
+    .floating-game-container {
+        bottom: 20px;
+        left: 15px;
+    }
+
+    .game-icon-btn {
+        width: 52px;
+        height: 52px;
+    }
+
+    .game-text-tooltip {
+        font-size: 12px;
+    }
+
+    .game-modal-box {
+        width: 98%;
+        height: 92vh;
+
+        border-radius: 10px;
+    }
+
+    .voucher-success-box {
+        padding: 28px 20px;
+    }
+
+    .voucher-code {
+        font-size: 22px;
+    }
+}
