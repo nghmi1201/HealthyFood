@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthyFood - Trang Sản Phẩm</title>
+</head>
+<body>
+
+  <!-- HEADER + NAVBAR (Đồng bộ với Hà My) -->
+  <header>
+    <div>
+      <a href="index.html">HealthyFood</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html#banner">Trang chủ</a></li>
+        <li><a href="index.html#about">Giới thiệu</a></li>
+        <li><a href="product.html">Sản phẩm</a></li>
+        <li><a href="index.html#benefits">Lợi ích</a></li>
+        <li><a href="index.html#news">Tin tức</a></li>
+      </ul>
+    </nav>
+    <div>
+      <button>Giỏ hàng (0)</button>
+    </div>
+  </header>
+
+<main>
+  <section id="product-filter">
+    <h1>Danh sách sản phẩm HealthyFood</h1>
+    <p>Lựa chọn thực phẩm lành mạnh cho bữa ăn hằng ngày của bạn.</p>
+
+    <div class="product-tools">
+      <input
+        type="search"
+        id="search"
+        placeholder="Tìm kiếm sản phẩm..."
+        aria-label="Tìm kiếm sản phẩm"
+      >
+
+      <select id="category" aria-label="Lọc theo danh mục">
+        <option value="all">Tất cả danh mục</option>
+        <option value="food">Đồ ăn tốt cho sức khỏe</option>
+        <option value="drink">Đồ uống tốt cho sức khỏe</option>
+        <option value="dry-food">Đồ khô tốt cho sức khỏe</option>
+        <option value="snack">Đồ ăn vặt tốt cho sức khỏe</option>
+      </select>
+
+      <select id="sort" aria-label="Sắp xếp giá">
+        <option value="default">Mặc định</option>
+        <option value="price-asc">Giá thấp đến cao</option>
+        <option value="price-desc">Giá cao đến thấp</option>
+      </select>
+    </div>
+  </section>
+
+  <section id="product-list">
+    <h2>Tất cả sản phẩm</h2>
+    <p id="productCount">Đang tải sản phẩm...</p>
+    <div id="productContainer" class="product-grid"></div>
+  </section>
+
+  <section id="product-detail" hidden>
+    <h2>Chi tiết sản phẩm</h2>
+    <div id="productDetailContainer"></div>
+  </section>
+</main>
+
+
+  <!-- FOOTER (Đồng bộ với Hà My) -->
+  <footer>
+    <div>
+      <div>
+        <h3>HealthyFood</h3>
+        <p>[ Khẩu hiệu / Slogan thương hiệu ]</p>
+      </div>
+      <div>
+        <h4>Liên Hệ</h4>
+        <p>Email: 27a4043361@hvnh.edu.vn</p>
+        <p>Hotline: 0987654321</p>
+      </div>
+      <div>
+        <h4>Địa Chỉ</h4>
+        <p>Số 12, Chùa Bộc, Đống Đa, Hà Nội</p>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <p>&copy; 2026 HealthyFood. All rights reserved.</p>
+    </div>
+  </footer>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/products.js"></script>
+</body>
+</html>

@@ -26,127 +26,47 @@
     </div>
   </header>
 
-  <main>
+<main>
+  <section id="product-filter">
+    <h1>Danh sách sản phẩm HealthyFood</h1>
+    <p>Lựa chọn thực phẩm lành mạnh cho bữa ăn hằng ngày của bạn.</p>
 
-    <!-- 1. TIÊU ĐỀ & BỘ LỌC SẢN PHẨM (FILTER) -->
-    <section id="product-filter">
-      <h1>Danh Sách Sản Phẩm Healthy</h1>
-      <p>Lựa chọn thực phẩm lành mạnh cho bữa ăn hàng ngày của bạn</p>
-      
-      <!-- Bộ lọc theo Danh mục & Giá -->
-      <form>
-        <label for="category">Lọc theo danh mục:</label>
-        <select id="category" name="category">
-          <option value="all">Tất cả sản phẩm</option>
-          <option value="granola">Đồ ăn tốt cho sức khỏe</option>
-          <option value="dry-food">Đồ uống tốt cho sức khỏe</option>
-          <option value="energy-bar">Đồ khô tốt cho sức khỏe</option>
-          <option value="beverage">Đồ ăn vặt tốt cho sức khỏe</option>
-        </select>
+    <div class="product-tools">
+      <input
+        type="search"
+        id="search"
+        placeholder="Tìm kiếm sản phẩm..."
+        aria-label="Tìm kiếm sản phẩm"
+      >
 
-        <label for="sort">Sắp xếp:</label>
-        <select id="sort" name="sort">
-          <option value="default">Mặc định</option>
-          <option value="price-asc">Giá từ thấp đến cao</option>
-          <option value="price-desc">Giá từ cao đến thấp</option>
-        </select>
-      </form>
-    </section>
+      <select id="category" aria-label="Lọc theo danh mục">
+        <option value="all">Tất cả danh mục</option>
+        <option value="food">Đồ ăn tốt cho sức khỏe</option>
+        <option value="drink">Đồ uống tốt cho sức khỏe</option>
+        <option value="dry-food">Đồ khô tốt cho sức khỏe</option>
+        <option value="snack">Đồ ăn vặt tốt cho sức khỏe</option>
+      </select>
 
-    <!-- 2. DANH SÁCH SẢN PHẨM ĐẦY ĐỦ -->
-    <section id="product-list">
-      <h2>Tất Cả Sản Phẩm</h2>
-      <div>
+      <select id="sort" aria-label="Sắp xếp giá">
+        <option value="default">Mặc định</option>
+        <option value="price-asc">Giá thấp đến cao</option>
+        <option value="price-desc">Giá cao đến thấp</option>
+      </select>
+    </div>
+  </section>
 
-        <!-- Sản phẩm 1 -->
-        <div>
-          <img src="https://via.placeholder.com/200" alt="Granola Yến Mạch">
-          <div>
-            <h3>Granola Yến Mạch Trái Cây</h3>
-            <p>Giá: 150.000 VNĐ</p>
-            <button>Thêm vào giỏ</button>
-          </div>
-        </div>
+  <section id="product-list">
+    <h2>Tất cả sản phẩm</h2>
+    <p id="productCount">Đang tải sản phẩm...</p>
+    <div id="productContainer" class="product-grid"></div>
+  </section>
 
-        <!-- Sản phẩm 2 -->
-        <div>
-          <img src="https://via.placeholder.com/200" alt="Hạt Dinh Dưỡng Mix">
-          <div>
-            <h3>Hạt Dinh Dưỡng Mix 5 Loại</h3>
-            <p>Giá: 180.000 VNĐ</p>
-            <button>Thêm vào giỏ</button>
-          </div>
-        </div>
+  <section id="product-detail" hidden>
+    <h2>Chi tiết sản phẩm</h2>
+    <div id="productDetailContainer"></div>
+  </section>
+</main>
 
-        <!-- Sản phẩm 3 -->
-        <div>
-          <img src="https://via.placeholder.com/200" alt="Thanh Protein">
-          <div>
-            <h3>Thanh Protein Bơ Đậu Phộng</h3>
-            <p>Giá: 45.000 VNĐ</p>
-            <button>Thêm vào giỏ</button>
-          </div>
-        </div>
-
-        <!-- Sản phẩm 4 -->
-        <div>
-          <img src="https://via.placeholder.com/200" alt="Trà Dưỡng Nhan">
-          <div>
-            <h3>Trà Dưỡng Nhan Táo Đỏ Kỷ Tử</h3>
-            <p>Giá: 120.000 VNĐ</p>
-            <button>Thêm vào giỏ</button>
-          </div>
-        </div>
-
-        <!-- Sản phẩm 5 -->
-        <div>
-          <img src="https://via.placeholder.com/200" alt="Bánh Quy Yến Mạch">
-          <div>
-            <h3>Bánh Quy Yến Mạch Hạnh Nhân</h3>
-            <p>Giá: 85.000 VNĐ</p>
-            <button>Thêm vào giỏ</button>
-          </div>
-        </div>
-
-        <!-- Sản phẩm 6 -->
-        <div>
-          <img src="https://via.placeholder.com/200" alt="Bún Lứt Mầm">
-          <div>
-            <h3>Bún Gạo Lứt Mầm Organic</h3>
-            <p>Giá: 60.000 VNĐ</p>
-            <button>Thêm vào giỏ</button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 3. KHU VỰC CHI TIẾT SẢN PHẨM NỔI BẬT (PRODUCT DETAIL) -->
-    <section id="product-detail">
-      <h2>Chi Tiết Sản Phẩm Xem Nhiều</h2>
-      <div>
-        <div>
-          <img src="https://via.placeholder.com/400x300" alt="Chi tiết Granola Yến Mạch">
-        </div>
-        <div>
-          <h3>Granola Yến Mạch Trái Cây Sấy Khô</h3>
-          <p><strong>Giá:</strong> 150.000 VNĐ</p>
-          <p><strong>Thành phần:</strong> Yến mạch nguyên cám, hạt hạnh nhân, hạt điều, nho khô, việt quất, mật ong nguyên chất.</p>
-          <p><strong>Mô tả:</strong> Sản phẩm giòn rụm, ngọt thanh tự nhiên từ mật ong và trái cây sấy. Phù hợp cho bữa sáng nhanh gọn hoặc bữa xế giàu năng lượng.</p>
-          <p><strong>Trọng lượng:</strong> 500g</p>
-          
-          <!-- Chọn số lượng & Nút mua -->
-          <form>
-            <label for="quantity">Số lượng:</label>
-            <input type="number" id="quantity" name="quantity" value="1" min="1" max="99">
-            <button type="button">Thêm vào giỏ hàng</button>
-            <button type="button">Mua ngay</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-  </main>
 
   <!-- FOOTER (Đồng bộ với Hà My) -->
   <footer>
@@ -170,6 +90,7 @@
       <p>&copy; 2026 HealthyFood. All rights reserved.</p>
     </div>
   </footer>
-
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/products.js"></script>
 </body>
 </html>
