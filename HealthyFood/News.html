@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthyFood - Tin Tức</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/news.css">
+</head>
+<body class="news-page">
+
+  <!-- HEADER + NAVBAR -->
+  <header>
+    <div class="logo">
+      <a href="index.html">HealthyFood</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html#banner">Trang chủ</a></li>
+        <li><a href="index.html#about">Giới thiệu</a></li>
+        <li><a href="pages/product.html">Sản phẩm</a></li>
+        <li><a href="index.html#benefits">Lợi ích</a></li>
+        <li><a href="News.html" class="active">Tin tức</a></li>
+      </ul>
+    </nav>
+    <div>
+      <button type="button">Giỏ hàng (0)</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- DANH SÁCH TIN TỨC -->
+    <section id="news-list-view">
+      <div class="news-hero">
+        <h1>Tin Tức &amp; Bài Viết</h1>
+        <p>Cập nhật hoạt động, chương trình và kiến thức dinh dưỡng từ An Food.</p>
+      </div>
+
+      <div class="news-tools">
+        <input type="search" id="newsSearch" placeholder="Tìm kiếm bài viết..." aria-label="Tìm kiếm bài viết">
+        <select id="newsCategory" aria-label="Lọc theo chuyên mục">
+          <option value="all">Tất cả chuyên mục</option>
+        </select>
+      </div>
+
+      <p id="newsCount" class="news-count">Đang tải tin tức...</p>
+      <div id="newsContainer" class="news-grid"></div>
+    </section>
+
+    <!-- CHI TIẾT BÀI VIẾT -->
+    <section id="news-detail-view" hidden>
+      <article class="news-article">
+        <a href="#" id="backToList" class="back-link">&larr; Quay lại danh sách tin tức</a>
+        <p class="article-breadcrumb" id="articleBreadcrumb"></p>
+        <h1 id="articleTitle"></h1>
+        <p class="article-meta" id="articleMeta"></p>
+        <p class="article-lead" id="articleLead"></p>
+        <div id="articleBody" class="article-body"></div>
+        <p class="article-signature" id="articleSignature"></p>
+
+        <div class="related">
+          <h2>Bài viết liên quan</h2>
+          <div id="relatedContainer" class="news-grid"></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>HealthyFood</h3>
+        <p>[ Khẩu hiệu / Slogan thương hiệu ]</p>
+      </div>
+      <div>
+        <h4>Liên Hệ</h4>
+        <p>Email: 27a4043361@hvnh.edu.vn</p>
+        <p>Hotline: 0987654321</p>
+      </div>
+      <div>
+        <h4>Địa Chỉ</h4>
+        <p>Số 12, Chùa Bộc, Đống Đa, Hà Nội</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 HealthyFood. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/news.js"></script>
+</body>
+</html>
