@@ -8,10 +8,10 @@ $(document).ready(function () {
         dataType: "json",
 
         success: function (data) {
-            // Chỉ hiển thị sản phẩm được đánh dấu là nhìn thấy
+            // Chỉ hiển thị sản phẩm được đánh dấu là nhìn thấy 
             products = data.filter(function (p) {
                 return String(p.visible || "Có").toLowerCase() === "có";
-            });
+             });
 
             applyFilters();
         },
