@@ -1,8 +1,4 @@
 ```css
-/* =========================================
-   HEALTHYFOOD - TRANG CHỦ
-   File: assets/css/home.css
-   ========================================= */
 
 /* 1. THIẾT LẬP CHUNG */
 :root {
@@ -252,27 +248,77 @@ section {
 }
 
 /* 4. GIỚI THIỆU */
+
+/* 4. GIỚI THIỆU HEALTHYFOOD */
 .sec-about {
-    padding: 85px 0;
+    padding: 70px 0;
     background: var(--cream-light);
 }
 
+/* Tiêu đề Giới thiệu HealthyFood */
+.sec-about .sec-title {
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+/* Để nội dung chiếm toàn bộ chiều ngang, không chia đôi */
 .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 55px;
+    display: block;
+    width: 100%;
 }
 
+/* Khối nội dung văn bản */
+.about-text {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.85;
+    text-align: justify;
+}
+
+/* Tiêu đề 1.1, 1.2 */
+.about-text h3 {
+    margin: 28px 0 14px;
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Các đoạn văn */
 .about-text p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 17px;
-    line-height: 2;
+    margin: 0 0 18px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.85;
+    text-align: justify;
+    text-indent: 1cm;
 }
 
+/* Danh sách gạch đầu dòng */
+.about-text .about-list {
+    margin: 0 0 20px;
+    padding-left: 28px;
+}
+
+.about-text .about-list li {
+    margin-bottom: 12px;
+    padding-left: 4px;
+    line-height: 1.85;
+    text-align: justify;
+}
+
+.about-text .about-list strong {
+    color: var(--green);
+}
+
+/* Ảnh giới thiệu nếu vẫn sử dụng */
 .about-media {
-    min-height: 300px;
+    margin-top: 30px;
 }
 
 .img-placeholder {
@@ -282,13 +328,40 @@ section {
     justify-content: center;
     padding: 25px;
     border-radius: 8px;
-    background:
-        linear-gradient(135deg, rgba(49, 91, 53, 0.82), rgba(115, 143, 105, 0.75)),
-        var(--green-light);
+    background: linear-gradient(
+        135deg,
+        rgba(49, 91, 53, 0.82),
+        rgba(115, 143, 105, 0.75)
+    );
     color: white;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 24px;
     text-align: center;
+}
+
+/* Hiển thị trên điện thoại */
+@media (max-width: 600px) {
+    .sec-about {
+        padding: 45px 0;
+    }
+
+    .sec-about .sec-title {
+        margin-bottom: 30px;
+    }
+
+    .about-text {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .about-text h3 {
+        font-size: 18px;
+    }
+
+    .about-text p {
+        font-size: 15px;
+        text-indent: 0.6cm;
+    }
 }
 
 /* 5. DANH MỤC */
@@ -672,5 +745,117 @@ section {
     .footer-grid {
         padding-top: 40px;
         padding-bottom: 30px;
+    }
+}
+
+/* Font chữ tiếng Việt cho toàn bộ website */
+body {
+    font-family: "Be Vietnam Pro", Arial, sans-serif;
+}
+
+/* Chỉnh tiêu đề danh mục */
+.category-card h3 {
+    font-family: "Be Vietnam Pro", Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0;
+    word-spacing: normal;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Đảm bảo các tiêu đề không bị giãn chữ */
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 0;
+    word-spacing: normal;
+}
+
+/* ===== CĂN CHỈNH DANH MỤC SẢN PHẨM ===== */
+
+.sec-categories .container {
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.sec-categories .sec-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.category-card {
+    min-height: 194px;
+    padding: 25px 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    background-color: #f4f0df;
+    border: 1px solid #e5dec5;
+    border-radius: 12px;
+
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.category-card h3 {
+    margin: 0;
+    width: 100%;
+
+    font-family: "Be Vietnam Pro", Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.7;
+
+    text-align: center;
+    letter-spacing: 0;
+    word-spacing: normal;
+    overflow-wrap: break-word;
+}
+
+/* Hiệu ứng khi rê chuột */
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(74, 83, 47, 0.10);
+    border-color: #b6a66b;
+}
+
+/* Máy tính bảng */
+@media (max-width: 900px) {
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+/* Điện thoại */
+@media (max-width: 500px) {
+    .sec-categories .container {
+        width: 92%;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .category-card {
+        min-height: 130px;
+    }
+
+    .category-card h3 {
+        font-size: 18px;
     }
 }
