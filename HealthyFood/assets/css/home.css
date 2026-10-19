@@ -1,0 +1,676 @@
+```css
+/* =========================================
+   HEALTHYFOOD - TRANG CHỦ
+   File: assets/css/home.css
+   ========================================= */
+
+/* 1. THIẾT LẬP CHUNG */
+:root {
+    --green: #315b35;
+    --green-dark: #203f27;
+    --green-light: #e7eee1;
+    --cream: #f5f0df;
+    --cream-light: #fcfaf3;
+    --text: #29352b;
+    --muted: #6d786b;
+    --white: #ffffff;
+    --shadow: 0 8px 28px rgba(34, 58, 36, 0.09);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--cream-light);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+section {
+    scroll-margin-top: 90px;
+}
+
+.sec-title {
+    margin: 0 0 35px;
+    color: var(--green);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(27px, 3vw, 38px);
+    line-height: 1.25;
+    text-align: center;
+}
+
+.sec-title::after {
+    content: "";
+    display: block;
+    width: 58px;
+    height: 4px;
+    margin: 15px auto 0;
+    border-radius: 5px;
+    background: #b6a66b;
+}
+
+/* 2. HEADER VÀ MENU */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(252, 250, 243, 0.97);
+    border-bottom: 1px solid #e8e4d5;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(12px);
+}
+
+.navbar {
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.logo a {
+    color: var(--green);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.logo a::after {
+    content: "";
+    display: block;
+    width: 65%;
+    height: 5px;
+    margin-top: 2px;
+    background: #bd3730;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-list a {
+    position: relative;
+    display: block;
+    padding: 10px 0;
+    color: #4b5949;
+    font-size: 14px;
+    font-weight: 700;
+    transition: color 0.25s;
+}
+
+.nav-list a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 3px;
+    left: 0;
+    height: 2px;
+    background: #a7a16a;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s;
+}
+
+.nav-list a:hover {
+    color: var(--green);
+}
+
+.nav-list a:hover::after {
+    transform: scaleX(1);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+}
+
+.btn-cart {
+    color: white;
+    background: var(--green);
+    white-space: nowrap;
+}
+
+.btn-cart:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+}
+
+/* 3. BANNER CHÍNH */
+.sec-banner {
+    position: relative;
+    overflow: hidden;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 85% 20%, rgba(245, 240, 223, 0.4), transparent 35%),
+        linear-gradient(115deg, #294d31 0%, #638365 58%, #9eaf91 100%);
+    color: white;
+}
+
+.sec-banner::before,
+.sec-banner::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.sec-banner::before {
+    width: 450px;
+    height: 450px;
+    right: -100px;
+    top: -170px;
+}
+
+.sec-banner::after {
+    width: 330px;
+    height: 330px;
+    right: 40px;
+    bottom: -210px;
+}
+
+.banner-inner {
+    position: relative;
+    z-index: 1;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.banner-inner h1 {
+    max-width: 760px;
+    margin: 0 0 24px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(40px, 6vw, 76px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+}
+
+.banner-inner p {
+    max-width: 570px;
+    margin: 0 0 32px;
+    color: #f3f1df;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+.btn-primary {
+    color: var(--green-dark);
+    background: var(--cream);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-primary:hover {
+    color: white;
+    background: #a58d52;
+    transform: translateY(-3px);
+}
+
+/* 4. GIỚI THIỆU */
+.sec-about {
+    padding: 85px 0;
+    background: var(--cream-light);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.about-text p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 2;
+}
+
+.about-media {
+    min-height: 300px;
+}
+
+.img-placeholder {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(49, 91, 53, 0.82), rgba(115, 143, 105, 0.75)),
+        var(--green-light);
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* 5. DANH MỤC */
+.sec-categories {
+    padding: 80px 0;
+    background: #eee9d8;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.category-card {
+    min-height: 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    border: 1px solid #e5dfc9;
+    border-radius: 8px;
+    background: var(--cream-light);
+    box-shadow: 0 4px 16px rgba(41, 53, 43, 0.04);
+    text-align: center;
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+.category-card h3 {
+    margin: 0;
+    color: var(--green);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    background: white;
+    box-shadow: var(--shadow);
+}
+
+/* 6. SẢN PHẨM NỔI BẬT */
+.sec-products {
+    padding: 85px 0;
+    background: var(--cream-light);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.product-card {
+    overflow: hidden;
+    border: 1px solid #e9e7db;
+    border-radius: 9px;
+    background: white;
+    box-shadow: 0 4px 18px rgba(41, 53, 43, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow);
+}
+
+.product-img {
+    min-height: 205px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background:
+        linear-gradient(135deg, #e1e9d9, #f4ecd7);
+    color: var(--green);
+    font-size: 15px;
+    text-align: center;
+}
+
+/* Nếu sau này product-img chứa thẻ img */
+.product-img img {
+    width: 100%;
+    height: 205px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 22px 18px;
+}
+
+.product-name {
+    min-height: 48px;
+    margin: 0 0 12px;
+    color: var(--green);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.product-price {
+    margin: 0 0 18px;
+    color: #9b7736;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.product-info .btn {
+    width: 100%;
+}
+
+/* 7. LỢI ÍCH */
+.sec-benefits {
+    padding: 85px 0;
+    background: var(--green);
+}
+
+.sec-benefits .sec-title {
+    color: var(--cream);
+}
+
+.sec-benefits .sec-title::after {
+    background: #c5b477;
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.benefit-card {
+    padding: 32px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.07);
+    transition: transform 0.25s, background 0.25s;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.13);
+}
+
+.benefit-card h3 {
+    margin: 0 0 12px;
+    color: #f0e7c7;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+}
+
+.benefit-card p {
+    margin: 0;
+    color: #e0e8dc;
+    line-height: 1.9;
+}
+
+/* 8. TIN TỨC */
+.sec-news {
+    padding: 85px 0;
+    background: #eee9d8;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.news-card {
+    overflow: hidden;
+    border: 1px solid #e4dfd0;
+    border-radius: 8px;
+    background: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.news-img {
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #dce6d4, #f3e8cf);
+    color: var(--green);
+    text-align: center;
+}
+
+.news-img img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.news-body {
+    padding: 22px;
+}
+
+.news-body h3 {
+    margin: 0 0 12px;
+    color: var(--green);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    line-height: 1.45;
+}
+
+.news-body p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* 9. FOOTER */
+.site-footer {
+    color: #e7eadf;
+    background: #203b27;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 45px;
+    padding-top: 55px;
+    padding-bottom: 45px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+    margin: 0 0 16px;
+    color: #f0e7c7;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.footer-col h3 {
+    font-size: 27px;
+}
+
+.footer-col h4 {
+    font-size: 19px;
+}
+
+.footer-col p {
+    margin: 8px 0;
+    color: #d0d9cc;
+    overflow-wrap: anywhere;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    padding: 16px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #cbd5c8;
+    font-size: 13px;
+}
+
+/* 10. MÀN HÌNH TABLET */
+@media (max-width: 1000px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        gap: 12px 20px;
+    }
+
+    .main-nav {
+        order: 3;
+        width: 100%;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        gap: 8px 22px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* 11. MÀN HÌNH ĐIỆN THOẠI */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+
+    .navbar {
+        gap: 10px;
+    }
+
+    .logo a {
+        font-size: 25px;
+    }
+
+    .nav-list {
+        gap: 5px 16px;
+    }
+
+    .nav-list a {
+        font-size: 13px;
+    }
+
+    .btn {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    .sec-banner {
+        min-height: 430px;
+    }
+
+    .banner-inner {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .banner-inner h1 {
+        font-size: 42px;
+    }
+
+    .banner-inner p {
+        font-size: 16px;
+    }
+
+    .sec-about,
+    .sec-categories,
+    .sec-products,
+    .sec-benefits,
+    .sec-news {
+        padding: 60px 0;
+    }
+
+    .about-grid,
+    .benefit-grid,
+    .news-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .about-grid {
+        gap: 28px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .category-card {
+        min-height: 120px;
+        padding: 15px;
+    }
+
+    .category-card h3 {
+        font-size: 18px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .product-img {
+        min-height: 220px;
+    }
+
+    .footer-grid {
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+}
