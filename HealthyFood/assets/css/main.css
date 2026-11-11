@@ -277,25 +277,6 @@ body.product-page {
     background-color: var(--primary-hover);
 }
 
-/* Chi tiết sản phẩm */
-
-.detail-layout {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    padding: 24px;
-    border-radius: 12px;
-    background-color: var(--white);
-    box-shadow: var(--shadow);
-}
-
-.detail-layout img {
-    width: 100%;
-    max-height: 420px;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
 /* =========================================
    TRANG BMI - BMR - TDEE
 ========================================= */
