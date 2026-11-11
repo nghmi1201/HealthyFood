@@ -1,4 +1,3 @@
-
 let products = [];
 
 $(document).ready(function () {
@@ -134,13 +133,14 @@ function displayProducts(list) {
                         ${inStock > 0 ? "Còn hàng" : "Tạm hết hàng"}
                     </p>
 
-                    <button
-                        type="button"
+                    <!-- ĐÃ SỬA: CHUYỂN NÚT THÀNH THẺ A DẪN SANG TRANG MỚI -->
+                    <a
+                        href="product-detail.html?id=${id}"
                         class="detail-button"
-                        data-product-id="${id}"
+                        style="text-decoration: none; display: inline-block; text-align: center;"
                     >
                         Xem chi tiết
-                    </button>
+                    </a>
                 </div>
             </article>
         `;
@@ -148,41 +148,6 @@ function displayProducts(list) {
 
     $("#productContainer").html(cards);
 }
-
-// Xem chi tiết sản phẩm khi nhấn nút
-$("#productContainer").on("click", ".detail-button", function () {
-    const id = String($(this).attr("data-product-id"));
-    const product = products.find(p => String(p.id) === id);
-
-    if (!product) return;
-
-    const name = escapeHTML(product.name || "Sản phẩm");
-    const image = escapeHTML(product.image || "");
-    const description = escapeHTML(product.description || product.shortDescription || "Chưa có mô tả.");
-    const price = Number(product.price || 0);
-    const weight = [product.weight, product.weightUnit].filter(Boolean).join(" ");
-
-    $("#productDetailContainer").html(`
-        <div class="detail-layout">
-            <img src="${image}" alt="${name}" onerror="this.style.display='none'">
-            <div>
-                <h3>${name}</h3>
-                <p>${description}</p>
-                <p><strong>Danh mục:</strong> ${escapeHTML(product.category || "Chưa phân loại")}</p>
-                <p><strong>Giá:</strong> ${price.toLocaleString("vi-VN")} ₫</p>
-                ${weight ? `<p><strong>Trọng lượng:</strong> ${escapeHTML(weight)}</p>` : ""}
-                <button type="button" id="closeDetail">Đóng chi tiết</button>
-            </div>
-        </div>
-    `);
-
-    $("#product-detail").prop("hidden", false);
-    $("#product-detail")[0].scrollIntoView({ behavior: "smooth" });
-});
-
-$("#productDetailContainer").on("click", "#closeDetail", function () {
-    $("#product-detail").prop("hidden", true);
-});
 
 function escapeHTML(value) {
     return String(value)
@@ -192,3 +157,44 @@ function escapeHTML(value) {
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
 }
+
+// TỰ ĐỘNG ĐỔ DỮ LIỆU SẢN PHẨM KHI VÀO TRANG PRODUCT-DETAIL.HTML
+$(document).ready(function () {
+    if (window.location.pathname.includes('product-detail.html')) {
+        // Lấy ID sản phẩm từ URL (?id=...)
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        // Đọc dữ liệu từ file products.json
+        $.getJSON('../assets/data/products.json', function (data) {
+            // Tìm sản phẩm theo id
+            const product = data.find(item => String(item.id) === String(productId)) || data[0];
+
+            if (product) {
+                $('#breadcrumbTitle').text(product.name);
+
+                const detailHTML = `
+                    <div class="detail-image-col">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="detail-info-col">
+                        <h1>${product.name}</h1>
+                        <div class="price">${Number(product.price).toLocaleString('vi-VN')} ₫</div>
+                        <div class="meta-info">
+                            <p><strong>Danh mục:</strong> ${product.category || 'Đồ ăn tốt cho sức khỏe'}</p>
+                            <p><strong>Trọng lượng:</strong> ${product.weight || '400g'}</p>
+                            <p><strong>Trạng thái:</strong> ${Number(product.inStock || 0) > 0 ? 'Còn hàng' : 'Tạm hết hàng'}</p>
+                        </div>
+                        <div class="description">
+                            <p><strong>Thông tin chi tiết sản phẩm:</strong></p>
+                            <p>${product.description || product.shortDescription || 'Món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng.'}</p>
+                        </div>
+                        <button class="btn-buy-now">Mua ngay</button>
+                    </div>
+                `;
+
+                $('#productDetailContainer').html(detailHTML);
+            }
+        });
+    }
+});
