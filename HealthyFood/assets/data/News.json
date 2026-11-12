@@ -382,5 +382,54 @@
       }
     ],
     "signature": "Hà My, phóng viên thường trú Đài THAnFood tại 789 Giải Phóng, Phương Liệt, Hà Nội"
-  }
+  },
+
+{
+  "id": 9,
+  "alias": "goi-y-bua-sang-lanh-manh-cho-nguoi-ban-ron",
+  "icon": "🍓",
+  "title": "5 Gợi Ý Bữa Sáng Lành Mạnh, Nhanh Gọn Cho Người Bận Rộn",
+  "category": "Kiến thức dinh dưỡng",
+  "date": "2026-05-24",
+  "author": "Ban biên tập An Food",
+  "summary": "Khám phá 5 công thức bữa sáng đơn giản với yến mạch, trái cây, sữa chua và các loại hạt để bắt đầu ngày mới đủ năng lượng.",
+  "lead": "Một bữa sáng cân bằng không cần chuẩn bị cầu kỳ. Chỉ với những nguyên liệu quen thuộc, bạn có thể tạo ra thực đơn vừa tiện lợi vừa đa dạng cho cả tuần.",
+  "content": [
+    {
+      "type": "p",
+      "text": "Một bữa sáng lành mạnh giúp bạn bắt đầu ngày mới với nguồn năng lượng phù hợp."
+    },
+    {
+      "type": "p",
+      "text": "Dưới đây là 5 gợi ý bữa sáng đơn giản, dễ chuẩn bị."
+    },
+    {
+      "type": "list",
+      "items": [
+        {
+          "label": "1. Sữa chua và granola:",
+          "text": "Kết hợp sữa chua không đường, granola và trái cây tươi."
+        },
+        {
+          "label": "2. Yến mạch ngâm qua đêm:",
+          "text": "Ngâm yến mạch với sữa và thêm chuối hoặc hạt chia."
+        },
+        {
+          "label": "3. Bánh mì nguyên cám và trứng:",
+          "text": "Kết hợp bánh mì, trứng và rau xanh."
+        },
+        {
+          "label": "4. Sinh tố trái cây:",
+          "text": "Xay trái cây cùng sữa chua hoặc sữa tươi."
+        },
+        {
+          "label": "5. Khoai lang và sữa:",
+          "text": "Một bữa sáng đơn giản, dễ chuẩn bị."
+        }
+      ]
+    }
+  ],
+  "signature": "Ban biên tập An Food"
+}
+
 ]
