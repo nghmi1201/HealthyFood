@@ -1,0 +1,277 @@
+
+/* =================================
+   TRANG LIÊN HỆ - HEALTHYFOOD
+================================= */
+
+/* HEADER */
+
+.header {
+    background-color: white;
+    padding: 18px 5%;
+    box-shadow: var(--shadow);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo a {
+    color: var(--primary-color);
+    font-size: 27px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+.cart-button {
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* NỘI DUNG TRANG LIÊN HỆ */
+
+.contact-page {
+    background-color: var(--primary-light);
+    padding: 25px 0 50px;
+}
+
+.contact-page .container {
+    width: 80%;
+    margin: auto;
+}
+
+/* ĐƯỜNG DẪN */
+
+.breadcrumb {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.breadcrumb a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* BẢN ĐỒ */
+
+.map {
+    width: 450px;
+    max-width: 100%;
+    height: 338px;
+    margin-bottom: 30px;
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* CHIA HAI CỘT */
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.contact-info {
+    width: 40%;
+}
+
+.contact-form {
+    width: 60%;
+}
+
+.contact-info h2,
+.contact-form h2 {
+    font-size: 21px;
+    margin-bottom: 20px;
+    color: var(--primary-hover);
+}
+
+/* THÔNG TIN LIÊN HỆ */
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-item h4 {
+    font-size: 13px;
+    margin: 0 0 4px;
+}
+
+.info-item p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* FORM LIÊN HỆ */
+
+.contact-form > p {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    background-color: white;
+    outline: none;
+}
+
+.contact-form input {
+    height: 43px;
+}
+
+.contact-form textarea {
+    height: 97px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+/* NÚT GỬI */
+
+.contact-form button {
+    padding: 12px 22px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: var(--primary-hover);
+}
+
+#notification {
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: white;
+    padding-top: 30px;
+}
+
+.footer-content {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 25px;
+}
+
+.footer h3 {
+    color: var(--primary-color);
+}
+
+.footer p {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.footer-bottom {
+    background-color: #eaf0e7;
+    text-align: center;
+    padding: 15px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .contact-page .container {
+        width: 90%;
+    }
+
+    .map {
+        width: 100%;
+        height: 250px;
+    }
+
+    .contact-content {
+        flex-direction: column;
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 100%;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .footer-content {
+        width: 90%;
+        flex-direction: column;
+    }
+}
