@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     $.ajax({
-        url: "assets/data/News.json",
+        url: "assets/data/news.json",
         method: "GET",
         dataType: "json",
 

@@ -1,10 +1,10 @@
 let newsList = [];
 
 $(document).ready(function () {
-    $.ajax({
-        url: "assets/data/News.json",
-        method: "GET",
-        dataType: "json",
+$.ajax({
+    url: "../assets/data/news.json",
+    method: "GET",
+    dataType: "json",
 
         success: function (data) {
             // Bài mới nhất lên đầu
