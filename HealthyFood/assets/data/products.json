@@ -1,28 +1,6 @@
 [
   {
     "id": 1,
-    "alias": "com-bo-aukobe-nuong-cham",
-    "name": "Cơm Bò Aukobe Nướng Chậm",
-    "description": "Cơm Bò Aukobe Nướng Chậm là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm thịt bò tươi. Thịt bò mềm, đậm vị tự nhiên và thơm nhẹ khi kết hợp cùng các loại sốt đặc trưng. Món ăn có màu nâu vàng hấp dẫn từ phần thịt bò được chế biến vừa chín tới. Nguyên liệu được tẩm ướp gia vị cân bằng rồi áp chảo hoặc nướng chậm để giữ độ mềm mọng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
-    "shortDescription": "Cơm Bò Aukobe Nướng Chậm thơm ngon, chế biến theo phong cách eat clean, giàu dinh dưỡng.",
-    "brand": "FitFood",
-    "category": "Đồ ăn tốt cho sức khỏe",
-    "tags": "an-lanh-manh, eatclean",
-    "image": "https://bizweb.dktcdn.net/100/669/750/files/com_bo_aukobe_nuong_cham.png?v=1779510221467",
-    "price": 59000,
-    "comparePrice": 67000,
-    "unit": "Hộp",
-    "weight": 380,
-    "weightUnit": "g",
-    "servingSize": "2 người",
-    "dietType": "Ít calo",
-    "packaging": "Hộp giấy",
-    "sku": "0J6K0",
-    "inStock": 35,
-    "visible": "Có"
-  },
-  {
-    "id": 2,
     "alias": "com-ca-hoi-bo-lo",
     "name": "Cơm Cá Hồi Bò Lò",
     "description": "Cơm Cá Hồi Bò Lò là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm thịt bò tươi, cá hồi. Thịt bò mềm, đậm vị tự nhiên và thơm nhẹ khi kết hợp cùng các loại sốt đặc trưng. Cá hồi béo nhẹ, thơm đặc trưng và hòa quyện cùng các loại rau củ tươi mát. Món ăn có màu nâu vàng hấp dẫn từ phần thịt bò được chế biến vừa chín tới. Màu cam đặc trưng của cá hồi giúp món ăn nổi bật và hấp dẫn hơn khi trình bày. Nguyên liệu được tẩm ướp gia vị cân bằng rồi áp chảo hoặc nướng chậm để giữ độ mềm mọng. Cá hồi được nướng hoặc áp chảo nhẹ để giữ độ mềm và hạn chế mất dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -44,7 +22,7 @@
     "visible": "Có"
   },
   {
-    "id": 3,
+    "id": 2,
     "alias": "com-ga-xao-xa-xiu",
     "name": "Cơm gà xào xá xíu",
     "description": "Cơm gà xào xá xíu là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm ức gà. Thịt gà mềm, thanh vị và dễ ăn, phù hợp với thực đơn ăn uống lành mạnh. Phần thịt gà có màu vàng nhẹ hoặc trắng ngà tự nhiên, kết hợp cùng rau củ tạo tổng thể bắt mắt. Ức gà được hấp hoặc áp chảo ở nhiệt độ phù hợp nhằm giữ độ ngọt tự nhiên của thịt. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -66,51 +44,7 @@
     "visible": "Có"
   },
   {
-    "id": 4,
-    "alias": "com-bo-rong-bien",
-    "name": "Cơm Bò Rong Biển",
-    "description": "Cơm Bò Rong Biển là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm thịt bò tươi. Thịt bò mềm, đậm vị tự nhiên và thơm nhẹ khi kết hợp cùng các loại sốt đặc trưng. Món ăn có màu nâu vàng hấp dẫn từ phần thịt bò được chế biến vừa chín tới. Nguyên liệu được tẩm ướp gia vị cân bằng rồi áp chảo hoặc nướng chậm để giữ độ mềm mọng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
-    "shortDescription": "Cơm Bò Rong Biển thơm ngon, chế biến theo phong cách eat clean, giàu dinh dưỡng.",
-    "brand": "FitFood",
-    "category": "Đồ ăn tốt cho sức khỏe",
-    "tags": "healthy, eatclean",
-    "image": "https://bizweb.dktcdn.net/100/669/750/files/com_bo_rong_bien.png?v=1779510221490",
-    "price": 50000,
-    "comparePrice": 50000,
-    "unit": "Tô",
-    "weight": 350,
-    "weightUnit": "g",
-    "servingSize": "1 người",
-    "dietType": "Eat Clean",
-    "packaging": "Hộp giấy",
-    "sku": "JBD92UV249",
-    "inStock": 223,
-    "visible": "Có"
-  },
-  {
-    "id": 5,
-    "alias": "com-bo-bulgogi",
-    "name": "Cơm Bò Bulgogi",
-    "description": "Cơm Bò Bulgogi là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm thịt bò tươi. Thịt bò mềm, đậm vị tự nhiên và thơm nhẹ khi kết hợp cùng các loại sốt đặc trưng. Món ăn có màu nâu vàng hấp dẫn từ phần thịt bò được chế biến vừa chín tới. Nguyên liệu được tẩm ướp gia vị cân bằng rồi áp chảo hoặc nướng chậm để giữ độ mềm mọng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
-    "shortDescription": "Cơm Bò Bulgogi thơm ngon, chế biến theo phong cách eat clean, giàu dinh dưỡng.",
-    "brand": "Eat Clean VN",
-    "category": "Đồ ăn tốt cho sức khỏe",
-    "tags": "freshfood, eatclean",
-    "image": "https://bizweb.dktcdn.net/100/669/750/files/com_bo_bulgogi.png?v=1779510221480",
-    "price": 69000,
-    "comparePrice": 74000,
-    "unit": "Phần",
-    "weight": 500,
-    "weightUnit": "g",
-    "servingSize": "2 người",
-    "dietType": "Healthy",
-    "packaging": "Hộp giấy",
-    "sku": "U1I733PDY",
-    "inStock": 223,
-    "visible": "Có"
-  },
-  {
-    "id": 6,
+    "id": 3,
     "alias": "com-gao-lut-nhan-pho-mai-keo-soi",
     "name": "Cơm gạo lứt nhân phô mai kéo sợi",
     "description": "Cơm gạo lứt nhân phô mai kéo sợi là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm gạo lứt. Gạo lứt mang hương thơm bùi nhẹ, tạo cảm giác no lâu nhưng vẫn thanh vị. Màu nâu tím tự nhiên của gạo lứt kết hợp hài hòa với các nguyên liệu khác. Gạo lứt được nấu chín vừa phải để giữ độ dẻo và kết cấu hạt nguyên vẹn. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -132,7 +66,7 @@
     "visible": "Có"
   },
   {
-    "id": 7,
+    "id": 4,
     "alias": "my-gao-lut-uc-ga",
     "name": "Mỳ gạo lứt ức gà",
     "description": "Mỳ gạo lứt ức gà là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm ức gà, gạo lứt, sợi bún hoặc mì. Thịt gà mềm, thanh vị và dễ ăn, phù hợp với thực đơn ăn uống lành mạnh. Gạo lứt mang hương thơm bùi nhẹ, tạo cảm giác no lâu nhưng vẫn thanh vị. Sợi bún hoặc mì dai mềm vừa phải, hòa quyện cùng phần nước sốt hoặc topping đậm đà. Phần thịt gà có màu vàng nhẹ hoặc trắng ngà tự nhiên, kết hợp cùng rau củ tạo tổng thể bắt mắt. Màu nâu tím tự nhiên của gạo lứt kết hợp hài hòa với các nguyên liệu khác. Màu sắc món ăn hài hòa giữa phần sợi và các loại rau củ ăn kèm. Ức gà được hấp hoặc áp chảo ở nhiệt độ phù hợp nhằm giữ độ ngọt tự nhiên của thịt. Gạo lứt được nấu chín vừa phải để giữ độ dẻo và kết cấu hạt nguyên vẹn. Sợi được trụng vừa chín để giữ độ dai và không bị bở khi thưởng thức. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -154,7 +88,7 @@
     "visible": "Có"
   },
   {
-    "id": 8,
+    "id": 5,
     "alias": "gao-lut-thit-hap",
     "name": "Cơm gạo lứt thịt hấp",
     "description": "Cơm gạo lứt thịt hấp là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm gạo lứt. Gạo lứt mang hương thơm bùi nhẹ, tạo cảm giác no lâu nhưng vẫn thanh vị. Màu nâu tím tự nhiên của gạo lứt kết hợp hài hòa với các nguyên liệu khác. Gạo lứt được nấu chín vừa phải để giữ độ dẻo và kết cấu hạt nguyên vẹn. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -176,7 +110,7 @@
     "visible": "Có"
   },
   {
-    "id": 9,
+    "id": 6,
     "alias": "cuon-cuon-gao-lut-ca-hoi",
     "name": "Cơm cuộn gạo lứt cá hồi",
     "description": "Cơm cuộn gạo lứt cá hồi là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm cá hồi, gạo lứt, rong biển. Cá hồi béo nhẹ, thơm đặc trưng và hòa quyện cùng các loại rau củ tươi mát. Gạo lứt mang hương thơm bùi nhẹ, tạo cảm giác no lâu nhưng vẫn thanh vị. Các nguyên liệu được cuộn đều tạo cảm giác hài hòa giữa vị thanh và vị đậm đà. Màu cam đặc trưng của cá hồi giúp món ăn nổi bật và hấp dẫn hơn khi trình bày. Màu nâu tím tự nhiên của gạo lứt kết hợp hài hòa với các nguyên liệu khác. Lớp rong biển xanh đậm bên ngoài giúp món ăn thêm bắt mắt và hấp dẫn. Cá hồi được nướng hoặc áp chảo nhẹ để giữ độ mềm và hạn chế mất dinh dưỡng. Gạo lứt được nấu chín vừa phải để giữ độ dẻo và kết cấu hạt nguyên vẹn. Các thành phần được cuộn thủ công cẩn thận nhằm đảm bảo độ chắc và đẹp mắt khi cắt lát. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -198,7 +132,7 @@
     "visible": "Có"
   },
   {
-    "id": 10,
+    "id": 7,
     "alias": "com-cuon-gao-lut",
     "name": "Cơm cuộn gạo lứt",
     "description": "Cơm cuộn gạo lứt là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm gạo lứt, rong biển. Gạo lứt mang hương thơm bùi nhẹ, tạo cảm giác no lâu nhưng vẫn thanh vị. Các nguyên liệu được cuộn đều tạo cảm giác hài hòa giữa vị thanh và vị đậm đà. Màu nâu tím tự nhiên của gạo lứt kết hợp hài hòa với các nguyên liệu khác. Lớp rong biển xanh đậm bên ngoài giúp món ăn thêm bắt mắt và hấp dẫn. Gạo lứt được nấu chín vừa phải để giữ độ dẻo và kết cấu hạt nguyên vẹn. Các thành phần được cuộn thủ công cẩn thận nhằm đảm bảo độ chắc và đẹp mắt khi cắt lát. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -220,7 +154,7 @@
     "visible": "Có"
   },
   {
-    "id": 11,
+    "id": 8,
     "alias": "com-cuon-truyen-thong",
     "name": "Cơm cuộn Truyền thống",
     "description": "Cơm cuộn Truyền thống là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm rong biển. Các nguyên liệu được cuộn đều tạo cảm giác hài hòa giữa vị thanh và vị đậm đà. Lớp rong biển xanh đậm bên ngoài giúp món ăn thêm bắt mắt và hấp dẫn. Các thành phần được cuộn thủ công cẩn thận nhằm đảm bảo độ chắc và đẹp mắt khi cắt lát. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -242,7 +176,7 @@
     "visible": "Có"
   },
   {
-    "id": 12,
+    "id": 9,
     "alias": "bun-gao-lut-luon-ngong",
     "name": "Bún gạo lứt lườn ngỗng",
     "description": "Bún gạo lứt lườn ngỗng là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm gạo lứt, sợi bún hoặc mì. Gạo lứt mang hương thơm bùi nhẹ, tạo cảm giác no lâu nhưng vẫn thanh vị. Sợi bún hoặc mì dai mềm vừa phải, hòa quyện cùng phần nước sốt hoặc topping đậm đà. Màu nâu tím tự nhiên của gạo lứt kết hợp hài hòa với các nguyên liệu khác. Màu sắc món ăn hài hòa giữa phần sợi và các loại rau củ ăn kèm. Gạo lứt được nấu chín vừa phải để giữ độ dẻo và kết cấu hạt nguyên vẹn. Sợi được trụng vừa chín để giữ độ dai và không bị bở khi thưởng thức. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -264,7 +198,7 @@
     "visible": "Có"
   },
   {
-    "id": 13,
+    "id": 10,
     "alias": "bun-gao-lut-ca-hoi",
     "name": "Bún gạo lứt cá hồi",
     "description": "Bún gạo lứt cá hồi là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm cá hồi, gạo lứt, sợi bún hoặc mì. Cá hồi béo nhẹ, thơm đặc trưng và hòa quyện cùng các loại rau củ tươi mát. Gạo lứt mang hương thơm bùi nhẹ, tạo cảm giác no lâu nhưng vẫn thanh vị. Sợi bún hoặc mì dai mềm vừa phải, hòa quyện cùng phần nước sốt hoặc topping đậm đà. Màu cam đặc trưng của cá hồi giúp món ăn nổi bật và hấp dẫn hơn khi trình bày. Màu nâu tím tự nhiên của gạo lứt kết hợp hài hòa với các nguyên liệu khác. Màu sắc món ăn hài hòa giữa phần sợi và các loại rau củ ăn kèm. Cá hồi được nướng hoặc áp chảo nhẹ để giữ độ mềm và hạn chế mất dinh dưỡng. Gạo lứt được nấu chín vừa phải để giữ độ dẻo và kết cấu hạt nguyên vẹn. Sợi được trụng vừa chín để giữ độ dai và không bị bở khi thưởng thức. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -286,7 +220,7 @@
     "visible": "Có"
   },
   {
-    "id": 14,
+    "id": 11,
     "alias": "bun-gao-lut-bo",
     "name": "Bún gạo lứt bò",
     "description": "Bún gạo lứt bò là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm thịt bò tươi, gạo lứt, sợi bún hoặc mì. Thịt bò mềm, đậm vị tự nhiên và thơm nhẹ khi kết hợp cùng các loại sốt đặc trưng. Gạo lứt mang hương thơm bùi nhẹ, tạo cảm giác no lâu nhưng vẫn thanh vị. Sợi bún hoặc mì dai mềm vừa phải, hòa quyện cùng phần nước sốt hoặc topping đậm đà. Món ăn có màu nâu vàng hấp dẫn từ phần thịt bò được chế biến vừa chín tới. Màu nâu tím tự nhiên của gạo lứt kết hợp hài hòa với các nguyên liệu khác. Màu sắc món ăn hài hòa giữa phần sợi và các loại rau củ ăn kèm. Nguyên liệu được tẩm ướp gia vị cân bằng rồi áp chảo hoặc nướng chậm để giữ độ mềm mọng. Gạo lứt được nấu chín vừa phải để giữ độ dẻo và kết cấu hạt nguyên vẹn. Sợi được trụng vừa chín để giữ độ dai và không bị bở khi thưởng thức. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -308,7 +242,7 @@
     "visible": "Có"
   },
   {
-    "id": 15,
+    "id": 12,
     "alias": "bun-gao-lut-uc-ga-mat-ong",
     "name": "Bún gạo lứt ức gà mật ong",
     "description": "Bún gạo lứt ức gà mật ong là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm ức gà, gạo lứt, sợi bún hoặc mì. Thịt gà mềm, thanh vị và dễ ăn, phù hợp với thực đơn ăn uống lành mạnh. Gạo lứt mang hương thơm bùi nhẹ, tạo cảm giác no lâu nhưng vẫn thanh vị. Sợi bún hoặc mì dai mềm vừa phải, hòa quyện cùng phần nước sốt hoặc topping đậm đà. Phần thịt gà có màu vàng nhẹ hoặc trắng ngà tự nhiên, kết hợp cùng rau củ tạo tổng thể bắt mắt. Màu nâu tím tự nhiên của gạo lứt kết hợp hài hòa với các nguyên liệu khác. Màu sắc món ăn hài hòa giữa phần sợi và các loại rau củ ăn kèm. Ức gà được hấp hoặc áp chảo ở nhiệt độ phù hợp nhằm giữ độ ngọt tự nhiên của thịt. Gạo lứt được nấu chín vừa phải để giữ độ dẻo và kết cấu hạt nguyên vẹn. Sợi được trụng vừa chín để giữ độ dai và không bị bở khi thưởng thức. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -330,7 +264,7 @@
     "visible": "Có"
   },
   {
-    "id": 16,
+    "id": 13,
     "alias": "com-gao-lut-uc-ga-sot-teryyaki",
     "name": "Cơm gạo lứt ức gà sốt teryyaki",
     "description": "Cơm gạo lứt ức gà sốt teryyaki là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm ức gà, gạo lứt. Thịt gà mềm, thanh vị và dễ ăn, phù hợp với thực đơn ăn uống lành mạnh. Gạo lứt mang hương thơm bùi nhẹ, tạo cảm giác no lâu nhưng vẫn thanh vị. Phần thịt gà có màu vàng nhẹ hoặc trắng ngà tự nhiên, kết hợp cùng rau củ tạo tổng thể bắt mắt. Màu nâu tím tự nhiên của gạo lứt kết hợp hài hòa với các nguyên liệu khác. Ức gà được hấp hoặc áp chảo ở nhiệt độ phù hợp nhằm giữ độ ngọt tự nhiên của thịt. Gạo lứt được nấu chín vừa phải để giữ độ dẻo và kết cấu hạt nguyên vẹn. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -352,7 +286,7 @@
     "visible": "Có"
   },
   {
-    "id": 17,
+    "id": 14,
     "alias": "com-gao-lut-bo-sot-teriyaki",
     "name": "Cơm gạo lứt bò sốt Teriyaki",
     "description": "Cơm gạo lứt bò sốt Teriyaki là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm thịt bò tươi, gạo lứt, sốt teriyaki. Thịt bò mềm, đậm vị tự nhiên và thơm nhẹ khi kết hợp cùng các loại sốt đặc trưng. Gạo lứt mang hương thơm bùi nhẹ, tạo cảm giác no lâu nhưng vẫn thanh vị. Sốt teriyaki mang vị mặn ngọt đặc trưng, giúp món ăn thơm và đậm đà hơn. Món ăn có màu nâu vàng hấp dẫn từ phần thịt bò được chế biến vừa chín tới. Màu nâu tím tự nhiên của gạo lứt kết hợp hài hòa với các nguyên liệu khác. Lớp sốt óng nhẹ phủ đều tạo bề mặt hấp dẫn cho món ăn. Nguyên liệu được tẩm ướp gia vị cân bằng rồi áp chảo hoặc nướng chậm để giữ độ mềm mọng. Gạo lứt được nấu chín vừa phải để giữ độ dẻo và kết cấu hạt nguyên vẹn. Phần sốt được nấu sánh nhẹ và phủ đều lên nguyên liệu trong giai đoạn hoàn thiện món. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -374,7 +308,7 @@
     "visible": "Có"
   },
   {
-    "id": 18,
+    "id": 15,
     "alias": "com-gao-lut-ca-hoi-sot-teryaki",
     "name": "Cơm gạo lứt cá hồi sốt teryaki",
     "description": "Cơm gạo lứt cá hồi sốt teryaki là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm cá hồi, gạo lứt, sốt teriyaki. Cá hồi béo nhẹ, thơm đặc trưng và hòa quyện cùng các loại rau củ tươi mát. Gạo lứt mang hương thơm bùi nhẹ, tạo cảm giác no lâu nhưng vẫn thanh vị. Sốt teriyaki mang vị mặn ngọt đặc trưng, giúp món ăn thơm và đậm đà hơn. Màu cam đặc trưng của cá hồi giúp món ăn nổi bật và hấp dẫn hơn khi trình bày. Màu nâu tím tự nhiên của gạo lứt kết hợp hài hòa với các nguyên liệu khác. Lớp sốt óng nhẹ phủ đều tạo bề mặt hấp dẫn cho món ăn. Cá hồi được nướng hoặc áp chảo nhẹ để giữ độ mềm và hạn chế mất dinh dưỡng. Gạo lứt được nấu chín vừa phải để giữ độ dẻo và kết cấu hạt nguyên vẹn. Phần sốt được nấu sánh nhẹ và phủ đều lên nguyên liệu trong giai đoạn hoàn thiện món. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -396,7 +330,7 @@
     "visible": "Có"
   },
   {
-    "id": 19,
+    "id": 16,
     "alias": "salad-luon-ngong-hun-khoi",
     "name": "salad lườn ngỗng hun khói",
     "description": "salad lườn ngỗng hun khói là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm rau củ tươi, thịt hun khói. Rau củ tươi giòn tạo cảm giác thanh mát và dễ thưởng thức. Hương vị hun khói nhẹ tạo chiều sâu cho món ăn và kích thích vị giác. Món salad nổi bật với nhiều gam màu tự nhiên từ rau xanh, cà chua và các loại topping. Phần thịt hun khói có sắc hồng nâu đẹp mắt khi kết hợp cùng rau xanh. Nguyên liệu được sơ chế sạch sẽ và phối hợp cùng nước sốt cân bằng vị chua ngọt. Nguyên liệu được xử lý hun khói ở nhiệt độ phù hợp để giữ hương thơm đặc trưng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -418,7 +352,7 @@
     "visible": "Có"
   },
   {
-    "id": 20,
+    "id": 17,
     "alias": "salad-rau-cu",
     "name": "Salad rau củ",
     "description": "Salad rau củ là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm rau củ tươi. Rau củ tươi giòn tạo cảm giác thanh mát và dễ thưởng thức. Món salad nổi bật với nhiều gam màu tự nhiên từ rau xanh, cà chua và các loại topping. Nguyên liệu được sơ chế sạch sẽ và phối hợp cùng nước sốt cân bằng vị chua ngọt. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -440,7 +374,7 @@
     "visible": "Có"
   },
   {
-    "id": 21,
+    "id": 18,
     "alias": "salad-bo",
     "name": "Salad bò",
     "description": "Salad bò là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm thịt bò tươi, rau củ tươi. Thịt bò mềm, đậm vị tự nhiên và thơm nhẹ khi kết hợp cùng các loại sốt đặc trưng. Rau củ tươi giòn tạo cảm giác thanh mát và dễ thưởng thức. Món ăn có màu nâu vàng hấp dẫn từ phần thịt bò được chế biến vừa chín tới. Món salad nổi bật với nhiều gam màu tự nhiên từ rau xanh, cà chua và các loại topping. Nguyên liệu được tẩm ướp gia vị cân bằng rồi áp chảo hoặc nướng chậm để giữ độ mềm mọng. Nguyên liệu được sơ chế sạch sẽ và phối hợp cùng nước sốt cân bằng vị chua ngọt. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -462,7 +396,7 @@
     "visible": "Có"
   },
   {
-    "id": 22,
+    "id": 19,
     "alias": "salad-ga-phu-mat-ong",
     "name": "Salad gà phủ mật ong",
     "description": "Salad gà phủ mật ong là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm ức gà, rau củ tươi. Thịt gà mềm, thanh vị và dễ ăn, phù hợp với thực đơn ăn uống lành mạnh. Rau củ tươi giòn tạo cảm giác thanh mát và dễ thưởng thức. Phần thịt gà có màu vàng nhẹ hoặc trắng ngà tự nhiên, kết hợp cùng rau củ tạo tổng thể bắt mắt. Món salad nổi bật với nhiều gam màu tự nhiên từ rau xanh, cà chua và các loại topping. Ức gà được hấp hoặc áp chảo ở nhiệt độ phù hợp nhằm giữ độ ngọt tự nhiên của thịt. Nguyên liệu được sơ chế sạch sẽ và phối hợp cùng nước sốt cân bằng vị chua ngọt. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -484,7 +418,7 @@
     "visible": "Có"
   },
   {
-    "id": 23,
+    "id": 20,
     "alias": "salad-ca-ngu-dai-duong",
     "name": "Salad cá ngừ đại dương",
     "description": "Salad cá ngừ đại dương là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm rau củ tươi. Rau củ tươi giòn tạo cảm giác thanh mát và dễ thưởng thức. Món salad nổi bật với nhiều gam màu tự nhiên từ rau xanh, cà chua và các loại topping. Nguyên liệu được sơ chế sạch sẽ và phối hợp cùng nước sốt cân bằng vị chua ngọt. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -506,7 +440,7 @@
     "visible": "Có"
   },
   {
-    "id": 24,
+    "id": 21,
     "alias": "my-nui-xao-bo",
     "name": "Mỳ nui xào bò",
     "description": "Mỳ nui xào bò là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm thịt bò tươi, sợi bún hoặc mì. Thịt bò mềm, đậm vị tự nhiên và thơm nhẹ khi kết hợp cùng các loại sốt đặc trưng. Sợi bún hoặc mì dai mềm vừa phải, hòa quyện cùng phần nước sốt hoặc topping đậm đà. Món ăn có màu nâu vàng hấp dẫn từ phần thịt bò được chế biến vừa chín tới. Màu sắc món ăn hài hòa giữa phần sợi và các loại rau củ ăn kèm. Nguyên liệu được tẩm ướp gia vị cân bằng rồi áp chảo hoặc nướng chậm để giữ độ mềm mọng. Sợi được trụng vừa chín để giữ độ dai và không bị bở khi thưởng thức. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -528,7 +462,7 @@
     "visible": "Có"
   },
   {
-    "id": 25,
+    "id": 22,
     "alias": "rau-cu-hap",
     "name": "Rau củ hấp",
     "description": "Rau củ hấp là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -550,7 +484,7 @@
     "visible": "Có"
   },
   {
-    "id": 26,
+    "id": 23,
     "alias": "canh-moc-rau-cu",
     "name": "Canh mọc rau củ",
     "description": "Canh mọc rau củ là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -572,7 +506,7 @@
     "visible": "Có"
   },
   {
-    "id": 27,
+    "id": 24,
     "alias": "bun-tron-tom-thit",
     "name": "Bún trộn tôm & thịt",
     "description": "Bún trộn tôm & thịt là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm sợi bún hoặc mì. Sợi bún hoặc mì dai mềm vừa phải, hòa quyện cùng phần nước sốt hoặc topping đậm đà. Màu sắc món ăn hài hòa giữa phần sợi và các loại rau củ ăn kèm. Sợi được trụng vừa chín để giữ độ dai và không bị bở khi thưởng thức. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -594,7 +528,7 @@
     "visible": "Có"
   },
   {
-    "id": 28,
+    "id": 25,
     "alias": "thit-bo-xao-ot-chuong",
     "name": "Thịt bò xào ớt chuông",
     "description": "Thịt bò xào ớt chuông là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm thịt bò tươi. Thịt bò mềm, đậm vị tự nhiên và thơm nhẹ khi kết hợp cùng các loại sốt đặc trưng. Món ăn có màu nâu vàng hấp dẫn từ phần thịt bò được chế biến vừa chín tới. Nguyên liệu được tẩm ướp gia vị cân bằng rồi áp chảo hoặc nướng chậm để giữ độ mềm mọng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -616,7 +550,7 @@
     "visible": "Có"
   },
   {
-    "id": 29,
+    "id": 26,
     "alias": "cai-bo-xoi-xao-bo",
     "name": "Cải bó xôi xào bò",
     "description": "Cải bó xôi xào bò là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm thịt bò tươi. Thịt bò mềm, đậm vị tự nhiên và thơm nhẹ khi kết hợp cùng các loại sốt đặc trưng. Món ăn có màu nâu vàng hấp dẫn từ phần thịt bò được chế biến vừa chín tới. Nguyên liệu được tẩm ướp gia vị cân bằng rồi áp chảo hoặc nướng chậm để giữ độ mềm mọng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -638,7 +572,7 @@
     "visible": "Có"
   },
   {
-    "id": 30,
+    "id": 27,
     "alias": "ca-hoi-sot-ca-chua",
     "name": "Cá hồi sốt cà chua",
     "description": "Cá hồi sốt cà chua là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm cá hồi. Cá hồi béo nhẹ, thơm đặc trưng và hòa quyện cùng các loại rau củ tươi mát. Màu cam đặc trưng của cá hồi giúp món ăn nổi bật và hấp dẫn hơn khi trình bày. Cá hồi được nướng hoặc áp chảo nhẹ để giữ độ mềm và hạn chế mất dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -660,7 +594,7 @@
     "visible": "Có"
   },
   {
-    "id": 31,
+    "id": 28,
     "alias": "ca-hoi-hap-xa-ot",
     "name": "Cá hồi hấp xả ớt",
     "description": "Cá hồi hấp xả ớt là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm cá hồi. Cá hồi béo nhẹ, thơm đặc trưng và hòa quyện cùng các loại rau củ tươi mát. Màu cam đặc trưng của cá hồi giúp món ăn nổi bật và hấp dẫn hơn khi trình bày. Cá hồi được nướng hoặc áp chảo nhẹ để giữ độ mềm và hạn chế mất dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -682,7 +616,7 @@
     "visible": "Có"
   },
   {
-    "id": 32,
+    "id": 29,
     "alias": "bi-do-xao",
     "name": "Bí đỏ xào",
     "description": "Bí đỏ xào là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -704,7 +638,7 @@
     "visible": "Có"
   },
   {
-    "id": 33,
+    "id": 30,
     "alias": "canh-cai-bo-xoi",
     "name": "Canh cải bó xôi",
     "description": "Canh cải bó xôi là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -726,7 +660,7 @@
     "visible": "Có"
   },
   {
-    "id": 34,
+    "id": 31,
     "alias": "granola-sieu-hat-dau-viet-quat-berry-mix",
     "name": "Granola Siêu Hạt Dâu Việt Quất Berry Mix",
     "description": "Granola Siêu Hạt Dâu Việt Quất Berry Mix là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -748,7 +682,7 @@
     "visible": "Có"
   },
   {
-    "id": 35,
+    "id": 32,
     "alias": "granola-sieu-hat-cacao-dua-healthy",
     "name": "Granola Siêu Hạt Cacao Dừa Healthy",
     "description": "Granola Siêu Hạt Cacao Dừa Healthy là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -770,7 +704,7 @@
     "visible": "Có"
   },
   {
-    "id": 36,
+    "id": 33,
     "alias": "granola-co-dien-yen-mach-hat",
     "name": "Granola Cổ Điển Yến Mạch + Hạt",
     "description": "Granola Cổ Điển Yến Mạch + Hạt là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -792,7 +726,7 @@
     "visible": "Có"
   },
   {
-    "id": 37,
+    "id": 34,
     "alias": "chao-yen-mach-mix-tao",
     "name": "Cháo yến mạch mix táo",
     "description": "Cháo yến mạch mix táo là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -814,7 +748,7 @@
     "visible": "Có"
   },
   {
-    "id": 38,
+    "id": 35,
     "alias": "detox-tao-xanh-can-tay",
     "name": "Detox Táo Xanh Cần Tây",
     "description": "Detox Táo Xanh Cần Tây là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -836,7 +770,7 @@
     "visible": "Có"
   },
   {
-    "id": 39,
+    "id": 36,
     "alias": "detox-dua-leo-bac-ha",
     "name": "Detox Dưa Leo Bạc Hà",
     "description": "Detox Dưa Leo Bạc Hà là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -858,7 +792,7 @@
     "visible": "Có"
   },
   {
-    "id": 40,
+    "id": 37,
     "alias": "detox-kiwi-tao-xanh",
     "name": "Detox Kiwi Táo Xanh",
     "description": "Detox Kiwi Táo Xanh là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -880,7 +814,7 @@
     "visible": "Có"
   },
   {
-    "id": 41,
+    "id": 38,
     "alias": "Nuoc-tao-que",
     "name": "Táo quế ",
     "description": "Táo quế là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -902,7 +836,7 @@
     "visible": "Có"
   },
   {
-    "id": 42,
+    "id": 39,
     "alias": "detox-chanh-day-nha-dam",
     "name": "Detox Chanh Dây Nha Đam",
     "description": "Detox Chanh Dây Nha Đam là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -924,7 +858,7 @@
     "visible": "Có"
   },
   {
-    "id": 43,
+    "id": 40,
     "alias": "detox-viet-quat-chia-seed",
     "name": "Detox Việt Quất Chia Seed",
     "description": "Detox Việt Quất Chia Seed là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -946,7 +880,7 @@
     "visible": "Có"
   },
   {
-    "id": 44,
+    "id": 41,
     "alias": "smoothie-chuoi-yen-mach",
     "name": "Smoothie Chuối Yến Mạch",
     "description": "Smoothie Chuối Yến Mạch là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -968,7 +902,7 @@
     "visible": "Có"
   },
   {
-    "id": 45,
+    "id": 42,
     "alias": "smoothie-dau-chuoi",
     "name": "Smoothie Dâu Chuối",
     "description": "Smoothie Dâu Chuối là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -990,7 +924,7 @@
     "visible": "Có"
   },
   {
-    "id": 46,
+    "id": 43,
     "alias": "smoothie-bo-healthy",
     "name": "Smoothie Bơ Healthy",
     "description": "Smoothie Bơ Healthy là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1012,7 +946,7 @@
     "visible": "Có"
   },
   {
-    "id": 47,
+    "id": 44,
     "alias": "smoothie-xoai-sua-chua",
     "name": "Smoothie Xoài Sữa Chua",
     "description": "Smoothie Xoài Sữa Chua là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1034,7 +968,7 @@
     "visible": "Có"
   },
   {
-    "id": 48,
+    "id": 45,
     "alias": "smoothie-berry-yogurt",
     "name": "Smoothie Berry Yogurt",
     "description": "Smoothie Berry Yogurt là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1056,7 +990,7 @@
     "visible": "Có"
   },
   {
-    "id": 49,
+    "id": 46,
     "alias": "nuoc-ep-tao",
     "name": "Nước ép táo",
     "description": "Nước ép táo là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1078,7 +1012,7 @@
     "visible": "Có"
   },
   {
-    "id": 50,
+    "id": 47,
     "alias": "nuoc-ep-oi",
     "name": "Nước ép ổi",
     "description": "Nước ép ổi là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1100,7 +1034,7 @@
     "visible": "Có"
   },
   {
-    "id": 51,
+    "id": 48,
     "alias": "nuoc-ep-cam",
     "name": "Nước ép cam",
     "description": "Nước ép cam là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1122,7 +1056,7 @@
     "visible": "Có"
   },
   {
-    "id": 52,
+    "id": 49,
     "alias": "nuoc-ep-dua-bac-ha",
     "name": "Nước Ép Dứa Bạc Hà",
     "description": "Nước Ép Dứa Bạc Hà là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1144,7 +1078,7 @@
     "visible": "Có"
   },
   {
-    "id": 53,
+    "id": 50,
     "alias": "nuoc-ep-dua-hau",
     "name": "Nước Ép Dưa Hấu",
     "description": "Nước Ép Dưa Hấu là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1166,7 +1100,7 @@
     "visible": "Có"
   },
   {
-    "id": 54,
+    "id": 51,
     "alias": "nuoc-ep-cu-den-tao",
     "name": "Nước Ép Củ Dền Táo",
     "description": "Nước Ép Củ Dền Táo là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1188,7 +1122,7 @@
     "visible": "Có"
   },
   {
-    "id": 55,
+    "id": 52,
     "alias": "chuoi-say-gion",
     "name": "Chuối Sấy Giòn Không Đường",
     "description": "Chuối Sấy Giòn Không Đường là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1210,7 +1144,7 @@
     "visible": "Có"
   },
   {
-    "id": 56,
+    "id": 53,
     "alias": "mit-say-gion",
     "name": "Mít Sấy Giòn",
     "description": "Mít Sấy Giòn là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1232,7 +1166,7 @@
     "visible": "Có"
   },
   {
-    "id": 57,
+    "id": 54,
     "alias": "dau-tay-say",
     "name": "Dâu Tây Sấy",
     "description": "Dâu Tây Sấy là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1254,7 +1188,7 @@
     "visible": "Có"
   },
   {
-    "id": 58,
+    "id": 55,
     "alias": "khoai-lang-say",
     "name": "Khoai Lang Sấy",
     "description": "Khoai Lang Sấy là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1276,7 +1210,7 @@
     "visible": "Có"
   },
   {
-    "id": 59,
+    "id": 56,
     "alias": "dau-bap-say-gion",
     "name": "Đậu Bắp Sấy Giòn",
     "description": "Đậu Bắp Sấy Giòn là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1298,7 +1232,7 @@
     "visible": "Có"
   },
   {
-    "id": 60,
+    "id": 57,
     "alias": "mix-trai-cay-say",
     "name": "Mix Trái Cây Sấy Thập Cẩm",
     "description": "Mix Trái Cây Sấy Thập Cẩm là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1320,7 +1254,7 @@
     "visible": "Có"
   },
   {
-    "id": 61,
+    "id": 58,
     "alias": "o-mai-it-duong",
     "name": "Ô Mai (Ít Đường)",
     "description": "Ô Mai (Ít Đường) là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1342,7 +1276,7 @@
     "visible": "Có"
   },
   {
-    "id": 62,
+    "id": 59,
     "alias": "sua-chua-hoa-qua",
     "name": "Sữa Chua Hoa Quả",
     "description": "Sữa Chua Hoa Quả là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1364,7 +1298,7 @@
     "visible": "Có"
   },
   {
-    "id": 63,
+    "id": 60,
     "alias": "khoai-lang-nuong-khong-dau",
     "name": "Khoai Lang Nướng Không Dầu",
     "description": "Khoai Lang Nướng Không Dầu là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1386,7 +1320,7 @@
     "visible": "Có"
   },
   {
-    "id": 64,
+    "id": 61,
     "alias": "hạt-diêm-mạch-trắng",
     "name": "Hạt diêm mạch trắng",
     "description": "Hạt diêm mạch trắng là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1408,7 +1342,7 @@
     "visible": "Có"
   },
   {
-    "id": 65,
+    "id": 62,
     "alias": "hạt-diêm-mạch-mix-3-màu",
     "name": "Hạt diêm mạch mix 3 màu",
     "description": "Hạt diêm mạch mix 3 màu là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1430,7 +1364,7 @@
     "visible": "Có"
   },
   {
-    "id": 66,
+    "id": 63,
     "alias": "hạt-diêm-mạch-đỏ",
     "name": "Hạt diêm mạch đỏ",
     "description": "Hạt diêm mạch đỏ là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1452,7 +1386,7 @@
     "visible": "Có"
   },
   {
-    "id": 67,
+    "id": 64,
     "alias": "ngũ-cốc-dinh-dưỡng-trái-cây-oat-ta",
     "name": "Ngũ cốc dinh dưỡng trái cây OAT-TA",
     "description": "Ngũ cốc dinh dưỡng trái cây OAT-TA là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1474,7 +1408,7 @@
     "visible": "Có"
   },
   {
-    "id": 68,
+    "id": 65,
     "alias": "hạt-mix-vị",
     "name": "Hạt mix vị",
     "description": "Hạt mix vị là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1496,7 +1430,7 @@
     "visible": "Có"
   },
   {
-    "id": 69,
+    "id": 66,
     "alias": "hạt-điều-rang",
     "name": "Hạt điều rang",
     "description": "Hạt điều rang là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1518,7 +1452,7 @@
     "visible": "Có"
   },
   {
-    "id": 70,
+    "id": 67,
     "alias": "hạt-macca-nứt-vỏ",
     "name": "Hạt macca nứt vỏ",
     "description": "Hạt macca nứt vỏ là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1540,7 +1474,7 @@
     "visible": "Có"
   },
   {
-    "id": 71,
+    "id": 68,
     "alias": "hạt-óc-chó",
     "name": "Hạt óc chó",
     "description": "Hạt óc chó là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1562,7 +1496,7 @@
     "visible": "Có"
   },
   {
-    "id": 72,
+    "id": 69,
     "alias": "hạt-dẻ-cười",
     "name": "Hạt dẻ cười",
     "description": "Hạt dẻ cười là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1584,7 +1518,7 @@
     "visible": "Có"
   },
   {
-    "id": 73,
+    "id": 70,
     "alias": "hạt-dẻ-rang-muối",
     "name": "Hạt dẻ rang muối",
     "description": "Hạt dẻ rang muối là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1606,7 +1540,7 @@
     "visible": "Có"
   },
   {
-    "id": 74,
+    "id": 71,
     "alias": "nho-sấy-khô",
     "name": "Nho sấy khô",
     "description": "Nho sấy khô là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1628,7 +1562,7 @@
     "visible": "Có"
   },
   {
-    "id": 75,
+    "id": 72,
     "alias": "táo-sấy-dẻo-không-hạt",
     "name": "Táo sấy dẻo không hạt",
     "description": "Táo sấy dẻo không hạt là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1650,7 +1584,7 @@
     "visible": "Có"
   },
   {
-    "id": 76,
+    "id": 73,
     "alias": "mix-8-loại-hạt",
     "name": "Mix 8 loại hạt",
     "description": "Mix 8 loại hạt là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1672,7 +1606,7 @@
     "visible": "Có"
   },
   {
-    "id": 77,
+    "id": 74,
     "alias": "mix-4-loại-hạt",
     "name": "Mix 4 loại hạt",
     "description": "Mix 4 loại hạt là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
@@ -1694,7 +1628,7 @@
     "visible": "Có"
   },
   {
-    "id": 78,
+    "id": 75,
     "alias": "yến-mạch-cán-dẹt",
     "name": "Yến mạch cán dẹt",
     "description": "Yến mạch cán dẹt là món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng. Nguyên liệu chính gồm nguyên liệu tươi ngon. Món ăn có hương vị hài hòa, dễ thưởng thức và phù hợp với nhiều khẩu vị khác nhau. Màu sắc được phối hợp hài hòa tạo cảm giác ngon miệng ngay từ lần đầu nhìn thấy. Các nguyên liệu được chế biến cẩn thận nhằm giữ độ tươi ngon và dinh dưỡng. Sản phẩm phù hợp cho bữa ăn tiện lợi hằng ngày, đặc biệt dành cho người yêu thích thực đơn cân bằng và hiện đại.",
