@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - HealthyFood</title>
+    <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+<body>
+    <header class="auth-header">
+        <a href="../index.html">🌿 HealthyFood</a>
+        <a href="../index.html">Trang chủ</a>
+    </header>
+
+    <main class="auth-container">
+        <h1>Chào mừng đến HealthyFood</h1>
+        <p>Đăng nhập hoặc tạo tài khoản để bắt đầu</p>
+
+        <div class="auth-box">
+            <div class="auth-tabs">
+                <button type="button" id="tabLogin" class="active">
+                    Đăng nhập
+                </button>
+                <button type="button" id="tabRegister">
+                    Đăng ký
+                </button>
+            </div>
+
+            <!-- BIỂU MẪU ĐĂNG NHẬP -->
+            <form id="loginForm">
+                <h2>Đăng nhập</h2>
+
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail"
+                       placeholder="Nhập email" required>
+
+                <label for="loginPassword">Mật khẩu</label>
+                <input type="password" id="loginPassword"
+                       placeholder="Nhập mật khẩu" required>
+
+                <button type="submit" class="submit-btn">
+                    Đăng nhập
+                </button>
+            </form>
+
+            <!-- BIỂU MẪU ĐĂNG KÝ -->
+            <form id="registerForm" hidden>
+                <h2>Tạo tài khoản mới</h2>
+
+                <label for="fullName">Họ và tên</label>
+                <input type="text" id="fullName" required>
+
+                <label for="registerEmail">Email</label>
+                <input type="email" id="registerEmail" required>
+
+                <label for="phone">Số điện thoại</label>
+                <input type="tel" id="phone">
+
+                <label for="registerPassword">Mật khẩu</label>
+                <input type="password" id="registerPassword"
+                       minlength="8" required>
+
+                <label for="confirmPassword">Nhập lại mật khẩu</label>
+                <input type="password" id="confirmPassword"
+                       minlength="8" required>
+
+                <button type="submit" class="submit-btn">
+                    Đăng ký tài khoản
+                </button>
+            </form>
+
+            <p id="authMessage" role="status" aria-live="polite"></p>
+        </div>
+    </main>
+
+    <script src="../assets/js/auth.js"></script>
+</body>
+</html>

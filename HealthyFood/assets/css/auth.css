@@ -1,0 +1,139 @@
+
+* {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    margin: 0;
+    background: #f5f8f2;
+    font-family: Arial, sans-serif;
+    color: #34483a;
+}
+
+.auth-header {
+    background: white;
+    padding: 20px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px #00000012;
+}
+
+.auth-header a {
+    color: #287943;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-header a:first-child {
+    font-size: 25px;
+}
+
+.auth-container {
+    max-width: 470px;
+    margin: 65px auto;
+    padding: 0 16px;
+    text-align: center;
+}
+
+.auth-container h1 {
+    font-size: 27px;
+    color: #205c32;
+}
+
+.auth-container > p {
+    color: #657568;
+}
+
+.auth-box {
+    margin-top: 25px;
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 5px 25px #00000012;
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.auth-tabs button {
+    flex: 1;
+    padding: 13px;
+    background: #eaf3e8;
+    color: #287943;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.auth-tabs button.active {
+    background: #287943;
+    color: white;
+}
+
+.auth-box h2 {
+    margin-bottom: 22px;
+    color: #205c32;
+}
+
+.auth-box form {
+    text-align: left;
+}
+
+.auth-box label {
+    display: block;
+    font-weight: bold;
+    margin: 16px 0 7px;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dce5d9;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.auth-box input:focus {
+    outline: 2px solid #287943;
+}
+
+.submit-btn {
+    width: 100%;
+    background: #287943;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    margin-top: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #205c32;
+}
+
+#authMessage {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        margin: 35px auto;
+    }
+
+    .auth-box {
+        padding: 20px;
+    }
+}

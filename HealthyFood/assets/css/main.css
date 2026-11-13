@@ -504,3 +504,26 @@ body.product-page {
     transform: translateY(-3px);
     transition: 0.3s;
 }
+
+/* Tên tài khoản sau khi đăng nhập */
+.account-name {
+    color: #287943;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Nút đổi tài khoản và đăng xuất */
+.account-btn {
+    padding: 8px 12px;
+    margin-left: 6px;
+    background: #287943;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.account-btn:hover {
+    background: #1d5c32;
+}

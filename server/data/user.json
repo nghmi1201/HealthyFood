@@ -1,0 +1,18 @@
+[
+  {
+    "id": "c9278eef-eaaa-44ad-9509-2c492beae5f6",
+    "fullName": "Nguyen Van A",
+    "email": "vana@example.com",
+    "phone": "0912345678",
+    "passwordHash": "$2b$12$BVv3Sn4133QioYti3X0NP.XMQXT7RzWV7Rp.rt5DFleCBvQveFDE6",
+    "createdAt": "2026-11-13T10:45:00.894Z"
+  },
+  {
+    "id": "cd1de1ac-c00e-4e5a-a0d7-abd13500773e",
+    "fullName": "Duy Anh Nguyễn",
+    "email": "duyanhnr10@gmail.com",
+    "phone": "0916845586",
+    "passwordHash": "$2b$12$Hhkd9srdnhraWSvV7TjgU.TUdWImpaoa3tK2ghjlJOehZ4ys6PA/G",
+    "createdAt": "2026-11-13T14:32:04.149Z"
+  }
+]
