@@ -243,6 +243,93 @@ app.get("/api/me", (req, res) => {
         user: req.session.user
     });
 });
+// API đặt hàng: lưu đơn vào server/data/orders.json
+const ordersFile = path.join(__dirname, "server", "data", "orders.json");
+const productsFile = path.join(__dirname, "HealthyFood", "assets", "data", "products.json");
+
+app.post("/api/orders", async (req, res) => {
+    const { customer, invoice, items, paymentMethod, installmentMonths } = req.body || {};
+
+    // Kiểm tra thông tin khách hàng
+    if (
+        !customer ||
+        typeof customer.fullName !== "string" || !customer.fullName.trim() ||
+        typeof customer.address !== "string" || !customer.address.trim() ||
+        !/^(0|\+84)\d{9}$/.test(String(customer.phone || ""))
+    ) {
+        return res.status(400).json({ message: "Thông tin khách hàng không hợp lệ" });
+    }
+
+    if (!Array.isArray(items) || items.length === 0 || items.length > 50) {
+        return res.status(400).json({ message: "Giỏ hàng trống hoặc không hợp lệ" });
+    }
+
+    if (!["cod", "installment"].includes(paymentMethod)) {
+        return res.status(400).json({ message: "Phương thức thanh toán không hợp lệ" });
+    }
+
+    try {
+        // Tính lại giá từ dữ liệu sản phẩm, không tin giá do trình duyệt gửi
+        const products = JSON.parse(await fs.readFile(productsFile, "utf8"));
+        const orderItems = [];
+        let total = 0;
+
+        for (const item of items) {
+            const product = products.find(p => String(p.id) === String(item.id));
+            const qty = Number(item.qty);
+
+            if (!product || !Number.isInteger(qty) || qty < 1 || qty > 99) {
+                return res.status(400).json({ message: "Sản phẩm trong giỏ không hợp lệ" });
+            }
+            if (Number(product.inStock) < qty) {
+                return res.status(400).json({ message: `"${product.name}" chỉ còn ${product.inStock} sản phẩm` });
+            }
+
+            orderItems.push({ id: product.id, name: product.name, price: product.price, qty });
+            total += product.price * qty;
+        }
+
+        const orderId = "HF" + Date.now().toString(36).toUpperCase();
+        const order = {
+            orderId,
+            createdAt: new Date().toISOString(),
+            customer: {
+                fullName: customer.fullName.trim(),
+                phone: customer.phone,
+                email: String(customer.email || "").trim(),
+                address: customer.address.trim(),
+                province: String(customer.province || ""),
+                district: String(customer.district || ""),
+                note: String(customer.note || "").slice(0, 500)
+            },
+            invoice: invoice ? {
+                company: String(invoice.company || ""),
+                taxCode: String(invoice.taxCode || ""),
+                companyAddress: String(invoice.companyAddress || "")
+            } : null,
+            items: orderItems,
+            paymentMethod,
+            installmentMonths: paymentMethod === "installment" ? Number(installmentMonths) || null : null,
+            total,
+            userEmail: req.session.user ? req.session.user.email : null
+        };
+
+        let orders = [];
+        try {
+            orders = JSON.parse(await fs.readFile(ordersFile, "utf8"));
+        } catch (error) {
+            // Chưa có file đơn hàng: bắt đầu danh sách mới
+        }
+        orders.push(order);
+        await fs.writeFile(ordersFile, JSON.stringify(orders, null, 2), "utf8");
+
+        return res.status(201).json({ orderId, total });
+    } catch (error) {
+        console.error("Lỗi lưu đơn hàng:", error);
+        return res.status(500).json({ message: "Không thể lưu đơn hàng, vui lòng thử lại" });
+    }
+});
+
 // Khởi động server
 app.listen(PORT, () => {
     console.log(`HealthyFood chạy tại http://localhost:${PORT}`);

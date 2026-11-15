@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthyFood - Giỏ Hàng</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/cart.css">
+</head>
+<body class="product-page">
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <a href="../index.html">HealthyFood</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Trang chủ</a></li>
+        <li><a href="../index.html#about">Giới thiệu</a></li>
+        <li><a href="product.html">Sản phẩm</a></li>
+        <li><a href="../index.html#benefits">Lợi ích</a></li>
+        <li><a href="../index.html#news">Tin tức</a></li>
+      </ul>
+    </nav>
+    <div>
+      <button type="button">Giỏ hàng (0)</button>
+    </div>
+  </header>
+
+  <main class="cart-page-container">
+
+    <!-- Giỏ hàng trống -->
+    <section id="cartEmpty" class="cart-box cart-empty" hidden>
+      <h1>Giỏ hàng của bạn đang trống</h1>
+      <p>Chọn vài món tốt cho sức khỏe rồi quay lại đây để đặt hàng.</p>
+      <a href="product.html">Xem sản phẩm</a>
+    </section>
+
+    <!-- Đặt hàng thành công -->
+    <section id="orderDone" class="cart-box order-done" hidden></section>
+
+    <div id="cartLayout" class="cart-layout">
+
+      <div>
+        <!-- Danh sách sản phẩm -->
+        <section class="cart-box">
+          <div class="cart-bar">
+            <h1>Giỏ hàng của bạn</h1>
+            <a class="cart-back" href="product.html">&lsaquo; Mua thêm sản phẩm khác</a>
+          </div>
+          <div style="text-align: right;">
+            <button type="button" id="clearCart" class="btn-outline">Xóa giỏ hàng</button>
+          </div>
+          <div id="cartItems"></div>
+        </section>
+
+        <form id="orderForm" novalidate>
+          <!-- Thông tin khách hàng -->
+          <section class="cart-box">
+            <h2>Thông tin khách hàng</h2>
+            <div class="form-grid">
+              <div class="field full">
+                <label for="fullName">Họ tên <b>*</b></label>
+                <input type="text" id="fullName" name="fullName" autocomplete="name">
+                <span class="error">Vui lòng nhập họ tên.</span>
+              </div>
+              <div class="field">
+                <label for="phone">Số điện thoại <b>*</b></label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel">
+                <span class="error">Nhập số điện thoại 10 số, ví dụ 0912345678.</span>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email">
+                <span class="error">Email chưa đúng định dạng.</span>
+              </div>
+              <div class="field full">
+                <label for="address">Địa chỉ <b>*</b></label>
+                <input type="text" id="address" name="address" autocomplete="street-address" placeholder="Số nhà, tên đường, phường/xã">
+                <span class="error">Vui lòng nhập địa chỉ nhận hàng.</span>
+              </div>
+              <div class="field">
+                <label for="province">Tỉnh/Thành phố</label>
+                <select id="province"></select>
+              </div>
+              <div class="field">
+                <label for="district">Quận/Huyện</label>
+                <select id="district" disabled></select>
+              </div>
+              <div class="field full">
+                <label for="note">Ghi chú</label>
+                <textarea id="note" name="note" placeholder="Thời gian nhận hàng, lưu ý khi giao..."></textarea>
+              </div>
+            </div>
+
+            <label class="check-line">
+              <input type="checkbox" id="needInvoice">
+              Yêu cầu xuất hóa đơn công ty
+            </label>
+
+            <div id="companyFields" class="form-grid" hidden>
+              <div class="field full">
+                <label for="company">Tên công ty <b>*</b></label>
+                <input type="text" id="company" autocomplete="organization">
+                <span class="error">Vui lòng nhập tên công ty.</span>
+              </div>
+              <div class="field">
+                <label for="taxCode">Mã số thuế <b>*</b></label>
+                <input type="text" id="taxCode" inputmode="numeric">
+                <span class="error">Mã số thuế gồm 10 hoặc 13 chữ số.</span>
+              </div>
+              <div class="field">
+                <label for="companyAddress">Địa chỉ công ty</label>
+                <input type="text" id="companyAddress">
+              </div>
+            </div>
+          </section>
+
+          <!-- Phương thức thanh toán -->
+          <section class="cart-box">
+            <h2>Phương thức thanh toán</h2>
+            <label class="pay-option">
+              <input type="radio" name="payment" value="cod" checked>
+              Thanh toán khi nhận hàng
+            </label>
+          </section>
+        </form>
+      </div>
+
+      <!-- Tổng tiền + hành động -->
+      <aside class="cart-box cart-summary">
+        <h2>Tổng tiền</h2>
+        <p class="sum-row"><span>Tổng cộng</span><span id="sumSubtotal">0 ₫</span></p>
+        <p class="sum-row save" id="sumSaveRow" hidden><span>Tiết kiệm so với giá gốc</span><span id="sumSaved">0 ₫</span></p>
+        <p class="sum-row total"><span>Thành tiền</span><strong id="sumTotal">0 ₫</strong></p>
+        <p class="vat-note">(Giá đã bao gồm VAT)</p>
+
+        <button type="submit" form="orderForm" id="btnOrder" class="btn-block btn-order">Đặt hàng</button>
+        <button type="button" id="btnInstallment" class="btn-block btn-installment">Mua trả góp</button>
+        <p class="form-message" id="formMessage" role="alert" hidden></p>
+
+        <div class="tool-row">
+          <button type="button" id="btnExcel">Tải file Excel</button>
+          <button type="button" id="btnImage">Tải ảnh báo giá</button>
+          <button type="button" id="btnPrint">In báo giá</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Chọn kỳ hạn trả góp -->
+  <div class="modal-back" id="installmentModal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="installmentTitle">
+      <h3 id="installmentTitle">Mua trả góp</h3>
+      <div id="termList"></div>
+      <p class="modal-note">Số tiền ước tính, chia đều theo kỳ hạn. Lãi suất và phí (nếu có) do đơn vị hỗ trợ trả góp xác nhận khi liên hệ.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn-block btn-cancel" id="termCancel">Hủy</button>
+        <button type="button" class="btn-block btn-order" id="termConfirm">Gửi yêu cầu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bản in báo giá -->
+  <div id="printArea"></div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h3>HealthyFood</h3>
+        <p>Tròn vị thiên nhiên – Trọn vẹn sức khỏe</p>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Hệ</h4>
+        <p>Email: 27A4043361@hvnh.edu.vn </p>
+        <p>Hotline: 0827827564 </p>
+      </div>
+      <div class="footer-col">
+        <h4>Địa Chỉ</h4>
+        <p> Số 12, Chùa Bộc, Đống Đa, Hà Nội </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 HealthyFood. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="../assets/js/cart.js"></script>
+<script src="../assets/js/cartpage.js"></script>
+</body>
+</html>
