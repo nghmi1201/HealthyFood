@@ -179,7 +179,7 @@ $(document).ready(function () {
                     </div>
                     <div class="detail-info-col">
                         <h1>${product.name}</h1>
-                        <div class="price">${Number(product.price).toLocaleString('vi-VN')} ₫</div>
+                        <div class="price">${Number(product.price).toLocaleString('vi-VN')} ₫${Number(product.comparePrice) > Number(product.price) ? `<span class="compare-price">${Number(product.comparePrice).toLocaleString('vi-VN')} ₫</span>` : ''}</div>
                         <div class="meta-info">
                             <p><strong>Danh mục:</strong> ${product.category || 'Đồ ăn tốt cho sức khỏe'}</p>
                             <p><strong>Trọng lượng:</strong> ${product.weight || '400g'}</p>
@@ -189,12 +189,65 @@ $(document).ready(function () {
                             <p><strong>Thông tin chi tiết sản phẩm:</strong></p>
                             <p>${product.description || product.shortDescription || 'Món ăn được chế biến từ những nguyên liệu tươi ngon, lựa chọn kỹ lưỡng nhằm mang đến hương vị hài hòa và giàu dinh dưỡng.'}</p>
                         </div>
-                        <button class="btn-buy-now">Mua ngay</button>
+                        <div class="buy-row">
+                            <div class="qty">
+                                <button type="button" id="qtyMinus" aria-label="Giảm số lượng">&minus;</button>
+                                <input type="number" id="qtyInput" min="1" value="1" aria-label="Số lượng">
+                                <button type="button" id="qtyPlus" aria-label="Tăng số lượng">+</button>
+                            </div>
+                            <button type="button" class="btn-add-cart" id="btnAddCart">Thêm vào giỏ</button>
+                            <button type="button" class="btn-buy-now" id="btnBuyNow">Mua ngay</button>
+                        </div>
                     </div>
                 `;
 
                 $('#productDetailContainer').html(detailHTML);
+                setupCartControls(product);
             }
         });
     }
 });
+
+// ===== GIỎ HÀNG TRÊN TRANG CHI TIẾT =====
+function setupCartControls(product) {
+    const stock = Number(product.inStock || 0);
+    const max = stock > 0 ? Math.min(stock, 99) : 1;
+    const $qty = $('#qtyInput');
+
+    $qty.attr('max', max);
+
+    if (stock <= 0) {
+        // Hết hàng: không cho thêm vào giỏ
+        $('#qtyMinus, #qtyPlus, #qtyInput, #btnAddCart, #btnBuyNow').prop('disabled', true);
+        return;
+    }
+
+    function readQty() {
+        const n = parseInt($qty.val(), 10);
+        return Math.max(1, Math.min(isNaN(n) ? 1 : n, max));
+    }
+
+    $('#qtyMinus').on('click', function () { $qty.val(Math.max(1, readQty() - 1)); });
+    $('#qtyPlus').on('click', function () {
+        if (readQty() >= max) {
+            HFCart.toast('Chỉ còn ' + max + ' sản phẩm trong kho.');
+            return;
+        }
+        $qty.val(readQty() + 1);
+    });
+    $qty.on('change', function () { $qty.val(readQty()); });
+
+    $('#btnAddCart').on('click', function () {
+        const result = HFCart.add(product, readQty());
+        const link = '<a href="' + HFCart.url + '">Xem giỏ hàng</a>';
+        HFCart.toast(result.limited
+            ? 'Giỏ đã có tối đa ' + result.qty + ' sản phẩm (hết hàng trong kho). ' + link
+            : 'Đã thêm vào giỏ hàng. ' + link);
+    });
+
+    // Mua ngay: thêm vào giỏ rồi sang trang giỏ hàng để đặt
+    $('#btnBuyNow').on('click', function () {
+        HFCart.add(product, readQty());
+        window.location.href = HFCart.url;
+    });
+}
