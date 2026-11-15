@@ -1,7 +1,7 @@
 /* =========================================
    CART-PAGE.JS - TRANG GIỎ HÀNG
    Hiển thị giỏ, form khách hàng, đặt hàng,
-   xuất báo giá (Excel / ảnh / in), trả góp
+   xuất báo giá (Excel / ảnh / in), 
 ========================================= */
 (function () {
     const Cart = window.HFCart;
@@ -12,7 +12,6 @@
     const $ = (id) => document.getElementById(id);
     const money = Cart.formatVND;
     let orderPlaced = false;
-    let selectedTerm = 3;
 
     // Danh sách rút gọn; chọn "Tỉnh/thành khác" thì nhập thẳng vào ô địa chỉ
     const LOCATIONS = {
@@ -182,7 +181,7 @@
 
     /* ---------- Đặt hàng ---------- */
 
-    function buildOrder(method, months) {
+    function buildOrder() {
         const invoice = $("needInvoice").checked ? {
             company: $("company").value.trim(),
             taxCode: $("taxCode").value.trim(),
@@ -201,8 +200,7 @@
             },
             invoice: invoice,
             items: Cart.items().map(i => ({ id: i.id, name: i.name, price: i.price, qty: i.qty })),
-            paymentMethod: method,
-            installmentMonths: method === "installment" ? months : null,
+            paymentMethod: "cod",
             total: Cart.subtotal()
         };
     }
@@ -239,7 +237,7 @@
         }
     }
 
-    async function placeOrder(method, months) {
+    async function placeOrder() {
         showMessage("");
         if (Cart.items().length === 0) return;
         if (!validate()) return;
@@ -248,7 +246,7 @@
         btn.disabled = true;
         btn.textContent = "Đang gửi đơn...";
 
-        const order = buildOrder(method, months);
+        const order = buildOrder();
         const result = await sendOrder(order);
 
         btn.disabled = false;
@@ -267,8 +265,6 @@
         $("cartLayout").hidden = true;
         $("cartEmpty").hidden = true;
 
-        const installment = order.paymentMethod === "installment"
-            ? `<p>Bạn chọn trả góp ${order.installmentMonths} tháng, chúng tôi sẽ liên hệ để hướng dẫn thủ tục.</p>` : "";
         const localNote = result.local
             ? `<p class="cart-item-meta">Đơn đang được lưu tạm trên trình duyệt vì chưa kết nối được máy chủ.</p>` : "";
 
@@ -278,7 +274,7 @@
             <p>Cảm ơn ${esc(order.customer.fullName)}. HealthyFood sẽ gọi đến số ${esc(order.customer.phone)} để xác nhận đơn.</p>
             <span class="order-code">Mã đơn: ${esc(result.orderId)}</span>
             <p>Thành tiền: <strong>${money(order.total)}</strong></p>
-            ${installment}${localNote}
+            ${localNote}
             <p><a class="cart-back" href="product.html">&lsaquo; Tiếp tục mua sắm</a></p>`;
         box.hidden = false;
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -286,42 +282,7 @@
 
     $("orderForm").addEventListener("submit", function (e) {
         e.preventDefault();
-        placeOrder("cod");
-    });
-
-    /* ---------- Trả góp ---------- */
-
-    function openInstallment() {
-        const items = Cart.items();
-        if (items.length === 0) return;
-        const total = Cart.subtotal();
-
-        $("termList").innerHTML = [3, 6, 12].map(m => `
-            <label class="term-option">
-                <input type="radio" name="term" value="${m}" ${m === selectedTerm ? "checked" : ""}>
-                <span>${m} tháng</span>
-                <strong>~ ${money(Math.ceil(total / m))}/tháng</strong>
-            </label>`).join("");
-        $("installmentModal").classList.add("open");
-    }
-
-    function closeInstallment() {
-        $("installmentModal").classList.remove("open");
-    }
-
-    $("btnInstallment").addEventListener("click", openInstallment);
-    $("termCancel").addEventListener("click", closeInstallment);
-    $("installmentModal").addEventListener("click", function (e) {
-        if (e.target === this) closeInstallment();
-    });
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeInstallment();
-    });
-    $("termConfirm").addEventListener("click", function () {
-        const picked = document.querySelector('input[name="term"]:checked');
-        selectedTerm = picked ? Number(picked.value) : 3;
-        closeInstallment();
-        placeOrder("installment", selectedTerm);
+        placeOrder();
     });
 
     /* ---------- Báo giá: dữ liệu chung ---------- */

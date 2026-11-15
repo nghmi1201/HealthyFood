@@ -243,12 +243,12 @@ app.get("/api/me", (req, res) => {
         user: req.session.user
     });
 });
-// API đặt hàng: lưu đơn vào server/data/orders.json
-const ordersFile = path.join(__dirname, "server", "data", "orders.json");
+// API đặt hàng: lưu đơn vào server/data/invoices.json
+const ordersFile = path.join(__dirname, "server", "data", "invoices.json");
 const productsFile = path.join(__dirname, "HealthyFood", "assets", "data", "products.json");
 
 app.post("/api/orders", async (req, res) => {
-    const { customer, invoice, items, paymentMethod, installmentMonths } = req.body || {};
+    const { customer, invoice, items, paymentMethod } = req.body || {};
 
     // Kiểm tra thông tin khách hàng
     if (
@@ -264,7 +264,7 @@ app.post("/api/orders", async (req, res) => {
         return res.status(400).json({ message: "Giỏ hàng trống hoặc không hợp lệ" });
     }
 
-    if (!["cod", "installment"].includes(paymentMethod)) {
+    if (paymentMethod !== "cod") {
         return res.status(400).json({ message: "Phương thức thanh toán không hợp lệ" });
     }
 
@@ -309,11 +309,11 @@ app.post("/api/orders", async (req, res) => {
             } : null,
             items: orderItems,
             paymentMethod,
-            installmentMonths: paymentMethod === "installment" ? Number(installmentMonths) || null : null,
             total,
             userEmail: req.session.user ? req.session.user.email : null
         };
 
+        await fs.mkdir(path.dirname(ordersFile), { recursive: true });
         let orders = [];
         try {
             orders = JSON.parse(await fs.readFile(ordersFile, "utf8"));
