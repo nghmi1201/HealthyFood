@@ -890,3 +890,31 @@ h1, h2, h3, h4, h5, h6 {
     text-align: left;
     line-height: 1.6;
 }
+/* SỬA LỖI FONT VÀ KHOẢNG CÁCH CHỮ */
+h1, h2, h3, h4, p {
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word;
+}
+
+/* Tiêu đề tin tức */
+.news-card h3 {
+    font-family: 'Be Vietnam Pro', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    text-align: left;
+}
+
+/* Nội dung mô tả tin tức */
+.news-card p {
+    font-family: 'Be Vietnam Pro', Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    text-align: left;
+}
