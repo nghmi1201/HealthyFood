@@ -14,5 +14,13 @@
     "phone": "0916845586",
     "passwordHash": "$2b$12$Hhkd9srdnhraWSvV7TjgU.TUdWImpaoa3tK2ghjlJOehZ4ys6PA/G",
     "createdAt": "2026-11-13T14:32:04.149Z"
+  },
+  {
+    "id": "51addaad-8021-4a08-b46b-f2fa8ecc6738",
+    "fullName": "Hà My",
+    "email": "hamy123@gmail.com",
+    "phone": "0392042321",
+    "passwordHash": "$2b$12$pCvBtmlYvQ19ymPd2Nn0Negj4bgFLbIFgaNV96wNcycnJ/2vOL.Ru",
+    "createdAt": "2026-11-15T06:40:11.403Z"
   }
 ]
