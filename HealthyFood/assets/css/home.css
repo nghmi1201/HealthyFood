@@ -881,3 +881,12 @@ h1, h2, h3, h4, h5, h6 {
 .btn-allview:hover {
     background-color: #363D17;
 }
+.benefit-card h3 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-align: left;
+    line-height: 1.6;
+}
