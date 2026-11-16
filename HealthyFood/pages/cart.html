@@ -137,7 +137,6 @@
         <p class="vat-note">(Giá đã bao gồm VAT)</p>
 
         <button type="submit" form="orderForm" id="btnOrder" class="btn-block btn-order">Đặt hàng</button>
-        <button type="button" id="btnInstallment" class="btn-block btn-installment">Mua trả góp</button>
         <p class="form-message" id="formMessage" role="alert" hidden></p>
 
         <div class="tool-row">
@@ -148,19 +147,6 @@
       </aside>
     </div>
   </main>
-
-  <!-- Chọn kỳ hạn trả góp -->
-  <div class="modal-back" id="installmentModal">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="installmentTitle">
-      <h3 id="installmentTitle">Mua trả góp</h3>
-      <div id="termList"></div>
-      <p class="modal-note">Số tiền ước tính, chia đều theo kỳ hạn. Lãi suất và phí (nếu có) do đơn vị hỗ trợ trả góp xác nhận khi liên hệ.</p>
-      <div class="modal-actions">
-        <button type="button" class="btn-block btn-cancel" id="termCancel">Hủy</button>
-        <button type="button" class="btn-block btn-order" id="termConfirm">Gửi yêu cầu</button>
-      </div>
-    </div>
-  </div>
 
   <!-- Bản in báo giá -->
   <div id="printArea"></div>

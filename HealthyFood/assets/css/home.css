@@ -926,85 +926,383 @@ h1, h2, h3, h4, p {
   height: auto; /* Tự động tính chiều cao để khung vừa khít với tỷ lệ ảnh */
   display: block; /* Xóa khoảng trắng thừa nhỏ bên dưới ảnh */
 }
-/* 1. Chia lưới 4 cột để thẻ sản phẩm không bị phình to hết màn hình */
+
+
+
+/* Chia đều 4 sản phẩm */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 sản phẩm trên 1 hàng */
-  gap: 24px; /* Khoảng cách giữa các thẻ */
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
 }
 
-/* 2. Thiết kế khung thẻ sản phẩm gọn gàng như ảnh mẫu */
-.product-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-}
-
-/* 3. Hiển thị trọn vẹn poster không bị cắt đầu/đuôi */
-.product-card img {
-  width: 100%;
-  height: auto; /* Tự động giữ đúng tỷ lệ ảnh gốc */
-  display: block;
-}
-
-
-/* 1. Căn chỉnh khung sản phẩm */
+/* Khung sản phẩm */
 .product-card {
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
-/* 2. Đồng bộ kích thước ảnh */
-.product-card img {
+/* Ảnh tỷ lệ 4:5 */
+.product-card > img {
     width: 100%;
     aspect-ratio: 4 / 5;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     display: block;
 }
 
-/* 3. Căn chỉnh nội dung sản phẩm */
+/* Thông tin sản phẩm */
 .product-info {
-    padding: 16px;
     display: flex;
     flex-direction: column;
     flex: 1;
+    padding: 12px;
 }
 
-/* 4. Tên sản phẩm */
+/* Tên sản phẩm */
 .product-name {
-    font-size: 18px;
-    font-weight: 600;
-    color: #1f4e3d;
-    line-height: 1.5;
-
-    margin: 0 0 16px;
-    min-height: 54px;
-
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
+    margin: 8px 0;
+    min-height: 56px;
+    line-height: 26px;
 }
 
-/* 5. Giá sản phẩm */
+/* Giá */
 .product-price {
-    font-size: 24px;
-    font-weight: bold;
-    color: #a67c37;
-
-    margin: 0 0 20px;
+    margin: 8px 0 14px;
 }
 
-/* 6. Nút thêm vào giỏ */
+/* Nút mua hàng */
 .product-info .btn-primary {
-    display: block;
     width: 100%;
-    padding: 16px;
+    min-height: 52px;
     margin-top: auto;
+}
 
-    align-self: center;
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Thu nhỏ ảnh sản phẩm một chút */
+.product-card > img {
+    width: 90%;
+    aspect-ratio: 4 / 5;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Căn giữa toàn bộ nội dung */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 12px;
     text-align: center;
+    align-items: center;
+}
+
+/* Tên sản phẩm */
+.product-name {
+    width: 100%;
+    min-height: 56px;
+    margin: 8px 0;
+    line-height: 26px;
+    text-align: center;
+    justify-content: center;
+}
+
+/* Giá sản phẩm */
+.product-price {
+    width: 100%;
+    margin: 8px 0 14px;
+    text-align: center;
+}
+
+/* Nút thêm vào giỏ */
+.product-info .btn-primary {
+    width: 100%;
+    min-height: 52px;
+    margin-top: auto;
+}
+/* ================= FOOTER HEALTHYFOOD ================= */
+/* ================= FOOTER HEALTHYFOOD ================= */
+.site-footer {
+  background-color: #1B4332;
+  color: #E2E8F0;
+  padding-top: 60px;
+  /* Bộ font hệ thống hỗ trợ tiếng Việt 100%, không bao giờ bị lỗi dấu dù mất mạng */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-footer * {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.site-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Lưới 4 cột bằng nhau chuẩn tỷ lệ */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.15fr;
+  gap: 32px;
+  padding-bottom: 45px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  align-items: start;
+}
+
+/* CĂN BẰNG TẤT CẢ TIÊU ĐỀ CÁC CỘT (KỂ CẢ LOGO) */
+.footer-col h4 {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  height: 36px; /* Khóa chiều cao cố định để đường gạch chân thẳng hàng 100% */
+  margin: 0 0 18px 0;
+  padding-bottom: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Ép tiêu đề luôn nằm gọn trên 1 dòng, không rớt dòng */
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 36px;
+  height: 3px;
+  background-color: #52B788;
+  border-radius: 2px;
+}
+
+/* Riêng chữ Logo ở cột 1 giữ nguyên chiều cao 36px để thẳng hàng với cột 2, 3, 4 */
+.footer-col h4.footer-logo {
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0.3px;
+}
+
+.footer-col h4.footer-logo span {
+  color: #74C69D;
+}
+
+.footer-slogan {
+  font-style: italic;
+  color: #95D5B2;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+}
+
+.footer-desc {
+  color: #CBD5E1;
+  margin: 0 0 16px 0;
+}
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact li {
+  margin-bottom: 9px;
+  color: #E2E8F0;
+}
+
+.footer-contact a {
+  color: #F4A261;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-col h5 {
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 18px 0 10px 0;
+}
+
+/* Danh sách liên kết */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #CBD5E1;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.25s ease;
+}
+
+.footer-links a:hover {
+  color: #74C69D;
+  transform: translateX(5px);
+}
+
+/* Form đăng ký nhận tin */
+.footer-newsletter {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.footer-newsletter input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.footer-newsletter button {
+  background-color: #40916C;
+  color: #FFFFFF;
+  border: none;
+  padding: 0 16px;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  white-space: nowrap;
+}
+
+.footer-newsletter button:hover {
+  background-color: #2D6A4F;
+}
+
+/* Badges App & Thanh toán */
+.footer-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 11px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  transition: opacity 0.2s;
+}
+
+.badge:hover {
+  opacity: 0.85;
+}
+
+.badge.grab { background-color: #00B14F; }
+.badge.shopee { background-color: #EE4D2D; }
+.badge.be { background-color: #F5A623; color: #111111; }
+
+.pay-tag {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+/* Thanh Bottom Bar */
+.footer-bottom {
+  background-color: #122E22;
+  padding: 20px 0;
+  font-size: 13px;
+  color: #94A3B8;
+}
+
+.footer-bottom-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-bottom strong {
+  color: #FFFFFF;
+}
+
+.footer-cert {
+  font-size: 12px;
+  margin-top: 4px !important;
+  color: #74C69D;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-socials a {
+  color: #E2E8F0;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.footer-socials a:hover {
+  color: #74C69D;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-bottom-flex {
+    flex-direction: column;
+    text-align: center;
+  }
 }
