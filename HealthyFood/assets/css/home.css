@@ -890,3 +890,121 @@ h1, h2, h3, h4, h5, h6 {
     text-align: left;
     line-height: 1.6;
 }
+/* SỬA LỖI FONT VÀ KHOẢNG CÁCH CHỮ */
+h1, h2, h3, h4, p {
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word;
+}
+
+/* Tiêu đề tin tức */
+.news-card h3 {
+    font-family: 'Be Vietnam Pro', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    text-align: left;
+}
+
+/* Nội dung mô tả tin tức */
+.news-card p {
+    font-family: 'Be Vietnam Pro', Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    text-align: left;
+}
+.product-card {
+  overflow: hidden; /* Bo góc mượt mà theo khung card */
+}
+.product-card img {
+  width: 100%;
+  height: auto; /* Tự động tính chiều cao để khung vừa khít với tỷ lệ ảnh */
+  display: block; /* Xóa khoảng trắng thừa nhỏ bên dưới ảnh */
+}
+/* 1. Chia lưới 4 cột để thẻ sản phẩm không bị phình to hết màn hình */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 sản phẩm trên 1 hàng */
+  gap: 24px; /* Khoảng cách giữa các thẻ */
+}
+
+/* 2. Thiết kế khung thẻ sản phẩm gọn gàng như ảnh mẫu */
+.product-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3. Hiển thị trọn vẹn poster không bị cắt đầu/đuôi */
+.product-card img {
+  width: 100%;
+  height: auto; /* Tự động giữ đúng tỷ lệ ảnh gốc */
+  display: block;
+}
+
+
+/* 1. Căn chỉnh khung sản phẩm */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* 2. Đồng bộ kích thước ảnh */
+.product-card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+}
+
+/* 3. Căn chỉnh nội dung sản phẩm */
+.product-info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* 4. Tên sản phẩm */
+.product-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f4e3d;
+    line-height: 1.5;
+
+    margin: 0 0 16px;
+    min-height: 54px;
+
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+}
+
+/* 5. Giá sản phẩm */
+.product-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #a67c37;
+
+    margin: 0 0 20px;
+}
+
+/* 6. Nút thêm vào giỏ */
+.product-info .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin-top: auto;
+
+    align-self: center;
+    text-align: center;
+}
