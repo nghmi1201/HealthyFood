@@ -8,7 +8,7 @@
 }
 
 :root {
-    --price-red: #d9534f;
+    --price-red: #922a43;
     --danger: #c0392b;
 }
 
@@ -26,15 +26,15 @@
 .qty button {
     width: 36px;
     border: none;
-    background: var(--white);
-    color: var(--text-muted);
+    background: var(--button-blue);
+    color: var(--button-ink);
     font-size: 18px;
     cursor: pointer;
 }
 
 .qty button:hover:not(:disabled) {
-    background: var(--primary-light);
-    color: var(--primary-color);
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 .qty button:disabled {
@@ -82,15 +82,16 @@
     padding: 0 26px;
     border: 2px solid var(--primary-color);
     border-radius: 8px;
-    background: var(--white);
-    color: var(--primary-color);
+    background: var(--button-blue);
+    color: var(--button-ink);
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
 }
 
 .btn-add-cart:hover:not(:disabled) {
-    background: var(--primary-light);
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 .buy-row .btn-buy-now {
@@ -163,15 +164,16 @@
     padding: 10px 18px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    background: var(--white);
-    color: var(--text-color);
+    background: var(--button-blue);
+    color: var(--button-ink);
     cursor: pointer;
     transition: border-color 0.2s, color 0.2s;
 }
 
 .btn-outline:hover {
     border-color: var(--danger);
-    color: var(--danger);
+    color: var(--button-ink);
+    background: var(--button-hover);
 }
 
 /* Dòng sản phẩm */
@@ -245,14 +247,14 @@
     height: 34px;
     border: none;
     border-radius: 50%;
-    background: var(--background-color);
-    color: var(--text-muted);
+    background: var(--button-blue);
+    color: var(--button-ink);
     cursor: pointer;
 }
 
 .cart-remove:hover {
-    background: #fbe9e7;
-    color: var(--danger);
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 .cart-item .qty {
@@ -311,7 +313,7 @@
 .field select:focus,
 .field textarea:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(40, 121, 67, 0.12);
+    box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.12);
 }
 
 .field.invalid input,
@@ -411,12 +413,13 @@
 }
 
 .btn-order {
-    background: var(--primary-color);
-    color: var(--white);
+    background: var(--button-blue);
+    color: var(--button-ink);
 }
 
 .btn-order:hover:not(:disabled) {
-    background: var(--primary-hover);
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 .btn-order:disabled {
@@ -435,15 +438,16 @@
     padding: 10px 6px;
     border: 1px solid var(--primary-color);
     border-radius: 8px;
-    background: var(--white);
-    color: var(--primary-color);
+    background: var(--button-blue);
+    color: var(--button-ink);
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
 }
 
 .tool-row button:hover {
-    background: var(--primary-light);
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 .form-message {
@@ -468,14 +472,15 @@
     display: inline-block;
     padding: 12px 26px;
     border-radius: 8px;
-    background: var(--primary-color);
-    color: var(--white);
+    background: var(--button-blue);
+    color: var(--button-ink);
     font-weight: bold;
     text-decoration: none;
 }
 
 .cart-empty a:hover {
-    background: var(--primary-hover);
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 .order-done h1 {
@@ -514,7 +519,7 @@
 
     #printArea h1 {
         margin: 0 0 4px;
-        color: #205c32;
+        color: #460011;
         font-size: 24px;
     }
 
@@ -596,3 +601,6 @@
         grid-template-columns: 1fr;
     }
 }
+/* Trang giỏ dùng main.css và cart.css. */
+.cart-page-container ~ .site-footer { background: #460011; color: #F7F2E0; }
+.cart-page-container ~ .site-footer a { color: inherit; }

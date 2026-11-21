@@ -1,3 +1,9 @@
+:root {
+    --button-blue: #80AEE8;
+    --button-hover: #6A9CD7;
+    --button-ink: #5B0015;
+}
+
 /* ================================
    HEALTHY FOOD - FLOATING GAME
 ================================ */
@@ -25,19 +31,18 @@
 }
 
 /* Nút game tròn */
-.game-icon-btn {
-    background-color: #6aa84f;
-    color: white;
+.game-icon-btn, .game-btn {
+    color: var(--button-ink);
 
     width: 58px;
     height: 58px;
 
-    border: 3px solid #fff;
+    border: 3px solid var(--button-blue);
     border-radius: 50%;
 
     cursor: pointer;
 
-    box-shadow: 0 4px 15px rgba(106, 168, 79, 0.4);
+    box-shadow: 0 4px 15px rgba(128, 0, 32, 0.4);
 
     display: flex;
     align-items: center;
@@ -49,13 +54,16 @@
     padding: 0;
 
     transition: transform 0.2s ease;
+    background: var(--button-blue);
 }
 
-.game-icon-btn:hover {
+.game-icon-btn:hover, .game-btn:hover {
     transform: scale(1.08);
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
-.game-icon-btn img {
+.game-icon-btn img, .game-btn img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -63,7 +71,7 @@
 
 /* Chữ bên cạnh nút */
 .game-text-tooltip {
-    background-color: #6aa84f;
+    background-color: #5B0015;
     color: white;
 
     font-size: 14px;
@@ -140,7 +148,7 @@
 
     overflow: hidden;
 
-    border: 3px solid #6aa84f;
+    border: 3px solid #5B0015;
 
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
@@ -151,7 +159,7 @@
     right: 15px;
     top: 5px;
 
-    color: #333;
+    color: var(--button-ink);
 
     font-size: 35px;
 
@@ -162,10 +170,12 @@
     font-weight: bold;
 
     line-height: 1;
+    background: var(--button-blue);
 }
 
 .game-close-btn:hover {
-    color: #6aa84f;
+    color: var(--button-ink);
+    background: var(--button-hover);
 }
 
 .game-iframe {
@@ -241,7 +251,7 @@
 }
 
 .voucher-success-box h2 {
-    color: #6aa84f;
+    color: #5B0015;
 
     margin: 0 0 10px;
 
@@ -259,9 +269,9 @@
 }
 
 .voucher-code {
-    background: #f1f8ec;
+    background: #F7F2E0;
 
-    border: 2px dashed #6aa84f;
+    border: 2px dashed #5B0015;
 
     padding: 15px;
 
@@ -271,7 +281,7 @@
 
     font-weight: bold;
 
-    color: #4f803a;
+    color: #5B0015;
 
     letter-spacing: 2px;
 
@@ -279,7 +289,7 @@
 }
 
 .voucher-note {
-    color: #6aa84f !important;
+    color: #5B0015 !important;
 
     font-size: 14px !important;
 
@@ -289,13 +299,9 @@
 .voucher-buy-btn {
     display: block;
 
-    background: linear-gradient(
-        180deg,
-        #7cbf5b 0%,
-        #4f803a 100%
-    );
+    background: var(--button-blue);
 
-    color: white;
+    color: var(--button-ink);
 
     border: none;
 
@@ -315,9 +321,10 @@
 }
 
 .voucher-buy-btn:hover {
-    color: white;
+    color: var(--button-ink);
 
     transform: translateY(-1px);
+    background: var(--button-hover);
 }
 
 
@@ -332,7 +339,7 @@
         left: 15px;
     }
 
-    .game-icon-btn {
+    .game-icon-btn, .game-btn {
         width: 52px;
         height: 52px;
     }
@@ -356,3 +363,31 @@
         font-size: 22px;
     }
 }
+/* Khung của trang demogame.html. */
+.game-box { border-color: #5B0015; }
+.close-game { color: var(--button-ink);
+    background: var(--button-blue);
+}
+body:has(#gameModal) { background: #F7F2E0; color: #460011; }
+@media (prefers-reduced-motion: reduce) {
+    .floating-game-container { animation: none; }
+}
+
+/* Nhấn xuống 3px và nảy nhẹ khi thả. */
+body :is(button, .detail-button, .cart-empty a):not(:disabled):not([aria-disabled="true"]) {
+    transition: transform 320ms cubic-bezier(0.2, 1.9, 0.4, 1),
+                background-color 150ms ease, box-shadow 150ms ease;
+}
+body :is(button, .detail-button, .cart-empty a):not(:disabled):not([aria-disabled="true"]):active {
+    transform: translateY(3px) scale(0.97);
+    transition-duration: 0s;
+}
+@media (prefers-reduced-motion: reduce) {
+    body :is(button, .detail-button, .cart-empty a):not(:disabled):not([aria-disabled="true"]),
+    body :is(button, .detail-button, .cart-empty a):not(:disabled):not([aria-disabled="true"]):active {
+        transition: none;
+        transform: none;
+    }
+}
+
+.close-game:hover { background: var(--button-hover); }
