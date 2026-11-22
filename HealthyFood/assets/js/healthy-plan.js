@@ -149,6 +149,15 @@ function hpAutoFillFromCalculator() {
     }
 }
 
+// Chọn sẵn mục tiêu khi khách được chuyển từ trang Calculator (vd: healthy-plan.html?goal=lose)
+function hpPreselectGoalFromURL() {
+    const goal = new URLSearchParams(window.location.search).get("goal");
+    if (!goal) return;
+
+    const radio = document.querySelector(`input[name="goal"][value="${CSS.escape(goal)}"]`);
+    if (radio) radio.checked = true;
+}
+
 function hpGetFormPayload() {
     const metrics = hpCalcMetrics() || { bmi: 21, bmr: 1450, tdee: 1800 };
     const goal = document.querySelector('input[name="goal"]:checked')?.value || "healthy";
@@ -470,6 +479,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    hpPreselectGoalFromURL();
     hpAutoFillFromCalculator();
     hpUpdateUI();
 });
