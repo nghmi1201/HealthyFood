@@ -335,3 +335,52 @@
         resetCalculator();
 
     });
+
+
+
+
+    //cái này là trà thêm thử để liên kết
+ // ==============================
+    // EVENT
+    // ==============================
+
+    document.getElementById("calculateBtn").addEventListener("click", function () {
+
+        // Kiểm tra dữ liệu
+        if (!validateCalculator()) {
+            return;
+        }
+
+        // Lấy dữ liệu từ DOM
+        let gender = document.getElementById("gender").value;
+        let age = Number(document.getElementById("age").value);
+        let weight = Number(document.getElementById("weight").value);
+        let height = Number(document.getElementById("height").value);
+        let activity = Number(document.getElementById("activity").value);
+
+        // Tính toán
+        let bmi = calculateBMI(weight, height);
+        let bmr = calculateBMR(gender, weight, height, age);
+        let tdee = calculateTDEE(bmr, activity);
+        let healthyWeight = calculateHealthyWeight(height);
+
+        // Lưu chỉ số sang localStorage để trang Lộ trình cá nhân tự động lấy
+        localStorage.setItem("healthyfood_calculator", JSON.stringify({
+            gender: gender,
+            age: age,
+            weight: weight,
+            height: height,
+            activity: String(activity),
+            bmi: Number(bmi.toFixed(1)),
+            bmr: Math.round(bmr),
+            tdee: Math.round(tdee)
+        }));
+
+        // Hiển thị kết quả
+        displayResult(bmi, bmr, tdee, healthyWeight);
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", function () {
+        localStorage.removeItem("healthyfood_calculator");
+        resetCalculator();
+    });

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HealthyFood - Thiết kế thực đơn Eat Clean & lộ trình tập luyện cá nhân hóa miễn phí với AI. Giao suất ăn chuẩn calo tận nơi.">
+    <title>Lộ trình cá nhân - HealthyFood</title>
+
+    <!-- CSS chung và CSS riêng -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/healthy-plan.css">
+    <link rel="stylesheet" href="../assets/css/theme.css">
+</head>
+
+<body class="healthy-plan-page">
+
+    <!-- HEADER CHUNG -->
+    <header class="site-header">
+        <div class="container navbar">
+            <div class="logo">
+                <a href="../index.html">HealthyFood</a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html#banner">Trang chủ</a></li>
+                    <li><a href="../index.html#about">Giới thiệu</a></li>
+                    <li><a href="product.html">Sản phẩm</a></li>
+                    <li><a href="News.html">Tin tức</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="healthy-plan.html" class="active">Lộ trình cá nhân</a></li>
+                    <li><a href="login.html" id="accountLink">Đăng nhập</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-cart">Giỏ hàng (0)</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- NỘI DUNG RIÊNG CỦA TRANG HEALTHY PLAN -->
+    <main class="hp-main">
+
+        <!-- HERO -->
+        <section class="hp-hero">
+            <div class="hp-hero-content">
+                <span class="hp-eyebrow">✦ FREE AI NUTRITION & FITNESS PLANNER</span>
+
+                <h1>
+                    Ăn chuẩn Calo,
+                    <span>tập đúng cách mỗi ngày</span>
+                </h1>
+
+                <p>
+                    Chỉ mất 1 phút khảo sát thể trạng, <strong>Trợ lý AI HealthyFood</strong> sẽ tính chỉ số TDEE và thiết kế miễn phí 100%
+                    <strong>thực đơn & lịch tập cá nhân hóa</strong>. Bạn chỉ trả tiền khi đặt trực tiếp suất ăn từ bếp.
+                </p>
+
+                <a href="#hp-builder" class="hp-primary-button">
+                    Nhận lộ trình AI miễn phí
+                    <span>→</span>
+                </a>
+
+                <div class="hp-hero-note">
+                    <span class="hp-note-dot"></span>
+                    Tư vấn lộ trình AI 0đ · Cân đo chuẩn Macro từng khẩu phần.
+                </div>
+            </div>
+
+            <div class="hp-hero-visual">
+                <div class="hp-hero-image"></div>
+
+                <div class="hp-floating-note hp-note-top">
+                    <span>🤖</span>
+                    <div>
+                        <strong>Trợ lý Sức khỏe AI</strong>
+                        <small>Thiết kế thực đơn & lịch tập 0đ</small>
+                    </div>
+                </div>
+
+                <div class="hp-floating-note hp-note-bottom">
+                    <span>🚚</span>
+                    <div>
+                        <strong>Giao tươi mỗi ngày</strong>
+                        <small>Đặt suất ăn trực tiếp qua web</small>
+                    </div>
+                </div>
+
+                <span class="hp-visual-decoration">✦</span>
+            </div>
+        </section>
+
+        <!-- INTRO STRIP -->
+        <section class="hp-intro-strip">
+            <div>
+                <span class="hp-strip-number">01</span>
+                <strong>Tính chuẩn Calo & Macro</strong>
+                <small>Dựa trên chỉ số BMR/TDEE và mục tiêu thực tế</small>
+            </div>
+
+            <div>
+                <span class="hp-strip-number">02</span>
+                <strong>Lộ trình AI miễn phí 100%</strong>
+                <small>Cá nhân hóa theo dị ứng & tình trạng chấn thương</small>
+            </div>
+
+            <div>
+                <span class="hp-strip-number">03</span>
+                <strong>Đặt suất ăn linh hoạt</strong>
+                <small>Chỉ thanh toán khi đặt suất ăn giao tận nơi</small>
+            </div>
+        </section>
+
+        <!-- BUILDER SECTION -->
+        <section class="hp-builder" id="hp-builder">
+
+            <div class="hp-section-heading">
+                <span class="hp-eyebrow">YOUR PERSONAL JOURNEY</span>
+                <h2>Thiết kế thực đơn & lịch tập <em>của riêng bạn</em></h2>
+                <p>
+                    Hoàn thành 5 bước ngắn dưới đây để nhận bảng tính Calo chi tiết,
+                    lịch tập 7 ngày và thực đơn được Trợ lý AI HealthyFood thiết kế riêng miễn phí.
+                </p>
+            </div>
+
+            <!-- PROGRESS BAR -->
+            <div class="hp-progress-area">
+                <div class="hp-progress-top">
+                    <span id="hp-step-name">01. Xác định mục tiêu</span>
+                    <span id="hp-step-label">Bước 1 / 5</span>
+                </div>
+
+                <div class="hp-progress-track">
+                    <div class="hp-progress-fill" id="hp-progress-fill" style="width: 20%;"></div>
+                </div>
+
+                <div class="hp-progress-steps">
+                    <span class="current" data-progress-step="1">01. Mục tiêu</span>
+                    <span data-progress-step="2">02. Thể trạng</span>
+                    <span data-progress-step="3">03. Khẩu vị & Gói ăn</span>
+                    <span data-progress-step="4">04. Tập luyện</span>
+                    <span data-progress-step="5">05. Lộ trình AI</span>
+                </div>
+            </div>
+
+            <!-- FORM -->
+            <form id="healthPlanForm" novalidate>
+
+                <!-- STEP 1: GOAL & DURATION -->
+                <div class="hp-step active" data-step="1">
+                    <div class="hp-step-heading">
+                        <span>01 / MỤC TIÊU & THỜI GIAN</span>
+                        <h3>Mục tiêu vóc dáng bạn đang hướng tới?</h3>
+                        <p>Mục tiêu và thời gian cam kết giúp AI phân bổ mức thâm hụt/thặng dư Calo và cường độ tập luyện phù hợp.</p>
+                    </div>
+
+                    <div class="hp-goal-grid">
+                        <label class="hp-goal-option">
+                            <input type="radio" name="goal" value="lose" required>
+                            <div class="hp-goal-content goal-pink">
+                                <span class="hp-goal-index">01</span>
+                                <span class="hp-goal-icon">🔥</span>
+                                <strong>Giảm cân & Siết mỡ</strong>
+                                <small>Thâm hụt calo an toàn, ưu tiên chất xơ & đạm nạc từ bếp Healthy.</small>
+                                <span class="hp-goal-check">✓</span>
+                            </div>
+                        </label>
+
+                        <label class="hp-goal-option">
+                            <input type="radio" name="goal" value="gain">
+                            <div class="hp-goal-content goal-blue">
+                                <span class="hp-goal-index">02</span>
+                                <span class="hp-goal-icon">📈</span>
+                                <strong>Tăng cân lành mạnh</strong>
+                                <small>Tăng cường năng lượng sạch, giàu dinh dưỡng, không tích mỡ xấu.</small>
+                                <span class="hp-goal-check">✓</span>
+                            </div>
+                        </label>
+
+                        <label class="hp-goal-option">
+                            <input type="radio" name="goal" value="muscle">
+                            <div class="hp-goal-content goal-cream">
+                                <span class="hp-goal-index">03</span>
+                                <span class="hp-goal-icon">💪</span>
+                                <strong>Tăng cơ bắp</strong>
+                                <small>Thực đơn High-Protein (ức gà, cá hồi, bò Mỹ) kết hợp tập kháng lực.</small>
+                                <span class="hp-goal-check">✓</span>
+                            </div>
+                        </label>
+
+                        <label class="hp-goal-option">
+                            <input type="radio" name="goal" value="maintain">
+                            <div class="hp-goal-content goal-lilac">
+                                <span class="hp-goal-index">04</span>
+                                <span class="hp-goal-icon">⚖️</span>
+                                <strong>Giữ dáng & Cân bằng</strong>
+                                <small>Duy trì cân nặng chuẩn với các bữa ăn tiện lợi, không lo tăng cân.</small>
+                                <span class="hp-goal-check">✓</span>
+                            </div>
+                        </label>
+
+                        <label class="hp-goal-option hp-goal-wide">
+                            <input type="radio" name="goal" value="healthy">
+                            <div class="hp-goal-content goal-green">
+                                <span class="hp-goal-index">05</span>
+                                <span class="hp-goal-icon">🥗</span>
+                                <strong>Ăn sạch & Thanh lọc cơ thể</strong>
+                                <small>Cải thiện tiêu hóa, đẹp da, thay thế hoàn toàn đồ ăn nhanh nhiều dầu mỡ bên ngoài.</small>
+                                <span class="hp-goal-check">✓</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="hp-field">
+                        <label>Bạn muốn theo đuổi lộ trình này trong bao lâu? <span class="hp-free-tag">(Tư vấn AI miễn phí 0đ)</span></label>
+                        <div class="hp-choice-list">
+                            <label><input type="radio" name="planDuration" value="7" checked> 📅 7 ngày (Trải nghiệm làm quen)</label>
+                            <label><input type="radio" name="planDuration" value="14"> 🗓️ 14 ngày (Khởi động & Thanh lọc)</label>
+                            <label><input type="radio" name="planDuration" value="30"> 🔥 30 ngày (Thay đổi vóc dáng rõ rệt)</label>
+                            <label><input type="radio" name="planDuration" value="90"> 🏆 90 ngày (Chuyển hóa chuyên sâu)</label>
+                        </div>
+                    </div>
+
+                    <div class="hp-field">
+                        <label for="hp-goal-detail">Mong muốn cụ thể của bạn (Không bắt buộc)</label>
+                        <textarea id="hp-goal-detail" name="goalDetail" rows="3" placeholder="Ví dụ: Tôi muốn giảm 3kg trong 1 tháng, cần bữa trưa văn phòng ít tinh bột..."></textarea>
+                    </div>
+                </div>
+
+                <!-- STEP 2: BODY PROFILE -->
+                <div class="hp-step" data-step="2">
+                    <div class="hp-step-heading">
+                        <div class="hp-calculator-notice" id="hp-calculator-notice" style="display: none;">
+                            <span>💡</span>
+                            <div>
+                                <strong>Đã đồng bộ chỉ số từ trang Tính Calo (Calculator)!</strong>
+                                <p id="hp-sync-summary">Hệ thống đã tự động điền thông số cơ thể của bạn bên dưới. Bạn có thể kiểm tra lại hoặc chỉnh sửa nếu cần.</p>
+                            </div>
+                        </div>
+
+                        <span>02 / CHỈ SỐ CƠ THỂ</span>
+                        <h3>Tính toán nhu cầu Calo mỗi ngày</h3>
+                        <p>Nhập chính xác các thông số cơ bản để hệ thống tính chỉ số BMI, BMR và tổng năng lượng tiêu hao (TDEE).</p>
+                    </div>
+
+                    <div class="hp-field">
+                        <label>Giới tính sinh học</label>
+                        <div class="hp-choice-list">
+                            <label><input type="radio" name="gender" value="female"> ♀ Nữ</label>
+                            <label><input type="radio" name="gender" value="male"> ♂ Nam</label>
+                        </div>
+                    </div>
+
+                    <div class="hp-form-grid">
+                        <div class="hp-field">
+                            <label for="hp-age">Tuổi</label>
+                            <input type="number" id="hp-age" name="age" min="15" max="100" placeholder="Ví dụ: 24">
+                        </div>
+
+                        <div class="hp-field">
+                            <label for="hp-height">Chiều cao (cm)</label>
+                            <input type="number" id="hp-height" name="height" min="100" max="230" step="0.1" placeholder="Ví dụ: 165">
+                        </div>
+
+                        <div class="hp-field">
+                            <label for="hp-weight">Cân nặng hiện tại (kg)</label>
+                            <input type="number" id="hp-weight" name="weight" min="25" max="300" step="0.1" placeholder="Ví dụ: 55">
+                        </div>
+
+                        <div class="hp-field">
+                            <label for="hp-activity">Mức độ vận động hàng tuần</label>
+                            <select id="hp-activity" name="activity">
+                                <option value="">Chọn mức độ vận động</option>
+                                <option value="1.2">Ít vận động - Làm việc văn phòng, ít đi lại</option>
+                                <option value="1.375">Nhẹ nhàng - Tập 1 đến 3 buổi/tuần</option>
+                                <option value="1.55">Vừa phải - Tập 3 đến 5 buổi/tuần</option>
+                                <option value="1.725">Năng động - Tập 6 đến 7 buổi/tuần</option>
+                                <option value="1.9">Cường độ cao - Vận động viên / lao động nặng</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="hp-metric-preview">
+                        <div>
+                            <small>CHỈ SỐ BMI</small>
+                            <strong id="hp-bmi">--</strong>
+                        </div>
+                        <div>
+                            <small>BMR (CALO CƠ BẢN)</small>
+                            <strong id="hp-bmr">--</strong>
+                        </div>
+                        <div>
+                            <small>TDEE (CALO TIÊU HAO)</small>
+                            <strong id="hp-tdee">--</strong>
+                        </div>
+                    </div>
+
+                    <div class="hp-field">
+                        <label for="hp-limitations">Lưu ý sức khỏe hoặc chấn thương (AI sẽ tự động tránh bài tập gây hại)</label>
+                        <textarea id="hp-limitations" name="limitations" rows="2" placeholder="Ví dụ: Đau dạ dày, tiểu đường nhẹ, đau khớp gối, đau thắt lưng..."></textarea>
+                    </div>
+                </div>
+
+                <!-- STEP 3: NUTRITION & MEAL PLAN -->
+                <div class="hp-step" data-step="3">
+                    <div class="hp-step-heading">
+                        <span>03 / KHẨU VỊ & SUẤT ĂN HEALTHYFOOD</span>
+                        <h3>Tùy chỉnh thực đơn theo sở thích của bạn</h3>
+                        <p>Lộ trình AI hoàn toàn miễn phí. Bạn có thể chọn nhận công thức tự nấu (0đ) hoặc đặt suất ăn chế biến sẵn từ bếp.</p>
+                    </div>
+
+                    <div class="hp-field">
+                        <label>Dòng thực đơn HealthyFood bạn quan tâm</label>
+                        <div class="hp-choice-list">
+                            <label><input type="radio" name="diet" value="eatclean" checked> 🍱 Eat Clean cân bằng</label>
+                            <label><input type="radio" name="diet" value="high_protein"> 🍗 Giàu đạm (Tăng cơ)</label>
+                            <label><input type="radio" name="diet" value="low_carb"> 🥑 Low-Carb / Keto</label>
+                            <label><input type="radio" name="diet" value="vegetarian"> 🥬 Thuần chay Healthy</label>
+                        </div>
+                    </div>
+
+                    <div class="hp-form-grid">
+                        <div class="hp-field">
+                            <label for="hp-meal-package">Hình thức chuẩn bị bữa ăn</label>
+                            <select id="hp-meal-package" name="mealPackage">
+                                <option value="self_cook">Tự nấu theo thực đơn AI gợi ý (Miễn phí 0đ)</option>
+                                <option value="lunch_only">Đặt bếp giao bữa Trưa (1 bữa/ngày · 60.000đ/suất)</option>
+                                <option value="lunch_dinner" selected>Đặt bếp giao Trưa + Tối (2 bữa/ngày · 55.000đ/suất)</option>
+                                <option value="full_day">Đặt bếp giao trọn ngày (3 bữa + Snack · 170.000đ/ngày)</option>
+                            </select>
+                        </div>
+
+                        <div class="hp-field">
+                            <label for="hp-budget">Ngân sách ăn uống dự kiến / ngày</label>
+                            <select id="hp-budget" name="budget">
+                                <option value="65000">Dưới 70.000đ / ngày</option>
+                                <option value="120000" selected>70.000đ - 130.000đ / ngày</option>
+                                <option value="180000">130.000đ - 200.000đ / ngày</option>
+                                <option value="250000">Trên 200.000đ / ngày</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="hp-field">
+                        <label for="hp-allergy">Nguyên liệu dị ứng hoặc không ăn được (AI & Bếp sẽ loại trừ 100%)</label>
+                        <textarea id="hp-allergy" name="allergy" rows="2" placeholder="Ví dụ: Dị ứng hải sản, không ăn hành ngò, không dùng sữa bò..."></textarea>
+                    </div>
+                </div>
+
+                <!-- STEP 4: WORKOUT -->
+                <div class="hp-step" data-step="4">
+                    <div class="hp-step-heading">
+                        <span>04 / LỘ TRÌNH VẬN ĐỘNG</span>
+                        <h3>Kết hợp tập luyện để tối ưu kết quả</h3>
+                        <p>Chọn không gian và thời lượng tập để Trợ lý Sức khỏe AI thiết kế lịch tập 7 ngày tương ứng với lượng Calo nạp vào.</p>
+                    </div>
+
+                    <div class="hp-field">
+                        <label>Bạn thường tập luyện ở đâu?</label>
+                        <div class="hp-choice-cards">
+                            <label class="hp-choice-card">
+                                <input type="radio" name="workoutPlace" value="home" checked>
+                                <div class="hp-choice-card-inner">
+                                    <span>🏠</span>
+                                    <strong>Tại nhà</strong>
+                                    <small>Bài tập Bodyweight, HIIT, Yoga linh hoạt 20-30 phút.</small>
+                                </div>
+                            </label>
+
+                            <label class="hp-choice-card">
+                                <input type="radio" name="workoutPlace" value="gym">
+                                <div class="hp-choice-card-inner">
+                                    <span>🏋️</span>
+                                    <strong>Phòng Gym</strong>
+                                    <small>Tập tạ kháng lực & Cardio máy chuyên sâu tăng cơ.</small>
+                                </div>
+                            </label>
+
+                            <label class="hp-choice-card">
+                                <input type="radio" name="workoutPlace" value="outdoor">
+                                <div class="hp-choice-card-inner">
+                                    <span>🌳</span>
+                                    <strong>Ngoài trời</strong>
+                                    <small>Chạy bộ, đạp xe, bơi lội đốt mỡ tự nhiên.</small>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="hp-field">
+                        <label>Thời lượng mỗi buổi tập bạn có thể dành ra</label>
+                        <div class="hp-duration-grid">
+                            <label class="hp-duration-option">
+                                <input type="radio" name="duration" value="20">
+                                <div class="hp-duration-content">
+                                    <small>QUICK WORKOUT</small>
+                                    <strong>20</strong>
+                                    <b>phút / buổi</b>
+                                    <span>Phù hợp người bận rộn, tập cường độ cao ngắt quãng (HIIT).</span>
+                                </div>
+                            </label>
+
+                            <label class="hp-duration-option">
+                                <input type="radio" name="duration" value="45" checked>
+                                <div class="hp-duration-content">
+                                    <small>RECOMMENDED</small>
+                                    <strong>45</strong>
+                                    <b>phút / buổi</b>
+                                    <span>Thời lượng lý tưởng để đốt mỡ và phát triển cơ bắp bền vững.</span>
+                                </div>
+                            </label>
+
+                            <label class="hp-duration-option">
+                                <input type="radio" name="duration" value="60">
+                                <div class="hp-duration-content">
+                                    <small>INTENSIVE</small>
+                                    <strong>60+</strong>
+                                    <b>phút / buổi</b>
+                                    <span>Tập chuyên sâu kết hợp kháng lực và Cardio sức bền.</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 5: AI PLAN & ORDER -->
+                <div class="hp-step" data-step="5">
+                    <div class="hp-step-heading">
+                        <span>05 / LỘ TRÌNH CÁ NHÂN HÓA TỪ AI</span>
+                        <h3>Thực đơn & Lịch tập đã sẵn sàng!</h3>
+                        <p>Dưới đây là phân bổ Macro chuẩn xác và lộ trình thiết kế riêng miễn phí cho bạn.</p>
+                    </div>
+
+                    <div class="hp-metric-preview">
+                        <div>
+                            <small>MỤC TIÊU CALO / NGÀY</small>
+                            <strong id="hp-target-calories">1,650 kcal</strong>
+                        </div>
+                        <div>
+                            <small>PROTEIN (ĐẠM SẠCH)</small>
+                            <strong id="hp-macro-protein">125g / ngày</strong>
+                        </div>
+                        <div>
+                            <small>CARBS & FAT TỐT</small>
+                            <strong id="hp-macro-carb">165g C · 55g F</strong>
+                        </div>
+                    </div>
+
+                    <!-- KHỐI ĐẶT SUẤT ĂN TỪ BẾP -->
+                    <div class="hp-review">
+                        <div>
+                            <span class="hp-eyebrow">⭐ SUẤT ĂN ĐỀ XUẤT TỪ BẾP (TƯ VẤN AI 0Đ)</span>
+                            <h3 id="hp-rec-package-title">Gói Eat Clean Cân Bằng - Thanh Lọc 7 Ngày</h3>
+                            <p id="hp-rec-package-desc">
+                                Gồm 14 suất ăn tươi chế biến trong ngày. Cân đo chuẩn Macro, giao nóng tận nơi 2 khung giờ.
+                            </p>
+                            <div class="hp-order-actions">
+                                <button type="button" class="hp-primary-button" id="hp-add-plan-to-cart">
+                                    Đặt suất ăn (7 ngày) · 770.000đ
+                                    <span>🛒</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="hp-review-summary">
+                            <div class="hp-review-item">
+                                <span>Thời gian lộ trình</span>
+                                <strong id="rev-duration">7 ngày</strong>
+                            </div>
+                            <div class="hp-review-item">
+                                <span>Chế độ dinh dưỡng</span>
+                                <strong id="rev-diet">Eat Clean Cân Bằng</strong>
+                            </div>
+                            <div class="hp-review-item">
+                                <span>Hình thức bữa ăn</span>
+                                <strong id="rev-package">Trưa + Tối (2 bữa/ngày)</strong>
+                            </div>
+                            <div class="hp-review-item">
+                                <span>Lịch tập kết hợp</span>
+                                <strong id="rev-workout">Tại nhà · 45 phút/buổi</strong>
+                            </div>
+                            <div class="hp-review-item">
+                                <span>Nguyên liệu loại trừ</span>
+                                <strong id="rev-allergy">Không có</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KẾT QUẢ LỘ TRÌNH DO GOOGLE GEMINI AI THIẾT KẾ -->
+                    <div id="hp-ai-section" class="hp-ai-section">
+                        <div class="hp-ai-header">
+                            <div>
+                                <span class="hp-eyebrow">✦ POWERED BY GOOGLE GEMINI AI (MIỄN PHÍ 100%)</span>
+                                <h3>Lộ trình ăn uống & tập luyện cá nhân hóa</h3>
+                            </div>
+                            <button type="button" id="hp-regenerate-ai-btn" onclick="hpRunAIPlanner()" class="hp-ai-refresh-btn">
+                                🔄 Tạo lại gợi ý AI
+                            </button>
+                        </div>
+
+                        <!-- Trạng thái đang tải -->
+                        <div id="hp-ai-loading" class="hp-ai-loading" style="display: none;">
+                            <div class="hp-ai-spinner">🩺</div>
+                            <strong>Trợ lý Chuyên gia Sức khỏe AI đang phân tích hồ sơ của bạn...</strong>
+                            <p>Đang tối ưu thực đơn chuẩn calo, loại trừ dị ứng và điều chỉnh bài tập an toàn (mất khoảng 3-5 giây).</p>
+                        </div>
+
+                        <!-- Nội dung AI trả về -->
+                        <div id="hp-ai-result" style="display: none;">
+                            <div id="hp-ai-advice" class="hp-ai-advice"></div>
+
+                            <h4 class="hp-ai-subhead">🍱 Thực đơn mẫu chuẩn Calo từ Bếp HealthyFood</h4>
+                            <div id="hp-ai-meals" class="hp-ai-grid"></div>
+
+                            <h4 class="hp-ai-subhead">🏋️ Lịch tập luyện 7 ngày (Thứ 2 – Chủ Nhật)</h4>
+                            <div id="hp-ai-workouts" class="hp-ai-grid"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NAVIGATION BUTTONS -->
+                <div class="hp-form-navigation">
+                    <button type="button" class="hp-back-button" id="hp-prev-btn" onclick="hpPrevStep()" hidden>
+                        ← Quay lại
+                    </button>
+                    <button type="button" class="hp-next-button" id="hp-next-btn" onclick="hpNextStep()">
+                        Tiếp tục →
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- BOTTOM NOTE -->
+        <section class="hp-bottom-note">
+            <span class="hp-bottom-mark">🌿</span>
+            <div>
+                <h2>Cam kết từ Bếp HealthyFood</h2>
+                <p>
+                    Tính năng tính Calo và thiết kế lộ trình bằng AI hoàn toàn miễn phí cho mọi khách hàng.
+                    Mọi suất ăn khi đặt từ bếp đều được chế biến tươi mới mỗi sáng từ nguồn thực phẩm chuẩn VietGAP,
+                    sử dụng dầu Oliu nguyên chất và định lượng chính xác bằng cân tiểu ly.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER CHUNG -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4 class="footer-logo">Healthy<span>Food</span></h4>
+                <p class="footer-slogan">"Tròn vị thiên nhiên – Trọn vẹn sức khỏe"</p>
+                <p class="footer-desc">
+                    Chuyên cung cấp các bữa ăn dinh dưỡng, nguyên liệu hữu cơ tươi sạch mỗi ngày, giúp bạn duy trì vóc dáng và lối sống lành mạnh.
+                </p>
+                <ul class="footer-contact">
+                    <li>📍 <strong>Địa chỉ:</strong> Số 12, Chùa Bộc, Đống Đa, Hà Nội</li>
+                    <li>📞 <strong>Hotline:</strong> <a href="tel:0827827564">0827 827 564</a></li>
+                    <li>✉️ <strong>Email:</strong> <a href="mailto:27A4043361@hvnh.edu.vn">27A4043361@hvnh.edu.vn</a></li>
+                    <li>⏰ <strong>Mở cửa:</strong> 07:30 – 21:30 (Thứ 2 - Chủ Nhật)</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Thực Đơn & Dịch Vụ</h4>
+                <ul class="footer-links">
+                    <li><a href="product.html">Thực đơn Eat Clean hàng ngày</a></li>
+                    <li><a href="product.html">Gói ăn giảm cân / Tăng cơ</a></li>
+                    <li><a href="product.html">Salad & Nước ép Detox</a></li>
+                    <li><a href="healthy-plan.html">Tính chỉ số Calo (TDEE / BMI)</a></li>
+                    <li><a href="../index.html#about">Câu chuyện thương hiệu</a></li>
+                    <li><a href="News.html">Blog sống xanh & Dinh dưỡng</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Hỗ Trợ Khách Hàng</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Hướng dẫn đặt hàng & Thanh toán</a></li>
+                    <li><a href="#">Chính sách giao hàng hỏa tốc</a></li>
+                    <li><a href="#">Cam kết tươi sạch & Hoàn tiền</a></li>
+                    <li><a href="#">Chính sách bảo mật thông tin</a></li>
+                    <li><a href="#">Điều khoản dịch vụ</a></li>
+                    <li><a href="#">Câu hỏi thường gặp (FAQ)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Phương thức đặt món</h4>
+                <h5>Đặt món qua ứng dụng</h5>
+                <div class="footer-badges">
+                    <a href="#" class="badge grab">GrabFood</a>
+                    <a href="#" class="badge shopee">ShopeeFood</a>
+                    <a href="#" class="badge be">BeFood</a>
+                </div>
+                <h5>Phương thức thanh toán</h5>
+                <div class="footer-badges">
+                    <span class="pay-tag">Tiền mặt</span>
+                    <span class="pay-tag">Chuyển khoản ngân hàng</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <div>
+                    <p>&copy; 2026 <strong>HealthyFood</strong>. All rights reserved.</p>
+                    <p class="footer-cert">Chứng nhận An toàn Vệ sinh Thực phẩm | Nguyên liệu chuẩn VietGAP</p>
+                </div>
+                <div class="footer-socials">
+                    <a href="#">Facebook</a>
+                    <span>•</span>
+                    <a href="#">Instagram</a>
+                    <span>•</span>
+                    <a href="#">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS chung & JS riêng -->
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/account-menu.js"></script>
+    <script src="../assets/js/healthy-plan.js"></script>
+
+</body>
+</html>
