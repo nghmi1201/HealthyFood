@@ -30,5 +30,13 @@
     "phone": "0916845586",
     "passwordHash": "$2b$12$UZt1IE28GyaZpXzhbiYYxuh/2uddX8ToyPnckVWx8wb1aJ76X4yfq",
     "createdAt": "2026-11-16T03:48:07.061Z"
+  },
+  {
+    "id": "62e4e62f-64d2-4a0b-b89d-77e2a00db9a9",
+    "fullName": "Thu Trà My",
+    "email": "traancut@gmail.hihi",
+    "phone": "0392042321",
+    "passwordHash": "$2b$12$Wl7.aF6wBj.AltG6qQdbMOI0FO0YkTclZvJRyQRJ1eWhF9xynqeSS",
+    "createdAt": "2026-11-22T14:27:21.414Z"
   }
 ]

@@ -437,6 +437,8 @@ section {
     background: white;
     box-shadow: 0 4px 18px rgba(73, 38, 47, 0.05);
     transition: transform 0.3s, box-shadow 0.3s;
+
+
 }
 
 .product-card:hover {
@@ -455,6 +457,7 @@ section {
     color: var(--burgundy);
     font-size: 15px;
     text-align: center;
+    background-color: #eff4ec;
 }
 
 /* Nếu sau này product-img chứa thẻ img */
@@ -1724,4 +1727,16 @@ header .account-box .account-avatar { cursor: pointer; }
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+/* Hai nút mua hàng trên trang chi tiết sản phẩm */
+.buy-row #btnAddCart,
+.buy-row #btnBuyNow {
+    background: var(--button-blue, #80aee8);
+    color: var(--button-ink, #5b0015);
+    border: 1px solid var(--button-ink, #5b0015);
+}
+
+.buy-row #btnAddCart:hover:not(:disabled),
+.buy-row #btnBuyNow:hover:not(:disabled) {
+    background: var(--button-hover, #6a9cd7);
 }
