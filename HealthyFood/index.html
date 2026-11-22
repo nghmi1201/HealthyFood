@@ -50,14 +50,32 @@
   <main>
 
     <!-- 2. BANNER -->
-    <section id="banner" class="sec-banner">
-      <div class="container banner-inner">
-        <h1>TRÒN VỊ THIÊN NHIÊN - TRỌN VẸN SỨC KHỎE </h1>
-        <p>Nuôi dưỡng cơ thể từ nguồn dinh dưỡng thuần khiết, đánh thức sức khỏe và vẻ đẹp từ sâu bên trong</p>
-       <a href="demogame.html" class="btn btn-primary">Game vui có thưởng </a>
-        <a href="pages/calculator.html" class="btn btn-primary">Tính BMI</a>
-      </div>
-    </section>
+   <section id="banner" class="sec-banner" aria-label="Khám phá HealthyFood">
+    <div class="banner-track" id="bannerTrack">
+
+        <!-- Slide 1: Trang chủ -->
+        <div class="banner-slide">
+            <div class="container banner-inner">
+                <h1>TRÒN VỊ THIÊN NHIÊN - TRỌN VẸN SỨC KHỎE</h1>
+                <p>Nuôi dưỡng cơ thể từ nguồn dinh dưỡng thuần khiết,
+                    đánh thức sức khỏe và vẻ đẹp từ sâu bên trong</p>
+
+                <a href="demogame.html" class="btn btn-primary">Game vui có thưởng</a>
+                <a href="pages/calculator.html" class="btn btn-primary">Tính BMI</a>
+            </div>
+        </div>
+                <!-- Slide 2: Banner ăn mừng -->
+        <div class="banner-slide">
+            <img src="assets/images/an-mung.png" alt="Ăn mừng cùng HealthyFood">
+        </div>
+    </div> <!-- Đóng bannerTrack ở đây để hai mũi tên đứng yên khi lướt -->
+
+    <div class="banner-nav">
+        <button type="button" id="bannerPrev" aria-label="Banner trước">←</button>
+        <button type="button" id="bannerNext" aria-label="Banner tiếp theo">→</button>
+    </div>
+</section>
+</section>
 
     <!-- 3. GIỚI THIỆU HEALTHYFOOD -->
     <section id="about" class="sec-about">
@@ -299,6 +317,21 @@
   <script src="assets/js/home-news.js"></script>
   <script src="assets/js/account-menu.js"></script>
   <script src="assets/js/profile.js"></script>
+  <script>
+    const track = document.getElementById("bannerTrack");
+
+    function chuyenBanner(huong) {
+        const soBanner = track.children.length;
+        const chieuRong = track.clientWidth;
+        const hienTai = Math.round(track.scrollLeft / chieuRong);
+        const tiepTheo = (hienTai + huong + soBanner) % soBanner;
+
+        track.scrollTo({ left: tiepTheo * chieuRong });
+    }
+
+    document.getElementById("bannerPrev").onclick = () => chuyenBanner(-1);
+    document.getElementById("bannerNext").onclick = () => chuyenBanner(1);
+</script>
 </body>
 </html>
 <!-- ======================================================== -->

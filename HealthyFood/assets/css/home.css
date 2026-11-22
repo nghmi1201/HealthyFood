@@ -1741,3 +1741,75 @@ header .account-box .account-avatar { cursor: pointer; }
 .buy-row #btnBuyNow:hover:not(:disabled) {
     background: var(--button-hover, #6a9cd7);
 }
+#banner.sec-banner {
+    position: relative;
+    align-items: stretch;
+}
+
+#banner .banner-track {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+#banner .banner-slide {
+    position: relative;
+    flex: 0 0 100%;
+    min-width: 0;
+    align-content: center;
+    scroll-snap-align: start;
+}
+
+#banner .banner-slide > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Chừa chỗ hai bên để mũi tên không đè lên chữ */
+#banner .banner-inner {
+    width: min(1200px, calc(100% - 112px));
+}
+
+#banner .banner-nav {
+    position: absolute;
+    inset: 50% 8px auto;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+    pointer-events: none;
+}
+
+#banner .banner-nav button {
+    pointer-events: auto;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--button-blue, #80aee8);
+    color: var(--button-ink, #5b0015);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    #banner .banner-track {
+        scroll-behavior: smooth;
+    }
+}
+#banner .banner-slide:nth-child(2) > img {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: min(100%, 1500px);
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
