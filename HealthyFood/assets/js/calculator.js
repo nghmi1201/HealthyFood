@@ -228,6 +228,16 @@
 
         document.getElementById("bmiStatus").innerText = status;
 
+        // Gợi ý lộ trình giảm cân khi BMI từ 25 trở lên (nhóm "Thừa cân" và "Béo phì")
+
+        const weightLossCta = document.getElementById("weightLossCta");
+
+        if (weightLossCta) {
+
+            weightLossCta.style.display = bmi >= 25 ? "block" : "none";
+
+        }
+
         // Hiện khu vực kết quả
 
         document.getElementById("result").style.display = "block";
@@ -255,6 +265,14 @@
         document.getElementById("error").innerHTML = "";
 
         document.getElementById("result").style.display = "none";
+
+        const weightLossCta = document.getElementById("weightLossCta");
+
+        if (weightLossCta) {
+
+            weightLossCta.style.display = "none";
+
+        }
 
     }
 
