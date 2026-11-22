@@ -135,3 +135,15 @@
   margin-top: 0 !important;
   border-radius: 0 !important;
 }
+/* Hai nút mua hàng trên trang chi tiết sản phẩm */
+.buy-row #btnAddCart,
+.buy-row #btnBuyNow {
+    background: var(--button-blue, #80aee8);
+    color: var(--button-ink, #5b0015);
+    border: 1px solid var(--button-ink, #5b0015);
+}
+
+.buy-row #btnAddCart:hover:not(:disabled),
+.buy-row #btnBuyNow:hover:not(:disabled) {
+    background: var(--button-hover, #6a9cd7);
+}
