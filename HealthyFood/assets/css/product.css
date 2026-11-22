@@ -99,3 +99,39 @@
     max-width: 100%;
   }
 }
+.product-image,
+.product-card img,
+.product-item img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1 !important; /* Ép tỷ lệ vuông 1:1 khớp tuyệt đối với ảnh */
+  object-fit: cover !important;   /* Tràn khít khung, loại bỏ hoàn toàn viền hở */
+  display: block;
+  background-color: #eff4ec;
+}
+
+
+.product-image-wrap,
+.product-card-img,
+.product-thumb {
+  height: auto !important;
+  aspect-ratio: 1 / 1 !important;
+  background-color: #eff4ec !important;
+  overflow: hidden;
+}
+/* Tự động tìm thẻ bao ngoài trực tiếp và thẻ card chứa ảnh để xóa khoảng trắng trên */
+*:has(> .product-image) {
+  padding: 0 !important;
+  margin-top: 0 !important;
+  overflow: hidden !important;
+}
+
+*:has(> *:has(> .product-image)) {
+  padding-top: 0 !important;
+  overflow: hidden !important;
+}
+
+.product-image {
+  margin-top: 0 !important;
+  border-radius: 0 !important;
+}
