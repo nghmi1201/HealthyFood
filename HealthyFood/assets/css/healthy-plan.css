@@ -142,7 +142,7 @@
     padding: 15px 24px;
     color: var(--hp-white);
     background: var(--hp-wine);
-    border: none;
+border: none;
     border-radius: 6px;
     font-size: 15px;
     font-weight: 700;
@@ -295,7 +295,7 @@
 
 .hp-strip-number {
     grid-row: span 2;
-    color: var(--hp-wine);
+color: var(--hp-wine);
     font-family: 'Times New Roman', Times, serif;
     font-size: 28px;
 }
@@ -460,7 +460,7 @@
     min-height: 185px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+align-items: flex-start;
     padding: 24px;
     border: 1px solid transparent;
     border-radius: 10px;
@@ -617,7 +617,7 @@
 
 .hp-metric-preview > div {
     display: flex;
-    flex-direction: column;
+flex-direction: column;
     gap: 8px;
     padding: 18px;
     background: var(--hp-cream);
@@ -769,7 +769,7 @@
 .hp-duration-content strong {
     margin-top: 20px;
     color: var(--hp-wine);
-    font-family: 'Times New Roman', Times, serif;
+font-family: 'Times New Roman', Times, serif;
     font-size: 48px;
     line-height: 1;
 }
@@ -926,7 +926,7 @@
 }
 
 .hp-ai-advice {
-    padding: 16px 18px;
+padding: 16px 18px;
     margin-bottom: 22px;
     background: #f0f8f1;
     border: 1px solid #b8d9c1;
@@ -1088,7 +1088,7 @@
 
 body.healthy-plan-page footer.site-footer {
     display: block;
-    width: 100%;
+width: 100%;
     max-width: none;
     margin: 0;
     border-radius: 0;
@@ -1175,4 +1175,16 @@ body.healthy-plan-page .footer-grid {
         grid-template-columns: 1fr;
         gap: 24px;
     }
+}
+/* Header trang lộ trình dùng cùng phông với trang chủ */
+.healthy-plan-page .site-header {
+    font-family: "Be Vietnam Pro", Arial, sans-serif;
+}
+
+.healthy-plan-page .site-header .logo a {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.healthy-plan-page .site-header .btn-cart {
+    font-weight: 700;
 }

@@ -174,7 +174,7 @@ body.product-page {
 }
 
 .logo a::before {
-    content: "🌿 ";
+    content: " ";
 }
 
 .main-nav {
