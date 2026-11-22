@@ -8,6 +8,15 @@
     const API_ORDERS = "http://127.0.0.1:3000/api/orders";
     const API_ME = "http://127.0.0.1:3000/api/me";
     const PENDING_KEY = "healthyfood_pending_orders";
+    // ===== Cấu hình thanh toán QR (sửa thành tài khoản thật của bạn) =====
+    const QR_MINUTES = 5;
+    const QR_CONFIG = {
+        bankId: "MB",                    // mã ngân hàng theo VietQR: MB, VCB, TCB, ACB, BIDV...
+        bankName: "MB Bank",
+        accountNo: "0123456789",
+        accountName: "CONG TY HEALTHYFOOD"
+    };
+    let qr = null; // { code, total, expiresAt, timerId }
 
     const $ = (id) => document.getElementById(id);
     const money = Cart.formatVND;
@@ -115,7 +124,13 @@
         if (confirm("Xóa toàn bộ sản phẩm trong giỏ hàng?")) Cart.clear();
     });
 
-    document.addEventListener("cart:change", render);
+    document.addEventListener("cart:change", function () {
+        if (qr) {
+            stopQr();
+            Cart.toast("Giỏ hàng đã thay đổi, vui lòng tạo lại mã QR.");
+        }
+        render();
+    });
 
     /* ---------- Tỉnh / Quận ---------- */
 
@@ -200,7 +215,8 @@
             },
             invoice: invoice,
             items: Cart.items().map(i => ({ id: i.id, name: i.name, price: i.price, qty: i.qty })),
-            paymentMethod: "cod",
+            paymentMethod: selectedPayment(),
+            paymentRef: qr ? qr.code : null,
             total: Cart.subtotal()
         };
     }
@@ -242,7 +258,15 @@
         if (Cart.items().length === 0) return;
         if (!validate()) return;
 
-        const btn = $("btnOrder");
+        // Chọn chuyển tiền QR: hiện mã QR, chưa gửi đơn
+        if (selectedPayment() === "qr") {
+            startQr();
+            return;
+        }
+        await submitOrder($("btnOrder"), "Đặt hàng");
+    }
+
+    async function submitOrder(btn, label) {
         btn.disabled = true;
         btn.textContent = "Đang gửi đơn...";
 
@@ -250,12 +274,13 @@
         const result = await sendOrder(order);
 
         btn.disabled = false;
-        btn.textContent = "Đặt hàng";
+        btn.textContent = label;
 
         if (result.rejected) {
             showMessage(result.message);
             return;
         }
+        if (qr) stopQr(); // dừng đồng hồ trước khi Cart.clear() trong showDone
         showDone(result, order);
     }
 
@@ -267,6 +292,8 @@
 
         const localNote = result.local
             ? `<p class="cart-item-meta">Đơn đang được lưu tạm trên trình duyệt vì chưa kết nối được máy chủ.</p>` : "";
+        const payNote = order.paymentMethod === "qr"
+            ? `<p class="cart-item-meta">Nội dung chuyển khoản: <b>${esc(order.paymentRef)}</b>. Đơn sẽ được xác nhận khi shop nhận được tiền.</p>` : "";
 
         const box = $("orderDone");
         box.innerHTML = `
@@ -274,6 +301,7 @@
             <p>Cảm ơn ${esc(order.customer.fullName)}. HealthyFood sẽ gọi đến số ${esc(order.customer.phone)} để xác nhận đơn.</p>
             <span class="order-code">Mã đơn: ${esc(result.orderId)}</span>
             <p>Thành tiền: <strong>${money(order.total)}</strong></p>
+            ${payNote}
             ${localNote}
             <p><a class="cart-back" href="product.html">&lsaquo; Tiếp tục mua sắm</a></p>`;
         box.hidden = false;
@@ -283,6 +311,108 @@
     $("orderForm").addEventListener("submit", function (e) {
         e.preventDefault();
         placeOrder();
+    });
+
+    /* ---------- Thanh toán chuyển tiền QR ---------- */
+
+    function selectedPayment() {
+        return document.querySelector('input[name="payment"]:checked').value;
+    }
+
+    function qrImageUrl(total, code) {
+        return "https://img.vietqr.io/image/" + QR_CONFIG.bankId + "-" + QR_CONFIG.accountNo +
+            "-compact2.png?amount=" + total +
+            "&addInfo=" + encodeURIComponent(code) +
+            "&accountName=" + encodeURIComponent(QR_CONFIG.accountName);
+    }
+
+    function startQr() {
+        stopQr();
+        const items = Cart.items();
+        const total = Cart.subtotal();
+        const code = "HF" + Date.now().toString(36).toUpperCase();
+        qr = { code: code, total: total, expiresAt: Date.now() + QR_MINUTES * 60 * 1000, timerId: null };
+
+        $("qrItems").innerHTML = items.map(i => `
+            <tr>
+                <td>${esc(i.name)}</td>
+                <td class="num">${i.qty}</td>
+                <td class="num">${money(i.price)}</td>
+                <td class="num">${money(i.price * i.qty)}</td>
+            </tr>`).join("");
+        $("qrTotal").textContent = money(total);
+        $("qrBank").textContent = QR_CONFIG.bankName;
+        $("qrAccount").textContent = QR_CONFIG.accountNo;
+        $("qrName").textContent = QR_CONFIG.accountName;
+        $("qrCode").textContent = code;
+        $("qrImg").src = qrImageUrl(total, code);
+
+        $("qrImg").hidden = false;
+        $("qrTimerRow").hidden = false;
+        $("qrExpired").hidden = true;
+        $("qrPaid").hidden = false;
+        $("qrRegen").hidden = true;
+        $("qrIdle").hidden = true;
+        $("qrBox").hidden = false;
+        $("btnOrder").disabled = true;
+
+        tickQr();
+        qr.timerId = setInterval(tickQr, 1000);
+    }
+
+    function tickQr() {
+        if (!qr) return;
+        const left = Math.max(0, qr.expiresAt - Date.now());
+        const sec = Math.ceil(left / 1000);
+        const pad = (n) => String(n).padStart(2, "0");
+        $("qrTimer").textContent = pad(Math.floor(sec / 60)) + ":" + pad(sec % 60);
+        $("qrTimer").classList.toggle("warn", sec <= 60);
+        if (left <= 0) expireQr();
+    }
+
+    function expireQr() {
+        clearInterval(qr.timerId);
+        $("qrImg").hidden = true;
+        $("qrTimerRow").hidden = true;
+        $("qrExpired").hidden = false;
+        $("qrPaid").hidden = true;
+        $("qrRegen").hidden = false;
+    }
+
+    function stopQr() {
+        if (qr) clearInterval(qr.timerId);
+        qr = null;
+        $("qrBox").hidden = true;
+        $("qrIdle").hidden = false;
+        $("btnOrder").disabled = false;
+    }
+
+    // Chuyển tab COD <-> QR
+    document.querySelectorAll('input[name="payment"]').forEach(function (radio) {
+        radio.addEventListener("change", function () {
+            const isQr = selectedPayment() === "qr";
+            $("payCod").hidden = isQr;
+            $("payQr").hidden = !isQr;
+            $("tabCod").classList.toggle("active", !isQr);
+            $("tabQr").classList.toggle("active", isQr);
+            if (!isQr && qr) stopQr();
+        });
+    });
+
+    // Hủy: đóng mã QR, giỏ hàng vẫn giữ nguyên
+    $("qrCancel").addEventListener("click", function () {
+        stopQr();
+        Cart.toast("Đã hủy thanh toán QR.");
+    });
+
+    $("qrRegen").addEventListener("click", function () {
+        if (validate()) startQr();
+    });
+
+    // Khách báo đã chuyển tiền: gửi đơn lên server
+    $("qrPaid").addEventListener("click", function () {
+        if (!qr || Date.now() > qr.expiresAt) return;
+        submitOrder($("qrPaid"), "Tôi đã chuyển tiền");
     });
 
     /* ---------- Báo giá: dữ liệu chung ---------- */

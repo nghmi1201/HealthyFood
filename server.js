@@ -248,7 +248,8 @@ const ordersFile = path.join(__dirname, "server", "data", "invoices.json");
 const productsFile = path.join(__dirname, "HealthyFood", "assets", "data", "products.json");
 
 app.post("/api/orders", async (req, res) => {
-    const { customer, invoice, items, paymentMethod } = req.body || {};
+    // [QR] 4a: thêm paymentRef (mã chuyển khoản)
+    const { customer, invoice, items, paymentMethod, paymentRef } = req.body || {};
 
     // Kiểm tra thông tin khách hàng
     if (
@@ -264,8 +265,12 @@ app.post("/api/orders", async (req, res) => {
         return res.status(400).json({ message: "Giỏ hàng trống hoặc không hợp lệ" });
     }
 
-    if (paymentMethod !== "cod") {
+    // [QR] 4b: cho phép thanh toán COD hoặc chuyển tiền QR
+    if (!["cod", "qr"].includes(paymentMethod)) {
         return res.status(400).json({ message: "Phương thức thanh toán không hợp lệ" });
+    }
+    if (paymentMethod === "qr" && !/^HF[A-Z0-9]{4,20}$/.test(String(paymentRef || ""))) {
+        return res.status(400).json({ message: "Mã thanh toán QR không hợp lệ" });
     }
 
     try {
@@ -309,6 +314,9 @@ app.post("/api/orders", async (req, res) => {
             } : null,
             items: orderItems,
             paymentMethod,
+            // [QR] 4c: mã chuyển khoản + trạng thái thanh toán
+            paymentRef: paymentMethod === "qr" ? paymentRef : null,
+            paymentStatus: paymentMethod === "qr" ? "awaiting_confirmation" : "cod",
             total,
             userEmail: req.session.user ? req.session.user.email : null
         };
