@@ -350,13 +350,16 @@
   }
 
   /* 3. Căn chỉnh khung cửa sổ chat popup mở ra ngay phía trên nút bên phải */
-  #dify-chatbot-bubble-window {
-    position: fixed !important;
-    bottom: 96px !important;
-    right: 24px !important;
-    width: 24rem !important;
-    height: 38rem !important;
-    max-width: 90vw !important;
-    max-height: 80vh !important;
-    z-index: 99999 !important;
-    border-radius: 16px
+#dify-chatbot-bubble-window {
+  position: fixed !important;
+  bottom: 96px !important;
+  right: 24px !important;
+  width: 24rem !important;
+  height: 38rem !important;
+  max-width: 90vw !important;
+  max-height: 80vh !important;
+  z-index: 99999 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}

@@ -120,13 +120,56 @@
           <!-- Phương thức thanh toán -->
           <section class="cart-box">
             <h2>Phương thức thanh toán</h2>
-            <label class="pay-option">
-              <input type="radio" name="payment" value="cod" checked>
-              Thanh toán khi nhận hàng
-            </label>
+
+            <div class="pay-tabs">
+              <label class="pay-tab active" id="tabCod">
+                <input type="radio" name="payment" value="cod" checked>
+                Thanh toán khi nhận hàng
+              </label>
+              <label class="pay-tab" id="tabQr">
+                <input type="radio" name="payment" value="qr">
+                Chuyển tiền QR
+              </label>
+            </div>
+
+            <div id="payCod" class="pay-panel">
+              <p>Bạn thanh toán bằng tiền mặt khi nhận hàng.</p>
+            </div>
+
+            <div id="payQr" class="pay-panel" hidden>
+              <p id="qrIdle">Bấm <b>Đặt hàng</b> để tạo mã QR. Mã có hiệu lực trong 5 phút.</p>
+
+              <div id="qrBox" hidden>
+                <table class="qr-table">
+                  <thead>
+                    <tr><th>Món ăn</th><th class="num">SL</th><th class="num">Đơn giá</th><th class="num">Thành tiền</th></tr>
+                  </thead>
+                  <tbody id="qrItems"></tbody>
+                  <tfoot>
+                    <tr><td colspan="3">Tổng cần chuyển</td><td class="num" id="qrTotal"></td></tr>
+                  </tfoot>
+                </table>
+
+                <div class="qr-main">
+                  <img id="qrImg" alt="Mã QR chuyển tiền" width="220" height="220">
+                  <div class="qr-info">
+                    <p>Ngân hàng: <b id="qrBank"></b></p>
+                    <p>Số tài khoản: <b id="qrAccount"></b></p>
+                    <p>Chủ tài khoản: <b id="qrName"></b></p>
+                    <p>Nội dung chuyển khoản: <b id="qrCode"></b></p>
+                    <p id="qrTimerRow">Mã hết hạn sau <strong id="qrTimer" class="qr-timer">05:00</strong></p>
+                    <p id="qrExpired" class="qr-expired" hidden>Mã QR đã hết hạn.</p>
+                  </div>
+                </div>
+
+                <div class="qr-actions">
+                  <button type="button" id="qrPaid" class="btn-order">Tôi đã chuyển tiền</button>
+                  <button type="button" id="qrRegen" class="btn-order" hidden>Tạo lại mã QR</button>
+                  <button type="button" id="qrCancel" class="btn-outline">Hủy</button>
+                </div>
+              </div>
+            </div>
           </section>
-        </form>
-      </div>
 
       <!-- Tổng tiền + hành động -->
       <aside class="cart-box cart-summary">
