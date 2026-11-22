@@ -1535,18 +1535,193 @@ header .account-box .account-avatar { cursor: pointer; }
     border-color: #6A9CD7;
 }
 
+/* Căn giữa nút Xem tất cả dưới hàng sản phẩm */
 .products-more {
-  text-align: center;
-  margin: 24px 0;
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / -1;
+    margin: 24px 0 0;
 }
 
-.products-more .btn {
-  background: #80AEE8;
-  color: #5B0015;
-  border-color: #80AEE8;
+/* Màu nút Xem tất cả và Xem chi tiết */
+.products-more > a.btn,
+#productContainer a.detail-button {
+    background: #80AEE8;
+    color: #5B0015;
+    border-color: #80AEE8;
 }
 
-.products-more .btn:hover {
-  background: #6A9CD7;
-  border-color: #6A9CD7;
+/* Khi rê chuột */
+.products-more > a.btn:hover,
+#productContainer a.detail-button:hover {
+    background: #6A9CD7;
+    border-color: #6A9CD7;
+}
+#profileForm {
+    max-width: 520px;
+    margin: 20px auto;
+    padding: 28px;
+    background: #fffdf6;
+    border: 1px solid #ded5bf;
+    border-radius: 18px;
+}
+
+.profile-identity {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    color: #5b0015;
+}
+
+#profileAvatar {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 110px;
+    height: 110px;
+    overflow: hidden;
+    border: 3px solid #80aee8;
+    border-radius: 50%;
+    background: #dae7f9;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+#avatarPreview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#avatarPreview[hidden] {
+    display: none;
+}
+/* Căn khung hồ sơ vào giữa trang */
+#profileForm {
+    max-width: 520px;
+    margin: 24px auto;
+    padding: 28px;
+    background: #fffdf6;
+    border: 1px solid #ded5bf;
+    border-radius: 18px;
+}
+
+/* Căn avatar và tên vào giữa khung */
+.profile-identity {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+}
+
+#profileAvatar {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 110px;
+    height: 110px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #dae7f9;
+    color: #5b0015;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+#avatarPreview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#avatarPreview[hidden] {
+    display: none;
+}
+
+#profileForm {
+    box-sizing: border-box;
+    width: min(900px, 100%);
+    max-width: none;
+    margin: 24px auto;
+    padding: clamp(20px, 4vw, 44px);
+    border: 1px solid #ded5bf;
+    border-radius: 20px;
+    background: #fffdf6;
+}
+
+#profileForm .profile-identity {
+    display: grid;
+    justify-items: center;
+    margin-bottom: 24px;
+}
+
+#editFields {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+    margin: 20px 0;
+    padding: 0;
+    border: 0;
+}
+
+#editFields label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+#editFields input, #editFields select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cdbfc0;
+    border-radius: 8px;
+    background: white;
+    color: #30262a;
+    font: inherit;
+}
+
+#editFields:disabled :is(input, select) {
+    background: #f5f1e7;
+    opacity: 1;
+}
+
+#profileForm .profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#profileForm .profile-actions button {
+    padding: 10px 18px;
+    border: 1px solid #5b0015;
+    border-radius: 24px;
+    background: #80aee8;
+    color: #5b0015;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#profileForm #cancelBtn { background: transparent; }
+#profileForm [hidden] { display: none !important; }
+
+
+.site-header .account-avatar {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.site-header .account-avatar img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

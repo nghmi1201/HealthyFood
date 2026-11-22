@@ -29,7 +29,30 @@ username.title = "Mở menu tài khoản";
 username.setAttribute("aria-label", "Mở menu tài khoản");
 
 // Ví dụ: "Duy Anh Nguyễn" sẽ hiện chữ D khi chưa có ảnh.
-username.textContent = data.user.fullName.trim().charAt(0).toUpperCase() || "👤";
+async function hienAnhDaiDien() {
+    try {
+        const response = await fetch("http://127.0.0.1:3000/api/profile/contact", {
+            credentials: "include",
+            cache: "no-store"
+        });
+
+        if (!response.ok) return;
+
+        const profile = await response.json();
+        if (!profile.avatar) return;
+
+        const img = new Image();
+        img.alt = "";
+
+        // Khi ảnh tải xong, thay chữ D bằng ảnh ngay trong nút hiện tại
+        img.onload = () => username.replaceChildren(img);
+        img.src = profile.avatar;
+    } catch (error) {
+        console.error("Không tải được ảnh đại diện:", error);
+    }
+}
+
+hienAnhDaiDien();
      
 
         // Nút đăng xuất

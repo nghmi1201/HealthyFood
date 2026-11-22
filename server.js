@@ -330,6 +330,123 @@ app.post("/api/orders", async (req, res) => {
     }
 });
 
+const profileDir = path.join(require("node:os").homedir(), ".healthyfood", "profiles");
+
+function getProfileFile(id) {
+    const key = require("node:crypto")
+        .createHash("sha256")
+        .update(String(id))
+        .digest("hex");
+
+    return path.join(profileDir, key + ".json");
+}
+
+async function readSavedProfile(id) {
+    try {
+        const content = await fs.readFile(getProfileFile(id), "utf8");
+        return JSON.parse(content);
+    } catch (error) {
+        if (error.code === "ENOENT") return {};
+        throw error;
+    }
+}
+app.get("/api/profile/contact", async (req, res) => {
+    const userId = req.session.user?.id;
+
+    if (!userId) {
+        return res.status(401).json({ message: "Bạn cần đăng nhập." });
+    }
+
+    try {
+        // Đọc user.json và tìm đúng người đang đăng nhập
+        const content = await fs.readFile(usersFile, "utf8");
+        const users = JSON.parse(content);
+        const user = users.find(item => item.id === userId);
+
+        if (!user) {
+            return res.status(404).json({ message: "Không tìm thấy tài khoản." });
+        }
+
+        res.set("Cache-Control", "no-store");
+        const saved = await readSavedProfile(user.id);
+
+res.json({
+    id: user.id,
+    fullName: saved.fullName ?? user.fullName,
+    email: user.email,
+    phone: user.phone || "",
+    birthday: saved.birthday || "",
+    gender: saved.gender || "",
+    avatar: saved.avatar || ""
+});
+    } catch (error) {
+        console.error("Lỗi đọc thông tin khách hàng:", error);
+        res.status(500).json({ message: "Không đọc được thông tin khách hàng." });
+    }
+});
+
+app.post("/api/profile/contact", async (req, res) => {
+    const user = req.session.user;
+    if (!user) {
+        return res.status(401).json({ message: "Bạn cần đăng nhập." });
+    }
+
+    const body = req.body || {};
+    const allowed = ["id", "fullName", "birthday", "gender", "avatar"];
+
+    if (Object.keys(body).some(key => !allowed.includes(key))) {
+        return res.status(400).json({ message: "Có trường không được phép sửa." });
+    }
+
+    if (body.id !== user.id) {
+        return res.status(409).json({ message: "Tài khoản đã thay đổi. Hãy tải lại trang." });
+    }
+
+    const { birthday, gender, avatar } = body;
+    const fullName = typeof body.fullName === "string" ? body.fullName.trim() : "";
+
+    if (!fullName || fullName.length > 150) {
+        return res.status(400).json({ message: "Họ tên cần từ 1 đến 150 ký tự." });
+    }
+
+    if (!["", "Nam", "Nữ", "Khác", "Không muốn chia sẻ"].includes(gender)) {
+        return res.status(400).json({ message: "Giới tính chưa hợp lệ." });
+    }
+
+    if (birthday !== "") {
+        const date = new Date(birthday + "T00:00:00Z");
+        const today = new Date().toLocaleDateString("sv-SE");
+
+        if (typeof birthday !== "string" ||
+            !/^\d{4}-\d{2}-\d{2}$/.test(birthday) ||
+            Number.isNaN(date.getTime()) ||
+            date.toISOString().slice(0, 10) !== birthday ||
+            birthday > today) {
+            return res.status(400).json({ message: "Ngày sinh chưa hợp lệ." });
+        }
+    }
+
+    if (typeof avatar !== "string" || avatar.length > 65000 ||
+        (avatar && !/^data:image\/jpeg;base64,[A-Za-z0-9+/]+={0,2}$/.test(avatar))) {
+        return res.status(400).json({ message: "Ảnh đại diện chưa hợp lệ." });
+    }
+
+    const profile = { fullName, birthday, gender, avatar };
+    const file = getProfileFile(user.id);
+    const temporary = file + "." + require("node:crypto").randomUUID() + ".tmp";
+
+    try {
+        await fs.mkdir(profileDir, { recursive: true });
+        await fs.writeFile(temporary, JSON.stringify(profile), "utf8");
+        await fs.rename(temporary, file);
+        user.fullName = fullName;
+        res.json(profile);
+    } catch (error) {
+        await fs.rm(temporary, { force: true }).catch(() => {});
+        console.error("Lỗi lưu hồ sơ:", error);
+        res.status(500).json({ message: "Chưa lưu được hồ sơ." });
+    }
+});
 // Khởi động server
 app.listen(PORT, () => {
     console.log(`HealthyFood chạy tại http://localhost:${PORT}`);
