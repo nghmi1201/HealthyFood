@@ -1,0 +1,111 @@
+
+/* Khung nút chính và nút phụ. Giữ kích thước của nút +/- và nút đóng. */
+.btn, .detail-button, .btn-buy-now, .btn-add-cart, .cart-empty a,
+.submit-btn, .auth-tabs button, .calculator-page button, .contact-form button,
+.product-page header button, .news-page header button, .btn-block,
+.btn-outline, .tool-row button, .account-btn, .hf-chat-toggle, .hf-chat-send {
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.btn-primary, .detail-button, .btn-buy-now, .submit-btn, .btn-order,
+.hf-chat-toggle, .hf-chat-send, .auth-tabs button.active {
+    background: var(--hf-green);
+    color: white;
+}
+
+.btn-primary:hover, .btn-buy-now:hover, .submit-btn:hover,
+.hf-chat-toggle:hover, .hf-chat-send:hover {
+    background: var(--hf-deep);
+    color: white;
+}
+
+.banner-inner .btn-primary + .btn-primary, .btn-add-cart,
+.auth-tabs button:not(.active), .calculator-page #resetBtn, .tool-row button {
+    background: #fff6f9;
+    border: 1px solid var(--hf-green);
+    color: var(--hf-green);
+}
+
+.banner-inner .btn-primary + .btn-primary:hover,
+.btn-add-cart:hover:not(:disabled), .auth-tabs button:not(.active):hover,
+.calculator-page #resetBtn:hover, .tool-row button:hover {
+    background: var(--hf-pink);
+}
+
+.site-header .btn-cart, .product-page header button, .news-page header button,
+header .account-btn {
+    background: var(--hf-pink);
+    color: var(--hf-deep);
+}
+
+.site-header .btn-cart:hover, .product-page header button:hover,
+.news-page header button:hover, header .account-btn:hover {
+    background: var(--hf-rose);
+}
+
+.game-btn {
+    width: 55px;
+    height: 55px;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid white;
+    border-radius: 50%;
+    background: var(--hf-green);
+    color: white;
+    cursor: pointer;
+}
+.game-btn img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Bóng sát cạnh dưới tạo chiều sâu. Khi nhấn, nút hạ 3px và co nhẹ.
+   Khi thả, đường cong --hf-spring đưa nút vượt vị trí ban đầu rồi trở về. */
+body :is(button, .btn, .detail-button, .cart-empty a, .close-game):not(:disabled):not([aria-disabled="true"]) {
+    translate: 0 0;
+    scale: 1;
+    box-shadow: 0 3px 0 var(--hf-button-edge, rgba(4, 53, 28, .30));
+    transition: translate 320ms var(--hf-spring), scale 320ms var(--hf-spring),
+                background-color 140ms ease, box-shadow 140ms ease;
+}
+
+.qty, .hf-chat-close, .close-game {
+    --hf-button-edge: transparent;
+}
+
+/* Ghi đè hiệu ứng trượt lên khi rê chuột có sẵn trên .btn. */
+.btn:hover { transform: none; }
+
+body :is(button, .btn, .detail-button, .cart-empty a, .close-game):not(:disabled):not([aria-disabled="true"]):active {
+    translate: 0 3px;
+    scale: .97;
+    box-shadow: 0 0 0 transparent;
+    transition-duration: 0s;
+}
+
+body :is(button, a):focus-visible {
+    outline: 3px solid var(--hf-green);
+    outline-offset: 3px;
+}
+
+header :is(button, a):focus-visible, footer a:focus-visible, .hf-chat-close:focus-visible {
+    outline-color: var(--hf-rose);
+}
+
+@media (max-width: 768px) {
+    .product-tools { flex-wrap: wrap; gap: 10px; }
+    .product-tools :is(input, select) { flex: 1 1 180px; min-width: 0; max-width: 100%; }
+    .banner-inner .btn { margin-bottom: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-game-container { animation: none; }
+
+    body :is(button, .btn, .detail-button, .cart-empty a, .close-game):not(:disabled):not([aria-disabled="true"]) {
+        transition: none;
+        translate: none;
+        scale: none;
+    }
+    body :is(button, .btn, .detail-button, .cart-empty a, .close-game):not(:disabled):not([aria-disabled="true"]):active {
+        translate: none;
+        scale: none;
+    }
+}

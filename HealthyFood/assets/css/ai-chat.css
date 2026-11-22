@@ -13,8 +13,8 @@
 }
 
 .hf-chat-toggle {
-    background: #287943;
-    color: white;
+    background: var(--button-blue);
+    color: var(--button-ink);
     border: none;
     border-radius: 30px;
     padding: 15px 22px;
@@ -40,7 +40,7 @@
 }
 
 .hf-chat-header {
-    background: #287943;
+    background: #5B0015;
     color: white;
     padding: 15px;
     display: flex;
@@ -49,11 +49,16 @@
 }
 
 .hf-chat-close {
-    background: transparent;
+    background: var(--button-blue);
     border: none;
-    color: white;
+    color: var(--button-ink);
     cursor: pointer;
     font-size: 24px;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    line-height: 1;
 }
 
 .hf-chat-messages {
@@ -75,13 +80,13 @@
 }
 
 .hf-chat-bot {
-    background: #edf5eb;
-    color: #254b30;
+    background: #F7F2E0;
+    color: #4e2e38;
     align-self: flex-start;
 }
 
 .hf-chat-user {
-    background: #287943;
+    background: #5B0015;
     color: white;
     align-self: flex-end;
 }
@@ -89,15 +94,15 @@
 .hf-chat-product {
     display: block;
     padding: 10px;
-    border: 1px solid #dce8db;
+    border: 1px solid #decec5;
     border-radius: 8px;
-    color: #287943;
+    color: #5B0015;
     text-decoration: none;
     font-size: 14px;
 }
 
 .hf-chat-product:hover {
-    background: #edf5eb;
+    background: #F7F2E0;
 }
 
 .hf-chat-form {
@@ -117,8 +122,8 @@
 }
 
 .hf-chat-send {
-    background: #287943;
-    color: white;
+    background: var(--button-blue);
+    color: var(--button-ink);
     border: none;
     border-radius: 8px;
     padding: 10px 14px;
@@ -136,3 +141,5 @@
         height: 65vh;
     }
 }
+
+.hf-chat button:hover:not(:disabled) { background: var(--button-hover); }

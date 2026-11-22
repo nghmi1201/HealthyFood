@@ -22,5 +22,13 @@
     "phone": "0392042321",
     "passwordHash": "$2b$12$pCvBtmlYvQ19ymPd2Nn0Negj4bgFLbIFgaNV96wNcycnJ/2vOL.Ru",
     "createdAt": "2026-11-15T06:40:11.403Z"
+  },
+  {
+    "id": "4d097c63-717e-402b-86de-a2d0fb11d8e3",
+    "fullName": "việt bảo",
+    "email": "bachahui@gmail.com",
+    "phone": "0916845586",
+    "passwordHash": "$2b$12$UZt1IE28GyaZpXzhbiYYxuh/2uddX8ToyPnckVWx8wb1aJ76X4yfq",
+    "createdAt": "2026-11-16T03:48:07.061Z"
   }
 ]

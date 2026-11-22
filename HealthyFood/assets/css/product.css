@@ -12,7 +12,7 @@
 }
 
 .breadcrumb a {
-  color: #2e6339;
+  color: #5B0015;
   text-decoration: none;
 }
 
@@ -47,14 +47,14 @@
 
 .detail-info-col h1 {
   font-size: 26px;
-  color: #2e6339;
+  color: #5B0015;
   margin-bottom: 15px;
 }
 
 .detail-info-col .price {
   font-size: 24px;
   font-weight: bold;
-  color: #d9534f;
+  color: #922a43;
   margin-bottom: 20px;
 }
 
@@ -75,8 +75,7 @@
 }
 
 .btn-buy-now {
-  background-color: #2e6339;
-  color: #ffffff;
+  color: var(--button-ink);
   border: none;
   padding: 12px 35px;
   font-size: 16px;
@@ -84,10 +83,12 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s;
+    background: var(--button-blue);
 }
 
 .btn-buy-now:hover {
-  background-color: #234d2c;
+  background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 @media (max-width: 768px) {

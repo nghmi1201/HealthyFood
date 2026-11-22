@@ -1,18 +1,22 @@
+@import url("./account-menu.css");
 /* =========================================
    MAIN.CSS - GIAO DIỆN CHUNG HEALTHYFOOD
    Tông màu đồng bộ với home.css
 ========================================= */
 
 :root {
-    --primary-color: #287943;
-    --primary-hover: #205c32;
-    --primary-light: #eaf3e8;
-    --background-color: #f5f8f2;
+    --button-blue: #80AEE8;
+    --button-hover: #6A9CD7;
+    --button-ink: #5B0015;
+    --primary-color: #5B0015;
+    --primary-hover: #460011;
+    --primary-light: #F7F2E0;
+    --background-color: #F7F2E0;
     --white: #ffffff;
-    --text-color: #34483a;
-    --text-muted: #657568;
-    --border-color: #dce5d9;
-    --shadow: 0 4px 16px rgba(35, 75, 45, 0.08);
+    --text-color: #30262a;
+    --text-muted: #716267;
+    --border-color: #decec5;
+    --shadow: 0 4px 16px rgba(81, 28, 44, 0.08);
 }
 
 /* ===== THIẾT LẬP CHUNG ===== */
@@ -66,7 +70,7 @@ body.product-page {
     flex-wrap: wrap;
     gap: 24px;
     padding: 18px 5%;
-    background-color: var(--white);
+    background-color: var(--background-color);
     box-shadow: var(--shadow);
 }
 
@@ -92,7 +96,7 @@ body.product-page {
 }
 
 .product-page header nav a {
-    color: var(--text-color);
+    color: var(--primary-color);
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
@@ -100,7 +104,7 @@ body.product-page {
 }
 
 .product-page header nav a:hover {
-    color: var(--primary-color);
+    color: var(--primary-hover);
 }
 
 /* Nút giỏ hàng */
@@ -109,15 +113,16 @@ body.product-page {
     border: none;
     border-radius: 8px;
     padding: 12px 20px;
-    background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--button-ink);
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    background: var(--button-blue);
 }
 
 .product-page header button:hover {
-    background-color: var(--primary-hover);
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 /* Tiêu đề trang sản phẩm */
@@ -162,7 +167,7 @@ body.product-page {
 }
 
 .logo a {
-    color: var(--green-dark);
+    color: var(--primary-hover);
     font-size: 27px;
     font-weight: 800;
     letter-spacing: -1px;
@@ -179,7 +184,7 @@ body.product-page {
 .product-tools input:focus,
 .product-tools select:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(40, 121, 67, 0.1);
+    box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.1);
 }
 
 /* Lưới sản phẩm */
@@ -194,7 +199,7 @@ body.product-page {
 
 .product-card {
     overflow: hidden;
-    border: 1px solid #e5e9e5;
+    border: 1px solid #eaded5;
     border-radius: 12px;
     background-color: var(--white);
     box-shadow: var(--shadow);
@@ -203,7 +208,7 @@ body.product-page {
 
 .product-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 22px rgba(35, 75, 45, 0.13);
+    box-shadow: 0 8px 22px rgba(81, 28, 44, 0.13);
 }
 
 .product-image {
@@ -266,15 +271,16 @@ body.product-page {
     padding: 11px;
     border: none;
     border-radius: 7px;
-    background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--button-ink);
     cursor: pointer;
     transition: background-color 0.2s ease;
+    background: var(--button-blue);
 }
 
 .detail-button:hover,
 #closeDetail:hover {
-    background-color: var(--primary-hover);
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 /* =========================================
@@ -347,7 +353,7 @@ body.product-page {
 .calculator-page input:focus,
 .calculator-page select:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(40, 121, 67, 0.1);
+    box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.1);
 }
 
 /* Các nút */
@@ -369,21 +375,23 @@ body.product-page {
 }
 
 .calculator-page #calculateBtn {
-    background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--button-ink);
+    background: var(--button-blue);
 }
 
 .calculator-page #calculateBtn:hover {
-    background-color: var(--primary-hover);
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 .calculator-page #resetBtn {
-    background-color: #e9eee7;
-    color: var(--text-color);
+    color: var(--button-ink);
+    background: var(--button-blue);
 }
 
 .calculator-page #resetBtn:hover {
-    background-color: #dce5d9;
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 /* Thông báo lỗi */
@@ -402,7 +410,7 @@ body.product-page {
     padding: 20px;
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    background-color: #f5f8f2;
+    background-color: #F7F2E0;
 }
 
 .calculator-page #result h2 {
@@ -488,26 +496,27 @@ body.product-page {
 }
 /* Chỉnh màu nút */
 .view-all-container .btn-primary {
-    background-color: #c9ad65;
-    color: white;
+    color: var(--button-ink);
     border: none;
     padding: 14px 35px;
     border-radius: 30px;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+    background: var(--button-blue);
 }
 
 /* Hiệu ứng khi di chuột */
 .view-all-container .btn-primary:hover {
-    background-color: #a88c45;
     transform: translateY(-3px);
     transition: 0.3s;
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 /* Tên tài khoản sau khi đăng nhập */
 .account-name {
-    color: #287943;
+    color: #5B0015;
     font-weight: bold;
     margin-right: 10px;
 }
@@ -516,8 +525,8 @@ body.product-page {
 .account-btn {
     padding: 8px 12px;
     margin-left: 6px;
-    background: #287943;
-    color: white;
+    background: var(--button-blue);
+    color: var(--button-ink);
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -525,5 +534,35 @@ body.product-page {
 }
 
 .account-btn:hover {
-    background: #1d5c32;
+    background: var(--button-hover);
+    color: var(--button-ink);
+}
+
+.product-page header .account-name { color: var(--primary-color); }
+body #cartToast { background-color: var(--primary-hover); }
+
+/* Nhấn xuống 3px và nảy nhẹ khi thả. */
+body :is(button, .detail-button, .cart-empty a):not(:disabled):not([aria-disabled="true"]) {
+    transition: transform 320ms cubic-bezier(0.2, 1.9, 0.4, 1),
+                background-color 150ms ease, box-shadow 150ms ease;
+}
+body :is(button, .detail-button, .cart-empty a):not(:disabled):not([aria-disabled="true"]):active {
+    transform: translateY(3px) scale(0.97);
+    transition-duration: 0s;
+}
+@media (prefers-reduced-motion: reduce) {
+    body :is(button, .detail-button, .cart-empty a):not(:disabled):not([aria-disabled="true"]),
+    body :is(button, .detail-button, .cart-empty a):not(:disabled):not([aria-disabled="true"]):active {
+        transition: none;
+        transform: none;
+    }
+}
+
+.product-page header > div:first-child > a:first-child::after {
+    content: "";
+    display: block;
+    width: 65%;
+    height: 5px;
+    margin-top: 2px;
+    background: var(--button-blue);
 }

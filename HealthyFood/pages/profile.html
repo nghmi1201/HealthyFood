@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin cá nhân - HealthyFood</title>
+    <link rel="stylesheet" href="../assets/css/home.css">
+</head>
+<body>
+   <header class="site-header">
+    <div class="container navbar">
+        <div class="logo">
+            <a href="../index.html">HealthyFood</a>
+        </div>
+    </div>
+</header>
+        <h1>              Thông tin cá nhân             </h1>
+<form id="profileForm">
+    <!-- Ảnh đại diện nằm giữa khung -->
+    <div class="profile-identity">
+        <div id="profileAvatar">
+            <span id="avatarLetter">?</span>
+            <img id="avatarPreview" alt="Ảnh đại diện" hidden>
+        </div>
+    </div>
+
+    <!-- Hai dòng này luôn chỉ để xem -->
+    <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+    <p><strong>Số điện thoại:</strong> <span id="profilePhone"></span></p>
+
+    <!-- Ban đầu các ô bên trong đều bị khóa -->
+    <fieldset id="editFields" disabled>
+        <label for="fullName">Họ và tên</label>
+        <input type="text" id="fullName" maxlength="150" required>
+
+        <label for="birthday">Ngày sinh</label>
+        <input type="date" id="birthday">
+
+        <label for="gender">Giới tính</label>
+        <select id="gender">
+            <option value="">Chưa cập nhật</option>
+            <option>Nam</option>
+            <option>Nữ</option>
+            <option>Khác</option>
+        </select>
+
+        <div id="photoRow" hidden>
+            <label for="avatar">Đổi ảnh đại diện</label>
+            <input type="file" id="avatar" accept="image/jpeg,image/png,image/webp">
+        </div>
+    </fieldset>
+
+    <div class="profile-actions">
+        <button type="button" id="editBtn">Chỉnh sửa thông tin cá nhân</button>
+        <button type="button" id="cancelBtn" hidden>Hủy</button>
+        <button type="submit" id="saveBtn" hidden>Lưu thay đổi</button>
+    </div>
+
+    <p id="profileMessage" role="status"></p>
+</form>
+    </main>
+    <script src="../assets/js/profile.js"></script>
+</body>
+</html>

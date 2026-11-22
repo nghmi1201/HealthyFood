@@ -138,15 +138,16 @@
 .contact-form button {
     padding: 12px 22px;
     border: none;
-    background-color: var(--primary-color);
-    color: white;
+    color: var(--button-ink);
     font-weight: bold;
     font-size: 12px;
     cursor: pointer;
+    background: var(--button-blue);
 }
 
 .contact-form button:hover {
-    background-color: var(--primary-hover);
+    background: var(--button-hover);
+    color: var(--button-ink);
 }
 
 #notification {
