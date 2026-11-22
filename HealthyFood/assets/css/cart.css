@@ -604,3 +604,100 @@
 /* Trang giỏ dùng main.css và cart.css. */
 .cart-page-container ~ .site-footer { background: #460011; color: #F7F2E0; }
 .cart-page-container ~ .site-footer a { color: inherit; }
+
+
+/* ===== Thanh toán: tab COD / QR ===== */
+
+.pay-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.pay-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--white);
+    cursor: pointer;
+}
+
+.pay-tab.active {
+    border-color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+.pay-tab input {
+    accent-color: var(--primary-color);
+}
+
+.pay-panel p {
+    margin: 0 0 10px;
+}
+
+.qr-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.qr-table th,
+.qr-table td {
+    padding: 8px 6px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.qr-table .num {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.qr-table tfoot td {
+    font-weight: 700;
+    border-bottom: 0;
+    color: var(--price-red);
+}
+
+.qr-main {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.qr-main img {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--white);
+}
+
+.qr-info p {
+    margin: 0 0 8px;
+}
+
+.qr-timer {
+    font-size: 22px;
+    color: var(--primary-color);
+}
+
+.qr-timer.warn,
+.qr-expired {
+    color: var(--danger);
+}
+
+.qr-expired {
+    font-weight: 700;
+}
+
+.qr-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
