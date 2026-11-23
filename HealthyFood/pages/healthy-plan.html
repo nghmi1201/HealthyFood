@@ -33,7 +33,7 @@
                 </ul>
             </nav>
             <div class="header-actions">
-                <button class="btn btn-cart">Giỏ hàng (0)</button>
+               <button type="button" class="btn btn-cart" onclick="if(typeof openCart==='function'){openCart()}else{window.location.href='product.html'}">Giỏ hàng (0)</button>
             </div>
         </div>
     </header>
@@ -159,8 +159,10 @@
                             <input type="radio" name="goal" value="lose" required>
                             <div class="hp-goal-content goal-pink">
                                 <span class="hp-goal-index">01</span>
-                                <span class="hp-goal-icon">🔥</span>
-                                <strong>Giảm cân & Siết mỡ</strong>
+                                <div class="hp-goal-head">
+                                    <span class="hp-goal-icon">🔥</span>
+                                    <strong>Giảm cân & Siết mỡ</strong>
+                                </div>
                                 <small>Thâm hụt calo an toàn, ưu tiên chất xơ & đạm nạc từ bếp Healthy.</small>
                                 <span class="hp-goal-check">✓</span>
                             </div>
@@ -170,8 +172,10 @@
                             <input type="radio" name="goal" value="gain">
                             <div class="hp-goal-content goal-blue">
                                 <span class="hp-goal-index">02</span>
-                                <span class="hp-goal-icon">📈</span>
-                                <strong>Tăng cân lành mạnh</strong>
+                                <div class="hp-goal-head">
+                                    <span class="hp-goal-icon">📈</span>
+                                    <strong>Tăng cân lành mạnh</strong>
+                                </div>
                                 <small>Tăng cường năng lượng sạch, giàu dinh dưỡng, không tích mỡ xấu.</small>
                                 <span class="hp-goal-check">✓</span>
                             </div>
@@ -181,8 +185,10 @@
                             <input type="radio" name="goal" value="muscle">
                             <div class="hp-goal-content goal-cream">
                                 <span class="hp-goal-index">03</span>
-                                <span class="hp-goal-icon">💪</span>
-                                <strong>Tăng cơ bắp</strong>
+                                <div class="hp-goal-head">
+                                    <span class="hp-goal-icon">💪</span>
+                                    <strong>Tăng cơ bắp</strong>
+                                </div>
                                 <small>Thực đơn High-Protein (ức gà, cá hồi, bò Mỹ) kết hợp tập kháng lực.</small>
                                 <span class="hp-goal-check">✓</span>
                             </div>
@@ -192,8 +198,10 @@
                             <input type="radio" name="goal" value="maintain">
                             <div class="hp-goal-content goal-lilac">
                                 <span class="hp-goal-index">04</span>
-                                <span class="hp-goal-icon">⚖️</span>
-                                <strong>Giữ dáng & Cân bằng</strong>
+                                <div class="hp-goal-head">
+                                    <span class="hp-goal-icon">⚖️</span>
+                                    <strong>Giữ dáng & Cân bằng</strong>
+                                </div>
                                 <small>Duy trì cân nặng chuẩn với các bữa ăn tiện lợi, không lo tăng cân.</small>
                                 <span class="hp-goal-check">✓</span>
                             </div>
@@ -203,8 +211,10 @@
                             <input type="radio" name="goal" value="healthy">
                             <div class="hp-goal-content goal-green">
                                 <span class="hp-goal-index">05</span>
-                                <span class="hp-goal-icon">🥗</span>
-                                <strong>Ăn sạch & Thanh lọc cơ thể</strong>
+                                <div class="hp-goal-head">
+                                    <span class="hp-goal-icon">🥗</span>
+                                    <strong>Ăn sạch & Thanh lọc cơ thể</strong>
+                                </div>
                                 <small>Cải thiện tiêu hóa, đẹp da, thay thế hoàn toàn đồ ăn nhanh nhiều dầu mỡ bên ngoài.</small>
                                 <span class="hp-goal-check">✓</span>
                             </div>
@@ -512,7 +522,7 @@
                             <h4 class="hp-ai-subhead">🍱 Thực đơn mẫu chuẩn Calo từ Bếp HealthyFood</h4>
                             <div id="hp-ai-meals" class="hp-ai-grid"></div>
 
-                            <h4 class="hp-ai-subhead">🏋️ Lịch tập luyện 7 ngày (Thứ 2 – Chủ Nhật)</h4>
+                            <h4 class="hp-ai-subhead">🏋️ Lịch tập luyện theo ngày (Đánh dấu hoàn thành)</h4>
                             <div id="hp-ai-workouts" class="hp-ai-grid"></div>
                         </div>
                     </div>
@@ -613,17 +623,13 @@
                     <a href="#">Facebook</a>
                     <span>•</span>
                     <a href="#">Instagram</a>
-                    <span>•</span>
-                    <a href="#">TikTok</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- JS chung & JS riêng -->
-    <script src="../assets/js/cart.js"></script>
-    <script src="../assets/js/account-menu.js"></script>
+    <!-- File config.js chứa window.GEMINI_API_KEY (nằm trong .gitignore, không push lên Git) -->
+    <script src="../assets/js/config.js" onerror="void 0"></script>
     <script src="../assets/js/healthy-plan.js"></script>
-
 </body>
 </html>

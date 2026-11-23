@@ -2,13 +2,16 @@
 // HEALTHY PLAN + GOOGLE GEMINI AI COACH
 // =========================================
 
-// DÁN GOOGLE GEMINI API KEY CỦA BẠN VÀO DÒNG DƯỚI ĐÂY:
-const GEMINI_API_KEY = "DÁN_API_KEY_CỦA_BẠN_VÀO_ĐÂY";
+// Không dán trực tiếp API Key vào đây để tránh bị GitHub chặn; dùng config.js hoặc nút nhập Key trên web
+const GEMINI_API_KEY = "";
 let hpCurrentStep = 0;
-let hpRecommendedPackage = {
-    id: "hp-eatclean-lunch_dinner-7d",
-    name: "Gói Eat Clean Cân Bằng - Thanh Lọc 7 Ngày",
-    price: 770000
+let hpPlanMeals = [];
+let hpOrderInfo = {
+    dietLabel: "Eat Clean Cân Bằng",
+    pkg: "lunch_dinner",
+    days: 7,
+    unitPrice: 55000,
+    slots: ["Bữa Trưa", "Bữa Tối"]
 };
 
 const hpStepTitles = [
@@ -18,6 +21,35 @@ const hpStepTitles = [
     "04. Lịch tập luyện",
     "05. Lộ trình cá nhân hóa từ AI"
 ];
+
+function hpGetApiKey() {
+    if (GEMINI_API_KEY && !GEMINI_API_KEY.includes("DÁN_API_KEY")) return GEMINI_API_KEY;
+    return window.GEMINI_API_KEY || localStorage.getItem("hf_gemini_key") || "";
+}
+
+function hpPromptApiKey() {
+    const k = prompt("Dán Google Gemini API Key của bạn vào đây (lưu trên trình duyệt, không đẩy lên GitHub):", hpGetApiKey());
+    if (k && k.trim()) {
+        localStorage.setItem("hf_gemini_key", k.trim());
+        hpRunAIPlanner();
+    }
+}
+
+function hpSyncCartButton() {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const totalQty = cart.reduce((s, i) => s + (i.quantity || 1), 0);
+    const cartBtn = document.querySelector(".btn-cart");
+    if (cartBtn) {
+        cartBtn.textContent = `Giỏ hàng (${totalQty})`;
+        cartBtn.onclick = () => {
+            if (typeof window.openCart === "function") {
+                window.openCart();
+            } else {
+                window.location.href = "product.html";
+            }
+        };
+    }
+}
 
 function hpUpdateUI() {
     const steps = document.querySelectorAll(".hp-step");
@@ -149,7 +181,6 @@ function hpAutoFillFromCalculator() {
     }
 }
 
-// Chọn sẵn mục tiêu khi khách được chuyển từ trang Calculator (vd: healthy-plan.html?goal=lose)
 function hpPreselectGoalFromURL() {
     const goal = new URLSearchParams(window.location.search).get("goal");
     if (!goal) return;
@@ -228,48 +259,37 @@ function hpGenerateSummary() {
         maintain: "Giữ Dáng",
         healthy: "Thanh Lọc"
     };
-
-    // Tư vấn lộ trình AI hoàn toàn miễn phí (0đ), chỉ tính tiền suất ăn đặt từ bếp
-    const pkgConfig = {
-        self_cook: {
-            label: `Tự nấu theo công thức ${data.planDays} ngày (Miễn phí 0đ)`,
-            price: 0,
-            desc: `Nhận miễn phí lộ trình AI & bảng định lượng nguyên liệu chi tiết theo mức ${data.cal.toLocaleString("vi-VN")} kcal/ngày để bạn tự chế biến tại nhà suốt ${data.planDays} ngày.`
-        },
-        lunch_only: {
-            label: `Bữa Trưa (1 bữa/ngày · ${data.planDays} ngày)`,
-            price: 60000 * 1 * data.planDays,
-            desc: `Gồm ${1 * data.planDays} suất ăn trưa chuẩn ${dietMap[data.diet]} (~${Math.round(data.cal * 0.4)} kcal/suất). Tư vấn AI 0đ, chỉ tính tiền suất ăn giao tận nơi.`
-        },
-        lunch_dinner: {
-            label: `Trưa + Tối (2 bữa/ngày · ${data.planDays} ngày)`,
-            price: 55000 * 2 * data.planDays,
-            desc: `Gồm ${2 * data.planDays} suất ăn tươi chế biến trong ngày chuẩn ${dietMap[data.diet]}, giao tận nơi 2 khung giờ suốt ${data.planDays} ngày.`
-        },
-        full_day: {
-            label: `Trọn gói cả ngày (3 bữa + Snack · ${data.planDays} ngày)`,
-            price: 170000 * data.planDays,
-            desc: `Trọn bộ ${4 * data.planDays} bữa ăn thiết kế đúng mức ${data.cal.toLocaleString("vi-VN")} kcal/ngày theo chế độ ${dietMap[data.diet]} trong ${data.planDays} ngày.`
-        }
-    };
     const placeMap = { home: "Tại nhà", gym: "Phòng Gym", outdoor: "Ngoài trời" };
 
+    const pkgConfig = {
+        self_cook: { label: `Tự nấu theo công thức ${data.planDays} ngày (Miễn phí 0đ)`, unitPrice: 0, slots: [] },
+        lunch_only: { label: `Bữa Trưa (1 bữa/ngày · ${data.planDays} ngày)`, unitPrice: 60000, slots: ["Bữa Trưa"] },
+        lunch_dinner: { label: `Trưa + Tối (2 bữa/ngày · ${data.planDays} ngày)`, unitPrice: 55000, slots: ["Bữa Trưa", "Bữa Tối"] },
+        full_day: { label: `Trọn gói cả ngày (3 bữa + Snack · ${data.planDays} ngày)`, unitPrice: 42500, slots: ["Bữa Sáng", "Bữa Trưa", "Bữa Phụ", "Bữa Tối"] }
+    };
+
     const selectedPkg = pkgConfig[data.pkg] || pkgConfig.lunch_dinner;
+    const totalMeals = selectedPkg.slots.length * data.planDays;
+    const totalPrice = selectedPkg.unitPrice * totalMeals;
     const title = `Gói ${dietMap[data.diet]} - ${goalMap[data.goal]} ${data.planDays} Ngày`;
 
-    hpRecommendedPackage = {
-        id: `hp-${data.diet}-${data.pkg}-${data.planDays}d`,
-        name: `${title} (${selectedPkg.label})`,
-        price: selectedPkg.price
+    hpOrderInfo = {
+        dietLabel: dietMap[data.diet],
+        pkg: data.pkg,
+        days: data.planDays,
+        unitPrice: selectedPkg.unitPrice,
+        slots: selectedPkg.slots
     };
 
     document.getElementById("hp-rec-package-title").textContent = title;
-    document.getElementById("hp-rec-package-desc").textContent = selectedPkg.desc;
+    document.getElementById("hp-rec-package-desc").textContent = totalMeals > 0
+        ? `Gồm đầy đủ ${totalMeals} suất ăn tươi chế biến theo ngày (${selectedPkg.slots.join(", ")}). Hiển thị chi tiết từng suất trong giỏ hàng.`
+        : `Nhận miễn phí lộ trình AI & thực đơn ${data.planDays} ngày chuẩn ${data.cal.toLocaleString("vi-VN")} kcal/ngày để tự chế biến.`;
 
     const addBtn = document.getElementById("hp-add-plan-to-cart");
     if (addBtn) {
-        addBtn.innerHTML = selectedPkg.price > 0
-            ? `Đặt suất ăn (${data.planDays} ngày) · ${selectedPkg.price.toLocaleString("vi-VN")}đ <span>🛒</span>`
+        addBtn.innerHTML = totalMeals > 0
+            ? `Đặt ${totalMeals} suất ăn (${data.planDays} ngày) · ${totalPrice.toLocaleString("vi-VN")}đ <span>🛒</span>`
             : `Lưu lộ trình miễn phí (0đ) <span>📥</span>`;
     }
 
@@ -280,13 +300,62 @@ function hpGenerateSummary() {
     document.getElementById("rev-allergy").textContent = data.allergy;
 }
 
+function hpRenderAIResult(advice, meals, workouts) {
+    hpPlanMeals = meals || [];
+    const doneMap = JSON.parse(localStorage.getItem("hf_workout_done") || "{}");
+
+    document.getElementById("hp-ai-advice").innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span><strong>🩺 Tư vấn từ Trợ lý Chuyên gia Sức khỏe AI:</strong> ${advice}</span>
+            <button type="button" onclick="hpPromptApiKey()" class="hp-ai-refresh-btn">🔑 Đổi / Nhập API Key</button>
+        </div>`;
+
+    document.getElementById("hp-ai-meals").innerHTML = hpPlanMeals.map(m => `
+        <div class="hp-ai-card">
+            <div class="hp-ai-card-top">
+                <strong>${m.day}</strong>
+                <span class="hp-ai-badge-green">${m.calories}</span>
+            </div>
+            <p>${m.menu}</p>
+            <a href="product.html?search=${encodeURIComponent(m.keyword || "Eat Clean")}" style="display:inline-block;margin-top:8px;font-size:12.5px;font-weight:700;color:#5B0015;text-decoration:underline;">
+                🍱 Xem & đặt lẻ món tại bếp →
+            </a>
+        </div>
+    `).join("");
+
+    document.getElementById("hp-ai-workouts").innerHTML = (workouts || []).map((w, i) => {
+        const key = `hp_done_${i}`;
+        const checked = !!doneMap[key];
+        return `
+        <div class="hp-ai-card" style="${checked ? "background:#eef6ef;border-color:#9ec9a2;" : ""}">
+            <div class="hp-ai-card-top">
+                <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:700;color:#5B0015;">
+                    <input type="checkbox" ${checked ? "checked" : ""} onchange="hpToggleDone('${key}', this)">
+                    <span>${w.day}</span>
+                </label>
+                <span class="hp-ai-badge-blue">${w.focus}</span>
+            </div>
+            <p style="${checked ? "text-decoration:line-through;opacity:0.7;" : ""}">${w.detail}</p>
+        </div>`;
+    }).join("");
+}
+
+function hpToggleDone(key, el) {
+    const doneMap = JSON.parse(localStorage.getItem("hf_workout_done") || "{}");
+    doneMap[key] = el.checked;
+    localStorage.setItem("hf_workout_done", JSON.stringify(doneMap));
+    const card = el.closest(".hp-ai-card");
+    const p = card?.querySelector("p");
+    if (card) card.style.background = el.checked ? "#eef6ef" : "";
+    if (p) {
+        p.style.textDecoration = el.checked ? "line-through" : "none";
+        p.style.opacity = el.checked ? "0.7" : "1";
+    }
+}
+
 async function hpRunAIPlanner() {
     const loadingEl = document.getElementById("hp-ai-loading");
     const resultEl = document.getElementById("hp-ai-result");
-    const adviceEl = document.getElementById("hp-ai-advice");
-    const mealsEl = document.getElementById("hp-ai-meals");
-    const workoutsEl = document.getElementById("hp-ai-workouts");
-
     if (!loadingEl || !resultEl) return;
 
     const data = hpGetFormPayload();
@@ -297,143 +366,79 @@ async function hpRunAIPlanner() {
     loadingEl.style.display = "block";
     resultEl.style.display = "none";
 
-    // 1. ĐỊNH RÕ VAI TRÒ & QUY TẮC CHUYÊN MÔN CỦA AI (SYSTEM INSTRUCTION)
-    const systemRolePrompt = `
-Bạn là **Trợ lý Chuyên gia Dinh dưỡng Lâm sàng & Huấn luyện viên Sức khỏe (AI Health & Nutrition Coach)** của hệ thống bếp thực dưỡng HealthyFood.
-Nguyên tắc tư vấn bắt buộc:
-1. **Vai trò**: Giao tiếp tận tâm, khoa học, chuẩn xác như một bác sĩ dinh dưỡng và huấn luyện viên cá nhân (PT) chuyên nghiệp đang tư vấn miễn phí 1-1 cho khách hàng.
-2. **An toàn y tế lên hàng đầu**:
-   - Tuyệt đối loại bỏ 100% nguyên liệu khách hàng bị dị ứng hoặc kiêng khem.
-   - Nếu khách hàng khai báo bệnh lý nền (đau dạ dày, tiểu đường, huyết áp...) hoặc chấn thương xương khớp (đau khớp gối, đau lưng...), BẮT BUỘC điều chỉnh thực đơn êm dịu và loại bỏ các động tác gây áp lực lên vùng chấn thương đó, đồng thời nhắc nhở lưu ý an toàn trong phần tư vấn.
-3. **Tính thực tế & định lượng**: Thực đơn sử dụng các nguyên liệu Eat Clean quen thuộc tại Việt Nam (ức gà, cá hồi, thịt bò thăn, gạo lứt, khoai lang, yến mạch, rau xanh...), chia tỷ lệ Macro khớp với mức Calo mục tiêu và thời gian theo đuổi lộ trình.
-4. **Định dạng đầu ra**: Luôn trả về đúng đối tượng JSON được yêu cầu, văn phong súc tích, dễ hiểu.
-`;
+    const promptText = `Bạn là Trợ lý Chuyên gia Dinh dưỡng & PT của HealthyFood. Hãy thiết kế lộ trình ${data.planDays} ngày thật đa dạng, sáng tạo và cá nhân hóa cao cho khách hàng:
+- Giới tính: ${data.gender}, ${data.age} tuổi, cao ${data.height}cm, nặng ${data.weight}kg (BMI: ${data.metrics.bmi}, TDEE: ${data.metrics.tdee} kcal).
+- Mục tiêu: ${goalNames[data.goal]} (${data.goalDetail}).
+- Định mức: ${data.cal} kcal/ngày (${data.p}g Protein · ${data.c}g Carbs · ${data.f}g Fat).
+- Chế độ ăn: ${dietNames[data.diet]}.
+- Dị ứng / kiêng khem (loại bỏ 100%): ${data.allergy}.
+- Chấn thương / bệnh lý (điều chỉnh bài tập an toàn): ${data.limitations}.
+- Tập luyện: ${placeNames[data.place]}, ${data.duration} phút/buổi.
 
-    // 2. DỮ LIỆU HỒ SƠ KHÁCH HÀNG CẦN PHÂN TÍCH (USER PROMPT)
-    const userPrompt = `
-Hãy phân tích hồ sơ sức khỏe sau và thiết kế lộ trình cá nhân hóa kéo dài ${data.planDays} ngày cho khách hàng:
-- Mục tiêu vóc dáng: ${goalNames[data.goal]} (Mong muốn cụ thể: ${data.goalDetail})
-- Thời gian theo đuổi lộ trình: ${data.planDays} ngày.
-- Chỉ số sinh học: Giới tính ${data.gender}, ${data.age} tuổi, cao ${data.height}cm, nặng ${data.weight}kg | BMI: ${data.metrics.bmi} | TDEE: ${data.metrics.tdee} kcal/ngày.
-- Định mức dinh dưỡng mục tiêu: ${data.cal} kcal/ngày (${data.p}g Protein · ${data.c}g Carbs · ${data.f}g Fat).
-- Chế độ ăn lựa chọn: ${dietNames[data.diet]}.
-- Dị ứng / Thực phẩm loại trừ: ${data.allergy}.
-- Tình trạng sức khỏe / Chấn thương cần lưu ý: ${data.limitations}.
-- Điều kiện tập luyện: ${placeNames[data.place]}, thời lượng ${data.duration} phút/buổi.
-
-Trả về DUY NHẤT đối tượng JSON theo mẫu sau (không bọc markdown):
+Chỉ trả về JSON hợp lệ đúng cấu trúc sau:
 {
-  "advice": "Lời khuyên chuyên môn 2-3 câu dưới góc nhìn bác sĩ dinh dưỡng & PT (nhận xét chỉ số BMI/TDEE, chiến lược cho lộ trình ${data.planDays} ngày và lưu ý tránh chấn thương/dị ứng của khách).",
+  "advice": "Lời khuyên chuyên môn 2-3 câu cá nhân hóa theo chỉ số, chấn thương và dị ứng.",
   "meals": [
-    { "day": "Ngày 1", "menu": "Sáng: ... | Trưa: ... | Tối: ...", "calories": "${data.cal} kcal" },
-    { "day": "Ngày 2", "menu": "Sáng: ... | Trưa: ... | Tối: ...", "calories": "${data.cal} kcal" },
-    { "day": "Ngày 3", "menu": "Sáng: ... | Trưa: ... | Tối: ...", "calories": "${data.cal} kcal" }
+    { "day": "Ngày 1", "menu": "Sáng: ... | Trưa: ... | Tối: ...", "calories": "${data.cal} kcal", "keyword": "Tên món chính 2-3 từ" },
+    { "day": "Ngày 2", "menu": "Sáng: ... | Trưa: ... | Tối: ...", "calories": "${data.cal} kcal", "keyword": "Tên món chính 2-3 từ" },
+    { "day": "Ngày 3", "menu": "Sáng: ... | Trưa: ... | Tối: ...", "calories": "${data.cal} kcal", "keyword": "Tên món chính 2-3 từ" }
   ],
   "workouts": [
-    { "day": "Thứ 2", "focus": "Trọng tâm buổi tập", "detail": "Chi tiết bài tập phù hợp địa điểm, thời lượng và an toàn với chấn thương" },
-    { "day": "Thứ 3", "focus": "...", "detail": "..." },
-    { "day": "Thứ 4", "focus": "...", "detail": "..." },
-    { "day": "Thứ 5", "focus": "...", "detail": "..." },
-    { "day": "Thứ 6", "focus": "...", "detail": "..." },
-    { "day": "Thứ 7", "focus": "...", "detail": "..." },
-    { "day": "Chủ Nhật", "focus": "Nghỉ ngơi phục hồi", "detail": "..." }
+    { "day": "Thứ 2", "focus": "Trọng tâm", "detail": "Chi tiết bài tập an toàn" },
+    { "day": "Thứ 3", "focus": "Trọng tâm", "detail": "Chi tiết bài tập an toàn" },
+    { "day": "Thứ 4", "focus": "Trọng tâm", "detail": "Chi tiết bài tập an toàn" },
+    { "day": "Thứ 5", "focus": "Trọng tâm", "detail": "Chi tiết bài tập an toàn" },
+    { "day": "Thứ 6", "focus": "Trọng tâm", "detail": "Chi tiết bài tập an toàn" },
+    { "day": "Thứ 7", "focus": "Trọng tâm", "detail": "Chi tiết bài tập an toàn" },
+    { "day": "Chủ Nhật", "focus": "Nghỉ ngơi phục hồi", "detail": "Thư giãn & giãn cơ nhẹ" }
   ]
-}
-`;
+}`;
 
     try {
-        if (!GEMINI_API_KEY || GEMINI_API_KEY.includes("DÁN_API_KEY")) {
-            throw new Error("Chưa cấu hình GEMINI_API_KEY");
-        }
+        const apiKey = hpGetApiKey();
+        if (!apiKey) throw new Error("Chưa nhập API Key");
 
         const response = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`,
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    systemInstruction: {
-                        parts: [{ text: systemRolePrompt }]
-                    },
-                    contents: [
-                        {
-                            role: "user",
-                            parts: [{ text: userPrompt }]
-                        }
-                    ],
-                    generationConfig: {
-                        responseMimeType: "application/json",
-                        temperature: 0.6
-                    }
+                    contents: [{ parts: [{ text: promptText }] }],
+                    generationConfig: { responseMimeType: "application/json", temperature: 0.7 }
                 })
             }
         );
 
+        const resJson = await response.json();
         if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
+            throw new Error(resJson.error?.message || `Lỗi HTTP ${response.status}`);
         }
 
-        const resJson = await response.json();
-        const rawText = resJson.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
+        let rawText = resJson.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
+        rawText = rawText.replace(/```json|```/gi, "").trim();
         const plan = JSON.parse(rawText);
 
-        adviceEl.innerHTML = `<strong>🩺 Tư vấn từ Trợ lý Chuyên gia Sức khỏe AI (Lộ trình ${data.planDays} ngày):</strong> ${plan.advice}`;
-
-        mealsEl.innerHTML = (plan.meals || []).map(m => `
-            <div class="hp-ai-card">
-                <div class="hp-ai-card-top">
-                    <strong>${m.day}</strong>
-                    <span class="hp-ai-badge-green">${m.calories}</span>
-                </div>
-                <p>${m.menu}</p>
-            </div>
-        `).join("");
-
-        workoutsEl.innerHTML = (plan.workouts || []).map(w => `
-            <div class="hp-ai-card">
-                <div class="hp-ai-card-top">
-                    <strong>${w.day}</strong>
-                    <span class="hp-ai-badge-blue">${w.focus}</span>
-                </div>
-                <p>${w.detail}</p>
-            </div>
-        `).join("");
-
+        hpRenderAIResult(plan.advice, plan.meals, plan.workouts);
     } catch (err) {
-        console.warn("AI fallback:", err);
-        adviceEl.innerHTML = `<strong>🩺 Tư vấn từ Trợ lý Sức khỏe HealthyFood (Lộ trình ${data.planDays} ngày):</strong> Với chỉ số BMI <strong>${data.metrics.bmi}</strong> và mục tiêu <strong>${data.cal.toLocaleString("vi-VN")} kcal/ngày</strong>, bạn nên duy trì nạp đủ <strong>${data.p}g đạm sạch</strong> mỗi ngày kết hợp tập luyện đều đặn ${data.duration} phút/buổi suốt ${data.planDays} ngày để đạt kết quả bền vững.`;
-
-        mealsEl.innerHTML = [
-            { day: "Ngày 1", menu: "Sáng: Yến mạch sữa hạt + 2 trứng luộc | Trưa: Ức gà nướng mật ong + cơm gạo lứt + bông cải xanh | Tối: Salad cá hồi áp chảo sốt chanh dây.", calories: `${data.cal} kcal` },
-            { day: "Ngày 2", menu: "Sáng: Bánh mì nguyên cám + bơ nghiền + trứng ốp la | Trưa: Bò lúc lắc tiêu đen + khoai lang hấp | Tối: Tôm hấp sả + rau củ luộc.", calories: `${data.cal} kcal` },
-            { day: "Ngày 3", menu: "Sáng: Sinh tố chuối bơ đậu phộng + hạt chia | Trưa: Phi lê cá diêu hồng áp chảo + gạo lứt | Tối: Ức gà xé phay trộn bắp cải tím.", calories: `${data.cal} kcal` }
-        ].map(m => `
-            <div class="hp-ai-card">
-                <div class="hp-ai-card-top">
-                    <strong>${m.day}</strong>
-                    <span class="hp-ai-badge-green">${m.calories}</span>
-                </div>
-                <p>${m.menu}</p>
-            </div>
-        `).join("");
-
-        workoutsEl.innerHTML = [
-            { day: "Thứ 2", focus: "Toàn thân & Đốt mỡ", detail: `Khởi động 5p + Squat, Push-up, Plank, Jumping Jacks (${data.duration} phút).` },
-            { day: "Thứ 3", focus: "Thân dưới & Bụng", detail: `Lunges, Glute Bridge, Crunches, Mountain Climbers (${data.duration} phút).` },
-            { day: "Thứ 4", focus: "Cardio nhẹ & Giãn cơ", detail: "Đi bộ nhanh hoặc Yoga phục hồi cơ bắp 25-30 phút." },
-            { day: "Thứ 5", focus: "Thân trên & Core", detail: `Incline Push-up, Tricep Dips, Superman, Plank nghiêng (${data.duration} phút).` },
-            { day: "Thứ 6", focus: "HIIT Đốt Calo", detail: `40s tập / 20s nghỉ × 5 tổ liên hoàn (${data.duration} phút).` },
-            { day: "Thứ 7", focus: "Vận động linh hoạt", detail: "Core nhẹ nhàng & kéo giãn toàn thân 30 phút." },
-            { day: "Chủ Nhật", focus: "Nghỉ ngơi phục hồi", detail: "Thư giãn hoàn toàn để cơ bắp tái tạo." }
-        ].map(w => `
-            <div class="hp-ai-card">
-                <div class="hp-ai-card-top">
-                    <strong>${w.day}</strong>
-                    <span class="hp-ai-badge-blue">${w.focus}</span>
-                </div>
-                <p>${w.detail}</p>
-            </div>
-        `).join("");
+        console.error("Lỗi gọi Gemini AI:", err);
+        hpRenderAIResult(
+            `<span style="color:#b42318;">(Đang dùng thực đơn mẫu do: ${err.message} — bấm <strong>🔑 Đổi / Nhập API Key</strong> để kiểm tra lại key)</span><br>Với chỉ số BMI <strong>${data.metrics.bmi}</strong> và mục tiêu <strong>${data.cal.toLocaleString("vi-VN")} kcal/ngày</strong>, bạn nên duy trì nạp đủ <strong>${data.p}g đạm sạch</strong> mỗi ngày kết hợp tập luyện ${data.duration} phút/buổi.`,
+            [
+                { day: "Ngày 1", menu: "Sáng: Yến mạch sữa hạt + 2 trứng luộc | Trưa: Ức gà nướng mật ong + cơm gạo lứt + bông cải xanh | Tối: Salad cá hồi áp chảo sốt chanh dây.", calories: `${data.cal} kcal`, keyword: "Ức gà nướng mật ong" },
+                { day: "Ngày 2", menu: "Sáng: Bánh mì nguyên cám + bơ nghiền + trứng ốp la | Trưa: Bò lúc lắc tiêu đen + khoai lang hấp | Tối: Tôm hấp sả + rau củ luộc.", calories: `${data.cal} kcal`, keyword: "Cá hồi áp chảo" },
+                { day: "Ngày 3", menu: "Sáng: Sinh tố chuối bơ đậu phộng + hạt chia | Trưa: Phi lê cá diêu hồng áp chảo + gạo lứt | Tối: Ức gà xé phay trộn bắp cải tím.", calories: `${data.cal} kcal`, keyword: "Salad Eat Clean" }
+            ],
+            [
+                { day: "Thứ 2", focus: "Toàn thân & Đốt mỡ", detail: `Khởi động 5p + Squat, Push-up, Plank, Jumping Jacks (${data.duration} phút).` },
+                { day: "Thứ 3", focus: "Thân dưới & Bụng", detail: `Lunges, Glute Bridge, Crunches, Mountain Climbers (${data.duration} phút).` },
+                { day: "Thứ 4", focus: "Cardio nhẹ & Giãn cơ", detail: "Đi bộ nhanh hoặc Yoga phục hồi cơ bắp 25-30 phút." },
+                { day: "Thứ 5", focus: "Thân trên & Core", detail: `Incline Push-up, Tricep Dips, Superman, Plank nghiêng (${data.duration} phút).` },
+                { day: "Thứ 6", focus: "HIIT Đốt Calo", detail: `40s tập / 20s nghỉ × 5 tổ liên hoàn (${data.duration} phút).` },
+                { day: "Thứ 7", focus: "Vận động linh hoạt", detail: "Core nhẹ nhàng & kéo giãn toàn thân 30 phút." },
+                { day: "Chủ Nhật", focus: "Nghỉ ngơi phục hồi", detail: "Thư giãn hoàn toàn để cơ bắp tái tạo." }
+            ]
+        );
     } finally {
         loadingEl.style.display = "none";
         resultEl.style.display = "block";
@@ -441,6 +446,8 @@ Trả về DUY NHẤT đối tượng JSON theo mẫu sau (không bọc markdown
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    hpSyncCartButton();
+
     ["hp-age", "hp-height", "hp-weight", "hp-activity"].forEach((id) => {
         document.getElementById(id)?.addEventListener("input", hpCalcMetrics);
         document.getElementById(id)?.addEventListener("change", hpCalcMetrics);
@@ -453,29 +460,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const addBtn = document.getElementById("hp-add-plan-to-cart");
     if (addBtn) {
         addBtn.addEventListener("click", () => {
-            if (hpRecommendedPackage.price === 0) {
-                alert(`Đã lưu "${hpRecommendedPackage.name}" miễn phí vào hồ sơ của bạn!`);
+            if (!hpOrderInfo.slots.length) {
+                alert("Đã lưu lộ trình tự nấu miễn phí (0đ) vào hồ sơ của bạn!");
                 return;
             }
-            if (typeof window.addToCart === "function") {
-                window.addToCart({
-                    id: hpRecommendedPackage.id,
-                    name: hpRecommendedPackage.name,
-                    price: hpRecommendedPackage.price,
-                    quantity: 1
-                });
-            } else {
-                const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-                const exist = cart.find((item) => item.id === hpRecommendedPackage.id);
-                if (exist) exist.quantity += 1;
-                else cart.push({ ...hpRecommendedPackage, quantity: 1 });
-                localStorage.setItem("cart", JSON.stringify(cart));
 
-                const totalQty = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-                const cartBtn = document.querySelector(".btn-cart");
-                if (cartBtn) cartBtn.textContent = `Giỏ hàng (${totalQty})`;
+            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+            const menus = hpPlanMeals.length
+                ? hpPlanMeals.map(m => m.menu.split("|").map(s => s.replace(/^(Sáng|Trưa|Tối):\s*/i, "").trim()))
+                : [["Ức gà nướng mật ong + gạo lứt", "Salad cá hồi áp chảo"]];
+
+            let count = 0;
+            for (let d = 1; d <= hpOrderInfo.days; d++) {
+                const dayDishes = menus[(d - 1) % menus.length];
+                hpOrderInfo.slots.forEach((slot, idx) => {
+                    const dish = dayDishes[idx % dayDishes.length] || `Suất ${hpOrderInfo.dietLabel}`;
+                    const item = {
+                        id: `hp-${hpOrderInfo.pkg}-d${d}-s${idx + 1}`,
+                        name: `Ngày ${d} (${slot}): ${dish}`,
+                        price: hpOrderInfo.unitPrice,
+                        quantity: 1
+                    };
+                    if (typeof window.addToCart === "function") {
+                        window.addToCart(item);
+                    } else {
+                        const exist = cart.find(c => c.id === item.id);
+                        exist ? (exist.quantity += 1) : cart.push(item);
+                    }
+                    count++;
+                });
             }
-            alert(`Đã thêm "${hpRecommendedPackage.name}" vào giỏ hàng!`);
+
+            if (typeof window.addToCart !== "function") {
+                localStorage.setItem("cart", JSON.stringify(cart));
+            }
+            hpSyncCartButton();
+            alert(`Đã thêm đầy đủ ${count} suất ăn chi tiết theo từng ngày/bữa vào giỏ hàng!`);
+            if (typeof window.openCart === "function") {
+                window.openCart();
+            } else {
+                window.location.href = "product.html";
+            }
         });
     }
 
