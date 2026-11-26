@@ -2,8 +2,6 @@
 // HEALTHY PLAN + GOOGLE GEMINI AI COACH
 // =========================================
 
-// Không dán trực tiếp API Key vào đây để tránh bị GitHub chặn; dùng config.js hoặc nút nhập Key trên web
-const GEMINI_API_KEY = "";
 let hpCurrentStep = 0;
 let hpPlanMeals = [];
 let hpOrderInfo = {
@@ -23,16 +21,7 @@ const hpStepTitles = [
 ];
 
 function hpGetApiKey() {
-    if (GEMINI_API_KEY && !GEMINI_API_KEY.includes("DÁN_API_KEY")) return GEMINI_API_KEY;
-    return window.GEMINI_API_KEY || localStorage.getItem("hf_gemini_key") || "";
-}
-
-function hpPromptApiKey() {
-    const k = prompt("Dán Google Gemini API Key của bạn vào đây (lưu trên trình duyệt, không đẩy lên GitHub):", hpGetApiKey());
-    if (k && k.trim()) {
-        localStorage.setItem("hf_gemini_key", k.trim());
-        hpRunAIPlanner();
-    }
+    return (window.GEMINI_API_KEY || "").trim();
 }
 
 function hpSyncCartButton() {
@@ -41,13 +30,6 @@ function hpSyncCartButton() {
     const cartBtn = document.querySelector(".btn-cart");
     if (cartBtn) {
         cartBtn.textContent = `Giỏ hàng (${totalQty})`;
-        cartBtn.onclick = () => {
-            if (typeof window.openCart === "function") {
-                window.openCart();
-            } else {
-                window.location.href = "product.html";
-            }
-        };
     }
 }
 
@@ -201,6 +183,7 @@ function hpGetFormPayload() {
     const limitations = document.getElementById("hp-limitations")?.value.trim() || "Không có";
     const diet = document.querySelector('input[name="diet"]:checked')?.value || "eatclean";
     const pkg = document.getElementById("hp-meal-package")?.value || "lunch_dinner";
+    const budget = document.getElementById("hp-budget")?.value || "120000";
     const allergy = document.getElementById("hp-allergy")?.value.trim() || "Không có";
     const place = document.querySelector('input[name="workoutPlace"]:checked')?.value || "home";
     const duration = document.querySelector('input[name="duration"]:checked')?.value || "45";
@@ -229,6 +212,7 @@ function hpGetFormPayload() {
         limitations,
         diet,
         pkg,
+        budget,
         allergy,
         place,
         duration,
@@ -300,42 +284,68 @@ function hpGenerateSummary() {
     document.getElementById("rev-allergy").textContent = data.allergy;
 }
 
-function hpRenderAIResult(advice, meals, workouts) {
+function hpRenderAIResult(advice, meals, workouts, planDays) {
     hpPlanMeals = meals || [];
     const doneMap = JSON.parse(localStorage.getItem("hf_workout_done") || "{}");
 
-    document.getElementById("hp-ai-advice").innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
-            <span><strong>🩺 Tư vấn từ Trợ lý Chuyên gia Sức khỏe AI:</strong> ${advice}</span>
-            <button type="button" onclick="hpPromptApiKey()" class="hp-ai-refresh-btn">🔑 Đổi / Nhập API Key</button>
-        </div>`;
+    document.getElementById("hp-ai-advice").innerHTML =
+        `<strong>🩺 Tư vấn lộ trình ${planDays} ngày từ Chuyên gia AI:</strong> ${advice}`;
 
-    document.getElementById("hp-ai-meals").innerHTML = hpPlanMeals.map(m => `
-        <div class="hp-ai-card">
-            <div class="hp-ai-card-top">
-                <strong>${m.day}</strong>
-                <span class="hp-ai-badge-green">${m.calories}</span>
+    document.getElementById("hp-ai-meals").innerHTML = hpPlanMeals.map(m => {
+        const formattedMenu = (m.menu || "")
+            .split("|")
+            .map(part => {
+                const trimmed = part.trim();
+                const colonIdx = trimmed.indexOf(":");
+                if (colonIdx > -1) {
+                    const label = trimmed.slice(0, colonIdx + 1);
+                    const dish = trimmed.slice(colonIdx + 1);
+                    return `<div style="margin-bottom:4px;"><strong>${label}</strong>${dish}</div>`;
+                }
+                return `<div>${trimmed}</div>`;
+            })
+            .join("");
+
+        return `
+        <div class="hp-ai-card" style="display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+                <div class="hp-ai-card-top">
+                    <strong style="white-space:nowrap;">${m.day}</strong>
+                    <span class="hp-ai-badge-green" style="white-space:nowrap;">${m.calories}</span>
+                </div>
+                <div style="font-size:13.5px;line-height:1.55;color:var(--hp-ink);margin-top:6px;">
+                    ${formattedMenu}
+                </div>
             </div>
-            <p>${m.menu}</p>
-            <a href="product.html?search=${encodeURIComponent(m.keyword || "Eat Clean")}" style="display:inline-block;margin-top:8px;font-size:12.5px;font-weight:700;color:#5B0015;text-decoration:underline;">
+            <a href="product.html?search=${encodeURIComponent(m.keyword || "Eat Clean")}" style="display:inline-block;margin-top:10px;font-size:12.5px;font-weight:700;color:#5B0015;text-decoration:underline;">
                 🍱 Xem & đặt lẻ món tại bếp →
             </a>
-        </div>
-    `).join("");
+        </div>`;
+    }).join("");
 
     document.getElementById("hp-ai-workouts").innerHTML = (workouts || []).map((w, i) => {
-        const key = `hp_done_${i}`;
+        const key = `hp_done_${planDays}_${i}`;
         const checked = !!doneMap[key];
+        const focusBadge = w.burn ? `${w.focus} (${w.burn})` : w.focus;
+        const formattedWorkout = (w.detail || "")
+            .split("->")
+            .map(part => part.trim())
+            .filter(Boolean)
+            .map(part => `<div style="margin-bottom:4px;">• ${part}</div>`)
+            .join("");
+
         return `
         <div class="hp-ai-card" style="${checked ? "background:#eef6ef;border-color:#9ec9a2;" : ""}">
-            <div class="hp-ai-card-top">
-                <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:700;color:#5B0015;">
+            <div class="hp-ai-card-top" style="align-items:flex-start;">
+                <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:700;color:#5B0015;white-space:nowrap;flex-shrink:0;">
                     <input type="checkbox" ${checked ? "checked" : ""} onchange="hpToggleDone('${key}', this)">
                     <span>${w.day}</span>
                 </label>
-                <span class="hp-ai-badge-blue">${w.focus}</span>
+                <span class="hp-ai-badge-blue" style="text-align:right;line-height:1.35;">${focusBadge}</span>
             </div>
-            <p style="${checked ? "text-decoration:line-through;opacity:0.7;" : ""}">${w.detail}</p>
+            <div class="hp-workout-detail" style="margin-top:6px;font-size:13.5px;line-height:1.55;color:var(--hp-ink);${checked ? "text-decoration:line-through;opacity:0.7;" : ""}">
+                ${formattedWorkout || w.detail}
+            </div>
         </div>`;
     }).join("");
 }
@@ -345,12 +355,75 @@ function hpToggleDone(key, el) {
     doneMap[key] = el.checked;
     localStorage.setItem("hf_workout_done", JSON.stringify(doneMap));
     const card = el.closest(".hp-ai-card");
-    const p = card?.querySelector("p");
+    const detail = card?.querySelector(".hp-workout-detail");
     if (card) card.style.background = el.checked ? "#eef6ef" : "";
-    if (p) {
-        p.style.textDecoration = el.checked ? "line-through" : "none";
-        p.style.opacity = el.checked ? "0.7" : "1";
+    if (detail) {
+        detail.style.textDecoration = el.checked ? "line-through" : "none";
+        detail.style.opacity = el.checked ? "0.7" : "1";
     }
+}
+
+function hpBuildDurationInstruction(planDays, cal, duration) {
+    if (planDays === 7) {
+        return {
+            scopeDesc: "trọn vẹn 7 ngày chi tiết từng ngày (Ngày 1 đến Ngày 7)",
+            mealSchema: `[
+    { "day": "Ngày 1", "menu": "Sáng: ... | Trưa: ... | Tối: ... | Phụ: ...", "calories": "${cal} kcal", "keyword": "Tên món chính 2-3 từ" },
+    ... (đủ 7 phần tử từ Ngày 1 đến Ngày 7, thực đơn mỗi ngày khác nhau)
+  ]`,
+            workoutSchema: `[
+    { "day": "Ngày 1", "focus": "Nhóm cơ / Trọng tâm", "burn": "~300 kcal", "detail": "Khởi động 5p -> Bài 1 (3x12) -> Bài 2 (3x15) -> Giãn cơ 5p (${duration} phút)" },
+    ... (đủ 7 phần tử từ Ngày 1 đến Ngày 7, Ngày 7 nghỉ ngơi phục hồi)
+  ]`
+        };
+    }
+
+    if (planDays === 14) {
+        return {
+            scopeDesc: "trọn vẹn 14 ngày chi tiết từng ngày (Ngày 1 đến Ngày 14, Tuần 2 tăng nhẹ cường độ so với Tuần 1)",
+            mealSchema: `[
+    { "day": "Ngày 1", "menu": "Sáng: ... | Trưa: ... | Tối: ... | Phụ: ...", "calories": "${cal} kcal", "keyword": "Tên món chính 2-3 từ" },
+    ... (đủ 14 phần tử từ Ngày 1 đến Ngày 14, thực đơn phong phú không trùng lặp)
+  ]`,
+            workoutSchema: `[
+    { "day": "Ngày 1", "focus": "Nhóm cơ / Trọng tâm", "burn": "~300 kcal", "detail": "Khởi động 5p -> Bài 1 (3x12) -> Bài 2 (3x15) -> Giãn cơ 5p (${duration} phút)" },
+    ... (đủ 14 phần tử từ Ngày 1 đến Ngày 14, Ngày 7 và Ngày 14 nghỉ phục hồi)
+  ]`
+        };
+    }
+
+    if (planDays === 30) {
+        return {
+            scopeDesc: "lộ trình 30 ngày chia làm 4 Tuần tiến triển rõ rệt (Tuần 1: Làm quen & Thanh lọc, Tuần 2: Tăng tốc đốt mỡ/xây cơ, Tuần 3: Bứt phá thể lực, Tuần 4: Siết nét & Ổn định) + thực đơn tiêu biểu 7 ngày xoay vòng chuẩn Macro",
+            mealSchema: `[
+    { "day": "Tuần 1 · Mẫu 1", "menu": "Sáng: ... | Trưa: ... | Tối: ... | Phụ: ...", "calories": "${cal} kcal", "keyword": "Tên món chính 2-3 từ" },
+    ... (đủ 7 phần tử thực đơn chuẩn 7 ngày xoay vòng cho suốt 30 ngày)
+  ]`,
+            workoutSchema: `[
+    { "day": "Tuần 1 (Ngày 1-7)", "focus": "Giai đoạn 1: Làm quen", "burn": "~260 kcal/buổi", "detail": "Lịch tập 5 buổi/tuần -> Khởi động 5p -> Bài tập nền tảng (3x12) -> Giãn cơ 5p (${duration} phút)" },
+    { "day": "Tuần 2 (Ngày 8-14)", "focus": "Giai đoạn 2: Tăng cường độ", "burn": "~300 kcal/buổi", "detail": "Lịch tập 5 buổi/tuần -> Tăng số hiệp (4x12) -> Kết hợp Cardio cuối buổi (${duration} phút)" },
+    { "day": "Tuần 3 (Ngày 15-21)", "focus": "Giai đoạn 3: Bứt phá", "burn": "~340 kcal/buổi", "detail": "Lịch tập 6 buổi/tuần -> Superset / HIIT cường độ cao -> Giãn cơ sâu (${duration} phút)" },
+    { "day": "Tuần 4 (Ngày 22-30)", "focus": "Giai đoạn 4: Siết nét & Duy trì", "burn": "~320 kcal/buổi", "detail": "Lịch tập 5 buổi/tuần -> Tối ưu nhóm cơ trọng tâm -> 2 ngày phục hồi (${duration} phút)" }
+  ]`
+        };
+    }
+
+    // 90 ngày
+    return {
+        scopeDesc: "lộ trình chuyển hóa chuyên sâu 90 ngày (3 Tháng) chia theo 3 Giai đoạn lớn & 6 Chặng 15 ngày (Tháng 1: Thích nghi & Tạo nền tảng, Tháng 2: Tăng tốc chuyển hóa & Đốt mỡ/Tăng cơ sâu, Tháng 3: Định hình vóc dáng & Duy trì bền vững)",
+        mealSchema: `[
+    { "day": "Tháng 1 · Mẫu 1", "menu": "Sáng: ... | Trưa: ... | Tối: ... | Phụ: ...", "calories": "${cal} kcal", "keyword": "Tên món chính 2-3 từ" },
+    ... (đủ 7 phần tử thực đơn 7 ngày đa dạng xoay vòng cho cả 3 tháng, điều chỉnh linh hoạt theo từng giai đoạn)
+  ]`,
+        workoutSchema: `[
+    { "day": "Ngày 1 - 15", "focus": "Tháng 1 · Nền tảng kỹ thuật", "burn": "~250 kcal/buổi", "detail": "Tập 4-5 buổi/tuần -> Làm chủ kỹ thuật chuẩn (3x12) -> Cardio nhẹ 15p -> Giãn cơ (${duration} phút)" },
+    { "day": "Ngày 16 - 30", "focus": "Tháng 1 · Tăng sức bền", "burn": "~280 kcal/buổi", "detail": "Tập 5 buổi/tuần -> Tăng dần khối lượng tạ/độ khó (3x15) -> Core 10p (${duration} phút)" },
+    { "day": "Ngày 31 - 45", "focus": "Tháng 2 · Bứt phá chuyển hóa", "burn": "~320 kcal/buổi", "detail": "Tập 5-6 buổi/tuần -> Chia nhóm cơ chuyên sâu (4x12) -> HIIT 15p (${duration} phút)" },
+    { "day": "Ngày 46 - 60", "focus": "Tháng 2 · Đỉnh cao đốt mỡ/cơ", "burn": "~350 kcal/buổi", "detail": "Tập 6 buổi/tuần -> Áp dụng Superset giảm thời gian nghỉ -> Phục hồi Chủ Nhật (${duration} phút)" },
+    { "day": "Ngày 61 - 75", "focus": "Tháng 3 · Siết nét vóc dáng", "burn": "~330 kcal/buổi", "detail": "Tập 5 buổi/tuần -> Tập trung vùng cơ mục tiêu -> Cardio nhịp ổn định (${duration} phút)" },
+    { "day": "Ngày 76 - 90", "focus": "Tháng 3 · Hoàn thiện & Duy trì", "burn": "~300 kcal/buổi", "detail": "Tập 5 buổi/tuần -> Cân bằng sức mạnh, độ dẻo dai & thói quen bền vững (${duration} phút)" }
+  ]`
+    };
 }
 
 async function hpRunAIPlanner() {
@@ -362,82 +435,86 @@ async function hpRunAIPlanner() {
     const goalNames = { lose: "Giảm cân & siết mỡ", gain: "Tăng cân lành mạnh", muscle: "Tăng cơ bắp", maintain: "Giữ dáng", healthy: "Ăn sạch & thanh lọc" };
     const dietNames = { eatclean: "Eat Clean", high_protein: "High-Protein", low_carb: "Low-Carb/Keto", vegetarian: "Thuần chay" };
     const placeNames = { home: "Tại nhà", gym: "Phòng Gym", outdoor: "Ngoài trời" };
+    const durationSpec = hpBuildDurationInstruction(data.planDays, data.cal, data.duration);
 
     loadingEl.style.display = "block";
     resultEl.style.display = "none";
 
-    const promptText = `Bạn là Trợ lý Chuyên gia Dinh dưỡng & PT của HealthyFood. Hãy thiết kế lộ trình ${data.planDays} ngày thật đa dạng, sáng tạo và cá nhân hóa cao cho khách hàng:
-- Giới tính: ${data.gender}, ${data.age} tuổi, cao ${data.height}cm, nặng ${data.weight}kg (BMI: ${data.metrics.bmi}, TDEE: ${data.metrics.tdee} kcal).
+    const promptText = `Bạn là Trợ lý Chuyên gia Dinh dưỡng & Huấn luyện viên Cá nhân (PT) của HealthyFood. Hãy thiết kế ${durationSpec.scopeDesc} đồng bộ chặt chẽ giữa ăn uống VÀ tập luyện cho khách hàng:
+- Thời gian cam kết: ${data.planDays} ngày.
+- Thể trạng: ${data.gender}, ${data.age} tuổi, cao ${data.height}cm, nặng ${data.weight}kg (BMI: ${data.metrics.bmi}, TDEE: ${data.metrics.tdee} kcal).
 - Mục tiêu: ${goalNames[data.goal]} (${data.goalDetail}).
-- Định mức: ${data.cal} kcal/ngày (${data.p}g Protein · ${data.c}g Carbs · ${data.f}g Fat).
-- Chế độ ăn: ${dietNames[data.diet]}.
-- Dị ứng / kiêng khem (loại bỏ 100%): ${data.allergy}.
-- Chấn thương / bệnh lý (điều chỉnh bài tập an toàn): ${data.limitations}.
+- Định mức dinh dưỡng: ${data.cal} kcal/ngày (${data.p}g Protein · ${data.c}g Carbs · ${data.f}g Fat).
+- Chế độ ăn: ${dietNames[data.diet]} · Ngân sách dự kiến: ~${Number(data.budget).toLocaleString("vi-VN")}đ/ngày.
+- Dị ứng / kiêng khem (loại bỏ 100% khỏi thực đơn): ${data.allergy}.
+- Chấn thương / bệnh lý (bắt buộc né hoàn toàn các động tác gây áp lực/hại): ${data.limitations}.
 - Tập luyện: ${placeNames[data.place]}, ${data.duration} phút/buổi.
 
 Chỉ trả về JSON hợp lệ đúng cấu trúc sau:
 {
-  "advice": "Lời khuyên chuyên môn 2-3 câu cá nhân hóa theo chỉ số, chấn thương và dị ứng.",
-  "meals": [
-    { "day": "Ngày 1", "menu": "Sáng: ... | Trưa: ... | Tối: ...", "calories": "${data.cal} kcal", "keyword": "Tên món chính 2-3 từ" },
-    { "day": "Ngày 2", "menu": "Sáng: ... | Trưa: ... | Tối: ...", "calories": "${data.cal} kcal", "keyword": "Tên món chính 2-3 từ" },
-    { "day": "Ngày 3", "menu": "Sáng: ... | Trưa: ... | Tối: ...", "calories": "${data.cal} kcal", "keyword": "Tên món chính 2-3 từ" }
-  ],
-  "workouts": [
-    { "day": "Thứ 2", "focus": "Trọng tâm", "detail": "Chi tiết bài tập an toàn" },
-    { "day": "Thứ 3", "focus": "Trọng tâm", "detail": "Chi tiết bài tập an toàn" },
-    { "day": "Thứ 4", "focus": "Trọng tâm", "detail": "Chi tiết bài tập an toàn" },
-    { "day": "Thứ 5", "focus": "Trọng tâm", "detail": "Chi tiết bài tập an toàn" },
-    { "day": "Thứ 6", "focus": "Trọng tâm", "detail": "Chi tiết bài tập an toàn" },
-    { "day": "Thứ 7", "focus": "Trọng tâm", "detail": "Chi tiết bài tập an toàn" },
-    { "day": "Chủ Nhật", "focus": "Nghỉ ngơi phục hồi", "detail": "Thư giãn & giãn cơ nhẹ" }
-  ]
+  "advice": "Phân tích chuyên môn 2-3 câu về chiến lược dinh dưỡng & tập luyện cho cả chặng đường ${data.planDays} ngày, nêu rõ dự kiến thay đổi vóc dáng sau ${data.planDays} ngày.",
+  "meals": ${durationSpec.mealSchema},
+  "workouts": ${durationSpec.workoutSchema}
 }`;
 
     try {
         const apiKey = hpGetApiKey();
-        if (!apiKey) throw new Error("Chưa nhập API Key");
+        if (!apiKey) throw new Error("Chưa cấu hình GEMINI_API_KEY trong config.js");
 
-        const response = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`,
-            {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    contents: [{ parts: [{ text: promptText }] }],
-                    generationConfig: { responseMimeType: "application/json", temperature: 0.7 }
-                })
+        const models = ["gemini-3.8-flash", "gemini-3.5-flash-lite"];
+        let resJson = null;
+        let lastErr = "";
+
+        for (const model of models) {
+            const response = await fetch(
+                `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`,
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: promptText }] }],
+                        generationConfig: { responseMimeType: "application/json", temperature: 0.7 }
+                    })
+                }
+            );
+            resJson = await response.json();
+            if (response.ok) {
+                lastErr = "";
+                break;
             }
-        );
-
-        const resJson = await response.json();
-        if (!response.ok) {
-            throw new Error(resJson.error?.message || `Lỗi HTTP ${response.status}`);
+            lastErr = resJson.error?.message || `Lỗi HTTP ${response.status}`;
         }
+
+        if (lastErr) throw new Error(lastErr);
 
         let rawText = resJson.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
         rawText = rawText.replace(/```json|```/gi, "").trim();
         const plan = JSON.parse(rawText);
 
-        hpRenderAIResult(plan.advice, plan.meals, plan.workouts);
+        hpRenderAIResult(plan.advice, plan.meals, plan.workouts, data.planDays);
     } catch (err) {
         console.error("Lỗi gọi Gemini AI:", err);
         hpRenderAIResult(
-            `<span style="color:#b42318;">(Đang dùng thực đơn mẫu do: ${err.message} — bấm <strong>🔑 Đổi / Nhập API Key</strong> để kiểm tra lại key)</span><br>Với chỉ số BMI <strong>${data.metrics.bmi}</strong> và mục tiêu <strong>${data.cal.toLocaleString("vi-VN")} kcal/ngày</strong>, bạn nên duy trì nạp đủ <strong>${data.p}g đạm sạch</strong> mỗi ngày kết hợp tập luyện ${data.duration} phút/buổi.`,
+            `<span style="color:#b42318;">(Đang dùng thực đơn mẫu do: ${err.message})</span><br>Với lộ trình <strong>${data.planDays} ngày</strong>, chỉ số BMI <strong>${data.metrics.bmi}</strong> và mục tiêu <strong>${data.cal.toLocaleString("vi-VN")} kcal/ngày</strong>, bạn nên duy trì nạp đủ <strong>${data.p}g đạm sạch</strong> mỗi ngày kết hợp tập luyện ${data.duration} phút/buổi.`,
             [
                 { day: "Ngày 1", menu: "Sáng: Yến mạch sữa hạt + 2 trứng luộc | Trưa: Ức gà nướng mật ong + cơm gạo lứt + bông cải xanh | Tối: Salad cá hồi áp chảo sốt chanh dây.", calories: `${data.cal} kcal`, keyword: "Ức gà nướng mật ong" },
                 { day: "Ngày 2", menu: "Sáng: Bánh mì nguyên cám + bơ nghiền + trứng ốp la | Trưa: Bò lúc lắc tiêu đen + khoai lang hấp | Tối: Tôm hấp sả + rau củ luộc.", calories: `${data.cal} kcal`, keyword: "Cá hồi áp chảo" },
-                { day: "Ngày 3", menu: "Sáng: Sinh tố chuối bơ đậu phộng + hạt chia | Trưa: Phi lê cá diêu hồng áp chảo + gạo lứt | Tối: Ức gà xé phay trộn bắp cải tím.", calories: `${data.cal} kcal`, keyword: "Salad Eat Clean" }
+                { day: "Ngày 3", menu: "Sáng: Sinh tố chuối bơ đậu phộng + hạt chia | Trưa: Phi lê cá diêu hồng áp chảo + gạo lứt | Tối: Ức gà xé phay trộn bắp cải tím.", calories: `${data.cal} kcal`, keyword: "Salad Eat Clean" },
+                { day: "Ngày 4", menu: "Sáng: Trứng cuộn rau củ + khoai lang nướng | Trưa: Ức gà sốt teriyaki + cơm gạo lứt | Tối: Đậu hũ non hấp nấm + canh rong biển.", calories: `${data.cal} kcal`, keyword: "Ức gà" },
+                { day: "Ngày 5", menu: "Sáng: Sữa chua Hy Lạp + granola + việt quất | Trưa: Cá thu sốt cà chua + bún gạo lứt | Tối: Salad bò trộn dầu giấm.", calories: `${data.cal} kcal`, keyword: "Salad" },
+                { day: "Ngày 6", menu: "Sáng: Bánh kếp yến mạch chuối | Trưa: Tôm rim tiêu + bí đỏ hấp + gạo lứt | Tối: Súp gà ngô non ít béo.", calories: `${data.cal} kcal`, keyword: "Eat Clean" },
+                { day: "Ngày 7", menu: "Sáng: Phở cuốn gạo lứt ức gà | Trưa: Cá hồi nướng măng tây | Tối: Rau củ luộc chấm kho quẹt healthy.", calories: `${data.cal} kcal`, keyword: "Cá hồi" }
             ],
             [
-                { day: "Thứ 2", focus: "Toàn thân & Đốt mỡ", detail: `Khởi động 5p + Squat, Push-up, Plank, Jumping Jacks (${data.duration} phút).` },
-                { day: "Thứ 3", focus: "Thân dưới & Bụng", detail: `Lunges, Glute Bridge, Crunches, Mountain Climbers (${data.duration} phút).` },
-                { day: "Thứ 4", focus: "Cardio nhẹ & Giãn cơ", detail: "Đi bộ nhanh hoặc Yoga phục hồi cơ bắp 25-30 phút." },
-                { day: "Thứ 5", focus: "Thân trên & Core", detail: `Incline Push-up, Tricep Dips, Superman, Plank nghiêng (${data.duration} phút).` },
-                { day: "Thứ 6", focus: "HIIT Đốt Calo", detail: `40s tập / 20s nghỉ × 5 tổ liên hoàn (${data.duration} phút).` },
-                { day: "Thứ 7", focus: "Vận động linh hoạt", detail: "Core nhẹ nhàng & kéo giãn toàn thân 30 phút." },
-                { day: "Chủ Nhật", focus: "Nghỉ ngơi phục hồi", detail: "Thư giãn hoàn toàn để cơ bắp tái tạo." }
-            ]
+                { day: "Ngày 1", focus: "Toàn thân & Đốt mỡ", burn: "~300 kcal", detail: `Khởi động 5p -> Squat (3x15), Push-up (3x12), Plank (3x45s), Jumping Jacks (3x30s) -> Giãn cơ 5p (${data.duration} phút).` },
+                { day: "Ngày 2", focus: "Thân dưới & Bụng", burn: "~280 kcal", detail: `Khởi động 5p -> Lunges (3x12/chân), Glute Bridge (3x15), Crunches (3x20), Mountain Climbers (3x30s) -> Giãn cơ 5p (${data.duration} phút).` },
+                { day: "Ngày 3", focus: "Cardio nhẹ & Giãn cơ", burn: "~220 kcal", detail: "Đi bộ nhanh hoặc đạp xe nhẹ 20p -> Yoga giãn cơ phục hồi 15p." },
+                { day: "Ngày 4", focus: "Thân trên & Core", burn: "~290 kcal", detail: `Khởi động 5p -> Incline Push-up (3x12), Tricep Dips (3x12), Superman (3x15), Plank nghiêng (3x30s/bên) -> Giãn cơ 5p (${data.duration} phút).` },
+                { day: "Ngày 5", focus: "HIIT Đốt Calo", burn: "~340 kcal", detail: `Khởi động 5p -> 40s tập / 20s nghỉ × 5 tổ liên hoàn: Burpees biến thể, High Knees, Squat Pulse -> Hạ nhiệt 5p (${data.duration} phút).` },
+                { day: "Ngày 6", focus: "Vận động linh hoạt", burn: "~240 kcal", detail: "Core nhẹ nhàng (Bird-Dog, Dead Bug 3x12) -> Kéo giãn toàn thân 20 phút." },
+                { day: "Ngày 7", focus: "Phục hồi chủ động", burn: "~150 kcal", detail: "Thư giãn hoàn toàn, hít thở sâu -> Giãn cơ nhẹ 15 phút để cơ bắp tái tạo." }
+            ],
+            data.planDays
         );
     } finally {
         loadingEl.style.display = "none";
@@ -446,6 +523,7 @@ Chỉ trả về JSON hợp lệ đúng cấu trúc sau:
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    localStorage.removeItem("hf_gemini_key");
     hpSyncCartButton();
 
     ["hp-age", "hp-height", "hp-weight", "hp-activity"].forEach((id) => {
@@ -467,7 +545,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const cart = JSON.parse(localStorage.getItem("cart") || "[]");
             const menus = hpPlanMeals.length
-                ? hpPlanMeals.map(m => m.menu.split("|").map(s => s.replace(/^(Sáng|Trưa|Tối):\s*/i, "").trim()))
+                ? hpPlanMeals.map(m => m.menu.split("|").map(s => s.replace(/^(Sáng|Trưa|Tối|Phụ):\s*/i, "").trim()))
                 : [["Ức gà nướng mật ong + gạo lứt", "Salad cá hồi áp chảo"]];
 
             let count = 0;
