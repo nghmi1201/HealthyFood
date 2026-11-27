@@ -142,7 +142,7 @@
     padding: 15px 24px;
     color: var(--hp-white);
     background: var(--hp-wine);
-border: none;
+    border: none;
     border-radius: 6px;
     font-size: 15px;
     font-weight: 700;
@@ -295,7 +295,7 @@ border: none;
 
 .hp-strip-number {
     grid-row: span 2;
-color: var(--hp-wine);
+    color: var(--hp-wine);
     font-family: 'Times New Roman', Times, serif;
     font-size: 28px;
 }
@@ -433,7 +433,7 @@ color: var(--hp-wine);
 }
 
 /* =========================================
-7. GOAL OPTIONS
+7. GOAL OPTIONS (ICON CÙNG HÀNG TIÊU ĐỀ)
 ========================================= */
 
 .hp-goal-grid {
@@ -457,11 +457,11 @@ color: var(--hp-wine);
 
 .hp-goal-content {
     position: relative;
-    min-height: 185px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-align-items: flex-start;
-    padding: 24px;
+    align-items: flex-start;
+    padding: 22px 24px;
     border: 1px solid transparent;
     border-radius: 10px;
     transition: 0.2s ease;
@@ -479,18 +479,26 @@ align-items: flex-start;
     font-weight: 700;
 }
 
+.hp-goal-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 8px;
+}
+
 .hp-goal-icon {
-    margin: 12px 0;
-    font-size: 1.8rem;
+    margin: 0;
+    font-size: 1.65rem;
+    line-height: 1;
 }
 
 .hp-goal-content strong {
     color: var(--hp-wine);
-    font-size: 16px;
+    font-size: 16.5px;
 }
 
 .hp-goal-content small {
-    margin-top: 8px;
+    margin-top: 2px;
     color: var(--hp-muted);
     font-size: 13.5px;
     line-height: 1.6;
@@ -524,10 +532,6 @@ align-items: flex-start;
 
 .hp-goal-wide {
     grid-column: 1 / -1;
-}
-
-.hp-goal-wide .hp-goal-content {
-    min-height: 145px;
 }
 
 /* =========================================
@@ -617,7 +621,7 @@ align-items: flex-start;
 
 .hp-metric-preview > div {
     display: flex;
-flex-direction: column;
+    flex-direction: column;
     gap: 8px;
     padding: 18px;
     background: var(--hp-cream);
@@ -639,7 +643,7 @@ flex-direction: column;
 }
 
 /* =========================================
-9. CHOICE LISTS & WORKOUT CARDS
+9. CHOICE LISTS & WORKOUT CARDS (3 Ô BẰNG NHAU)
 ========================================= */
 
 .hp-choice-list {
@@ -677,12 +681,13 @@ flex-direction: column;
 .hp-choice-cards {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
     gap: 14px;
 }
 
 .hp-choice-card {
     position: relative;
-    display: block;
+    display: flex;
     cursor: pointer;
 }
 
@@ -694,7 +699,9 @@ flex-direction: column;
 }
 
 .hp-choice-card-inner {
-    min-height: 165px;
+    flex: 1;
+    width: 100%;
+    min-height: 180px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -731,12 +738,13 @@ flex-direction: column;
 .hp-duration-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
     gap: 14px;
 }
 
 .hp-duration-option {
     position: relative;
-    display: block;
+    display: flex;
     cursor: pointer;
 }
 
@@ -748,6 +756,7 @@ flex-direction: column;
 }
 
 .hp-duration-content {
+    flex: 1;
     min-height: 235px;
     display: flex;
     flex-direction: column;
@@ -769,7 +778,7 @@ flex-direction: column;
 .hp-duration-content strong {
     margin-top: 20px;
     color: var(--hp-wine);
-font-family: 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 48px;
     line-height: 1;
 }
@@ -926,7 +935,7 @@ font-family: 'Times New Roman', Times, serif;
 }
 
 .hp-ai-advice {
-padding: 16px 18px;
+    padding: 16px 18px;
     margin-bottom: 22px;
     background: #f0f8f1;
     border: 1px solid #b8d9c1;
@@ -1088,7 +1097,7 @@ padding: 16px 18px;
 
 body.healthy-plan-page footer.site-footer {
     display: block;
-width: 100%;
+    width: 100%;
     max-width: none;
     margin: 0;
     border-radius: 0;
@@ -1176,6 +1185,7 @@ body.healthy-plan-page .footer-grid {
         gap: 24px;
     }
 }
+
 /* Header trang lộ trình dùng cùng phông với trang chủ */
 .healthy-plan-page .site-header {
     font-family: "Be Vietnam Pro", Arial, sans-serif;

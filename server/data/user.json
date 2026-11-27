@@ -46,5 +46,13 @@
     "phone": "0916845586",
     "passwordHash": "$2b$12$UCyCmIHooEf9.hLLwmFm6e7lCS9r3jYMOT450RgVloz5PuVa1wP.S",
     "createdAt": "2026-11-23T02:42:29.547Z"
+  },
+  {
+    "id": "e6c8a656-2d54-46b7-b643-31ddf50faccd",
+    "fullName": "PHÙNG THỊ THU TRÀ",
+    "email": "traphungthithu@gmail.com",
+    "phone": "0886608554",
+    "passwordHash": "$2b$12$6hBcKfBdEJcE5A0DTKXEy.Y9Hker.V20ZD8aIm6bG3Zsf4KErh9G.",
+    "createdAt": "2026-11-26T05:43:19.897Z"
   }
 ]
