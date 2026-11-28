@@ -562,7 +562,7 @@ function hpGenerateSummary() {
     const placeMap = { home: "Tại nhà", gym: "Phòng Gym", outdoor: "Ngoài trời" };
 
     const selectedPkg = {
-        label: `Trọn ngày (3 bữa + Snack · ${data.planDays} ngày)`,
+        label: `Trọn ngày `,
         unitPrice: 42500,
         slots: ["Bữa Sáng", "Bữa Trưa", "Bữa Phụ", "Bữa Tối"]
     };
